@@ -1,4 +1,4 @@
-baseURL: https://rootandbeer.com
+baseURL: http://rootandbeer.github.io
 title: root&beer
 # Copyright, the {year} is the placeholder of this year.
 copyright: "Copyright © {year} [root&beer](https://rootandbeer.com/). All Rights Reserved."
