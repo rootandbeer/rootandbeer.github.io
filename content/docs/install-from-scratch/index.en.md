@@ -5,7 +5,7 @@ description: "Getting started from scratch with HB cards theme to build your fas
 date: 2023-12-02T11:47:31+08:00
 draft: false
 noindex: false
-featured: true
+featured: false
 pinned: true
 nav_weight: 1
 nav_icon:
