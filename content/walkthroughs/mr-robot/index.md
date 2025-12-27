@@ -9,9 +9,10 @@ toc: true
 pinned: false
 carousel: false
 series:
-categories:
   - walkthroughs
-tags: [] 
+categories:
+tags:
+  - bruteforce/hydra
 images: [mr-robot.webp]
 ---
 

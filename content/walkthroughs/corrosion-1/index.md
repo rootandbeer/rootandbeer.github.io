@@ -9,8 +9,8 @@ toc: true
 pinned: false
 carousel: false
 series:
-categories:
   - walkthroughs
+categories:
 tags: [] 
 images: [corrosion-1.png]
 ---
