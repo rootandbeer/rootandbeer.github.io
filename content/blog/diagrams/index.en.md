@@ -1,7 +1,7 @@
 ---
 title: "Diagrams and Charts"
 date: 2023-11-26T16:36:24+08:00
-draft: false
+draft: true
 description: "This article offers some examples about using Mermaid for diagramming and charting."
 noindex: false
 featured: true

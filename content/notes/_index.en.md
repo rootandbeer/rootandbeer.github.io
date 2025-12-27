@@ -1,12 +1,12 @@
 ---
-title: Notes
+title: Labs
 type: docs
-description: Yet another digital garden that using docs layout.
+description: Downloadable Labs
 menu:
   main:
     weight: 1
     params:
       icon:
         vendor: bs
-        name: pencil-square
+        name: flask
 ---

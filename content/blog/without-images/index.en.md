@@ -1,6 +1,7 @@
 ---
 title: Example Post without Images
 featured: true
+draft: true
 date: 2022-09-10
 series:
   - Examples
