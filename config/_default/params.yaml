@@ -21,9 +21,13 @@ hb:
       # twitter: razonyang
       rss: true
       # mastodon: https://techhub.social/@hbstack
+  blockquotes:
+    border_style: primary
+    border_width: 4
+    bordered: true
   blog:
-    list_cols_md: 1
-    list_cols_lg: 1
+    list_cols_md: 2
+    list_cols_lg: 3
     toc:
       position: end
     #social_share_buttons:
@@ -74,9 +78,8 @@ hb:
           limit: 20
           # title: Popular Tags # override the title.
     paginate: 12 # paginate.
-    post_thumbnail_placeholder: HB THEME # the text of thumbnail placeholder, default to site title.
-    # post_thumbnail: false # whether to show the thumbnails.
-    # post_date_format: ":date_long" # see https://gohugo.io/functions/dateformat/#datetime-formatting-layouts.
+    post_thumbnail_placeholder: root&beer # the text of thumbnail placeholder, default to site title.
+    # post_thumbnail: false # whng" # see https://gohugo.io/functions/dateformat/#datetime-formatting-layouts.
     home: # homepage settings.
       # taxonomies: false # remove the taxonomies stat from the homepage.
       featured_posts: 5 # the number of the featured posts, 0 means disabled.
@@ -87,14 +90,14 @@ hb:
         - news
         - walkthroughs
     giscus:
-      repo: hbstack/theme-cards
-      repo_id: R_kgDOK1LmSQ
-      category_id: DIC_kwDOK1LmSc4CbdiM
+      repo: rootandbeer/rootandbeer.github.io
+      repo_id: R_kgDOQvaaKQ
+      category_id: DIC_kwDOQvaaKc4C0RcN
   docs:
     giscus:
-      repo: hbstack/theme-cards
-      repo_id: R_kgDOK1LmSQ
-      category_id: DIC_kwDOK1LmSc4CbdiM
+      repo: rootandbeer/rootandbeer.github.io
+      repo_id: R_kgDOQvaaKQ
+      category_id: DIC_kwDOQvaaKc4C0RcN
     social_share_buttons:
       #alignment: center
       #media:
@@ -104,9 +107,9 @@ hb:
   content_panel:
     repo:
       service: github # github or gitlab.
-      repo: hbstack/theme-cards
+      repo: rootandbeer/rootandbeer.github.io
       branch: main
-      subpath: exampleSite
+      subpath: 
   # gallery:
   #   thumbnail_size: "x640"
   # google_fonts:
