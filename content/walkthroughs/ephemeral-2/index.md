@@ -384,7 +384,7 @@ Running `sudo /usr/bin/python3 /home/ralph/getfile.p`y seems like the script is 
 \
 In KALI lets create a python script called file_upload.py to handle POST requests and receive files, copy the code below:
 
-```shell
+```shell {linenos=false}
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import urllib.parse
 import json
