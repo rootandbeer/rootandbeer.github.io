@@ -8,7 +8,7 @@ featured: true
 pinned: false
 # comments: false
 series:
- - Examples
+ - Posts
 categories:
  - Content
 tags:

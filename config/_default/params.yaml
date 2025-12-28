@@ -70,7 +70,7 @@ hb:
           disable: false
           weight: 3
         series:
-          disable: true
+          disable: false
           weight: 2
         tags:
           disable: false
