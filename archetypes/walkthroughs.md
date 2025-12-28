@@ -32,4 +32,6 @@ images:
 | Platform | |
 | Difficulty | |
 
+description if provided
+
 ## Walkthrough

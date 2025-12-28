@@ -12,7 +12,6 @@ series:
   - walkthroughs
 categories:
 tags:
-  - bruteforce/hydra
 images: [mr-robot.webp]
 ---
 
