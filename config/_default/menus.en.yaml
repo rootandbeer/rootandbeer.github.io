@@ -12,7 +12,7 @@ main:
     weight: 100
     #url: https://github.com/hbstack
     params:
-      header: The HB support community.
+      header: The root&beer support community.
       icon:
         vendor: font-awesome-solid
         name: headset
