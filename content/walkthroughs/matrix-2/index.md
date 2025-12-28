@@ -26,16 +26,15 @@ images: [matrix-2.jpg]
 ---
 
 
-[https://www.vulnhub.com/entry/matrix-2,279/(https://www.vulnhub.com/entry/matrix-2,279/)]
+[https://www.vulnhub.com/entry/matrix-2,279/](https://www.vulnhub.com/entry/matrix-2,279/)
 
-Description: Matrix v2.0 is a medium level boot2root challenge. The OVA has been tested on both VMware and Virtual Box.
+**Description:** Matrix v2.0 is a medium level boot2root challenge. The OVA has been tested on both VMware and Virtual Box.
 
-Difficulty: Intermediate
+**Difficulty:** Intermediate
 
-Flags: Your Goal is to get root and read /root/flag.txt
+**Flags:** Your Goal is to get root and read /root/flag.txt
 
-Networking:
-
+**Networking:**
  * DHCP: Enabled
  * IP Address: Automatically assigned
 
