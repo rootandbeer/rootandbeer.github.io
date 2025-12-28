@@ -25,4 +25,4 @@ images:
 #         color: '#e24d0e'
 ---
 
-Content.
+content
