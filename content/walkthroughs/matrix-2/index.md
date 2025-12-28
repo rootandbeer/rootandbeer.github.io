@@ -25,24 +25,20 @@ images: [matrix-2.jpg]
 #         color: '#e24d0e'
 ---
 
+## Introduction
 
-[https://www.vulnhub.com/entry/matrix-2,279/](https://www.vulnhub.com/entry/matrix-2,279/)
-
-**Description:** Matrix v2.0 is a medium level boot2root challenge. The OVA has been tested on both VMware and Virtual Box.
-
-**Difficulty:** Intermediate
+| URL | [https://www.vulnhub.com/entry/matrix-2,279/](https://www.vulnhub.com/entry/matrix-2,279/) |
+| --- | --- |
+| Platform | VulnHub |
+| Difficulty | Medium |
 
 **Flags:** Your Goal is to get root and read /root/flag.txt
-
 **Networking:**
  * DHCP: Enabled
  * IP Address: Automatically assigned
 
-Hint: Follow your intuitions ... and enumerate!
+## Walkthrough
 
----
-
-\
 Run `nmap -A` scan against all TCP ports:
 
 ```shell

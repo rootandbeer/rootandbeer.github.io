@@ -15,10 +15,15 @@ tags: []
 images: [corrosion-2.jpg]
 ---
 
-Corrosion 2 is made by Proxy Programmer and is labeled as a Medium difficulty box.
-[https://www.vulnhub.com/entry/corrosion-2,745/](https://www.vulnhub.com/entry/corrosion-2,745/)
+## Introduction
 
-\
+| URL | [https://www.vulnhub.com/entry/corrosion-2,745/](https://www.vulnhub.com/entry/corrosion-2,745/) |
+| --- | --- |
+| Platform | VulnHub |
+| Difficulty | Medium |
+
+## Walkthrough
+
 Run `nmap -A` scan against all TCP ports:
 
 ```shell
@@ -153,7 +158,7 @@ connect to [192.168.5.10] from (UNKNOWN) [192.168.5.114] 42390
 {{< /markdownify >}} {{< /bs/alert >}}
 
 \
-Discover users "randy" and "jaye" in /etc/passwd:
+Discover users `randy` and `jaye` in `/etc/passwd`:
 
 ```shell
 └─$ cat /etc/passwd

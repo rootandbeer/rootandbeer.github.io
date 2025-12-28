@@ -15,12 +15,17 @@ tags: []
 images: [corrosion-1.png]
 ---
 
-https://www.vulnhub.com/entry/corrosion-1,730/
+## Introduction
 
+| URL | [https://www.vulnhub.com/entry/corrosion-1,730/](https://www.vulnhub.com/entry/corrosion-1,730/) |
+| --- | --- |
+| Platform | VulnHub |
+| Difficulty | Easy |
 
 The "Corrosion: 1" CTF challenge on VulnHub, though labeled as Easy, presented multiple layers of complexity, including service enumeration, log poisoning, and path abuse to achieve root access. The initial foothold was gained through discovering and exploiting a vulnerable PHP script (randylogs.php) using log poisoning via an SFTP login. This allowed for remote command execution, leading to a reverse shell. Privilege escalation involved identifying a world-readable backup file, cracking a password-protected ZIP file, and leveraging a path abuse vulnerability in a custom script to execute arbitrary commands as root. The challenge concluded with obtaining the root flag, showcasing a combination of enumeration, scripting, and privilege escalation techniques.
 
-\
+## Walkthrough
+
 Run `nmap -A` scan to discover ports 22 & 80 are open:
 
 ```shell

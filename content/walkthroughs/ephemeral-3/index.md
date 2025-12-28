@@ -26,14 +26,18 @@ images: [ephemeral-3.jpg]
 #         color: '#e24d0e'
 ---
 
-https://hackmyvm.eu/machines/machine.php?vm=Ephemeral3
+## Introduction
 
+| URL | [https://hackmyvm.eu/machines/machine.php?vm=Ephemeral3](https://hackmyvm.eu/machines/machine.php?vm=Ephemeral3) |
+| --- | --- |
+| Platform | HackMyVM |
+| Difficulty | Medium |
 
 In the "Ephemeral 3" CTF challenge, the exploitation process involved several key techniques and vulnerabilities. Initially, an Nmap scan revealed SSH and HTTP services running on the target machine. Directory enumeration with Gobuster led to the discovery of a note indicating the generation of SSH keys using OpenSSL. Leveraging a known vulnerability in OpenSSL, a predictable PRNG brute-force attack was used to obtain a valid SSH key, allowing access to the system as the user "randy."
 
 Once inside, privilege escalation was achieved by exploiting a sudo misconfiguration that allowed the use of curl as the user "henry." This was used to modify the /etc/passwd file, adding a new user with root privileges. The challenge was successfully completed by accessing the root account and capturing the final flag.
 
----
+## Walkthrough
 
 Initial `nmap` scan of the box to notice ports 80 and 22 are open
 

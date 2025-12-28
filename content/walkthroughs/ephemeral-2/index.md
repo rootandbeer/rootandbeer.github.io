@@ -15,7 +15,12 @@ tags: []
 images: [ephemeral-2.jpg]
 ---
 
-https://hackmyvm.eu/machines/machine.php?vm=Ephemeral2
+## Introduction
+
+| URL | [https://hackmyvm.eu/machines/machine.php?vm=Ephemeral2](https://hackmyvm.eu/machines/machine.php?vm=Ephemeral2) |
+| --- | --- |
+| Platform | HackMyVM |
+| Difficulty | Medium |
 
 
 Ephemeral 2 is a medium-level CTF challenge involving multiple steps of exploitation, including Samba server vulnerabilities and a script with improper input validation. The challenge begins with an Nmap scan revealing open ports, followed by directory enumeration using Gobuster. The user discovers Samba users and successfully brute-forces the password for user 'randy' with Metasploit.
@@ -26,7 +31,7 @@ Accessing the SMB share, the user finds a configuration that allows a reverse sh
 
 This walkthrough demonstrates techniques such as service enumeration, brute force attacks, reverse shell execution, and privilege escalation through cron jobs and writable directories.
 
----
+## Walkthrough
 
 Run initial nmap scan to discover ports 22, 80, 139, and 445 are open:
 

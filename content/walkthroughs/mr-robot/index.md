@@ -16,8 +16,14 @@ tags:
 images: [mr-robot.webp]
 ---
 
+## Introduction
 
-This is a walkthrough of the Mr. Robot themed Vulnhub box, located here: https://www.vulnhub.com/entry/mr-robot-1,151/
+| URL | [https://www.vulnhub.com/entry/mr-robot-1,151/](https://www.vulnhub.com/entry/mr-robot-1,151/) |
+| --- | --- |
+| Platform | VulnHub |
+| Difficulty | Medium |
+
+## Walkthrough
 
 **Initial `nmap` scan shows port 80 & 443 are open:**
 

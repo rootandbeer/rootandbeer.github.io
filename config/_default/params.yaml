@@ -4,6 +4,7 @@ hb:
   # js_bundle_name: main # the JS bundle name.
   # css_bundle_name: main # the CSS bundle name.
   full_width: false # when true, the layout takes full width globally.
+  color: dark
   header:
     brand: root&beer # the brand name, leave it empty to use site's title.
     logo_bg: '' # logo background color, used by logo with transparent background.

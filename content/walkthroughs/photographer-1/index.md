@@ -25,10 +25,15 @@ images: [photographer-1.png]
 #         color: '#e24d0e'
 ---
 
+## Introduction
 
-[https://vulnhub.com/entry/photographer-1,519/](https://vulnhub.com/entry/photographer-1,519/)
+| URL | [https://vulnhub.com/entry/photographer-1,519/](https://vulnhub.com/entry/photographer-1,519/) |
+| --- | --- |
+| Platform | VulnHub |
+| Difficulty | Medium |
 
-\
+## Walkthrough
+
 Run `nmap -A` to discover ports `80,139,445,8000`:
 
 ```shell
