@@ -7,7 +7,7 @@ draft: false
 noindex: false
 featured: true
 pinned: false
-nav_weight: 2
+nav_weight: 4
 nav_icon:
   vendor: bootstrap
   name: arrow-clockwise
