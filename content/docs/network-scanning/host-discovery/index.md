@@ -2,7 +2,7 @@
 title: "Host Discovery"
 date: 2025-12-28T19:02:56-08:00
 draft: false
-description:
+description: "Scans for host discovery"
 noindex: false
 featured: false
 pinned: false
