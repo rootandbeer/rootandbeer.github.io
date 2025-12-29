@@ -67,11 +67,8 @@ nc -z $RHOST 1-65535 2>/dev/null
 {{< bs/alert info >}}
 {{< markdownify >}}
 **Optional Flags**
-\
-`-z` → zero-I/O scan mode
-\
-`-v` → verbose
-\
-`-w 1` → timeout
+- `-z` → zero-I/O scan mode
+- `-v` → verbose
+- `-w 1` → timeout
 {{< /markdownify >}}
 {{< /bs/alert >}}
