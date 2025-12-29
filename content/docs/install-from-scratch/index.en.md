@@ -7,7 +7,7 @@ draft: false
 noindex: false
 featured: false
 pinned: true
-nav_weight: 1
+nav_weight: 3
 nav_icon:
   vendor: bootstrap
   name: cloud-download

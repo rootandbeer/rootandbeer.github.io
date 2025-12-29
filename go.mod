@@ -2,7 +2,6 @@ module github.com/rootandbeer/website
 
 go 1.19
 
-
 require (
 	github.com/GoogleChrome/workbox v7.4.0+incompatible // indirect
 	github.com/KaTeX/KaTeX v0.16.27 // indirect
@@ -47,6 +46,7 @@ require (
 	github.com/hbstack/hb v0.16.2 // indirect
 	github.com/hbstack/header v0.16.7 // indirect
 	github.com/hbstack/header/modules/language-picker v0.2.0 // indirect
+	github.com/hbstack/header/modules/news v0.3.1 // indirect
 	github.com/hbstack/header/modules/search v0.1.38 // indirect
 	github.com/hbstack/header/modules/socials v0.2.2 // indirect
 	github.com/hbstack/header/modules/theme-toggle v0.5.2 // indirect
