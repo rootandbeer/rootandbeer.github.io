@@ -65,13 +65,13 @@ nmap -p- -A -iL output.scan
 ### Netcat
 Lightweight port scanning using Netcat. Typically installed on most hosts and useful when other tools like `Nmap` are not available.
 
-Scan Common Ports:
+**Scan Common Ports:**
 ```shell
 nc -zv $RHOST 1-1024
 ```
 
 \
-Quiet Output (Open Ports Only):
+**Quiet Output (Open Ports Only):**
 ```shell
 nc -z $RHOST 1-65535 2>/dev/null
 ```
