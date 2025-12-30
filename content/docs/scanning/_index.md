@@ -1,5 +1,5 @@
 ---
-title: "Network Scanning"
+title: "Scanning"
 date: 2025-12-28T19:11:22-08:00
 draft: false
 description: "Network Scanning"

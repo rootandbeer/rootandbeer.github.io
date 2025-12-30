@@ -1,11 +1,12 @@
 ---
-title: "Host Discovery"
-date: 2025-12-28T19:02:56-08:00
+title: "Port Scanning"
+date: 2025-12-29T18:40:49-08:00
 draft: false
-description: "Host scanning identifies active systems within a target network for further enumeration and exploitation. It is typically performed before port and service scanning."
+description: "Port scanning identifies open ports on a target system to reveal exposed services and potential attack vectors."
 noindex: false
 featured: false
 pinned: false
+toc: true
 # comments: false
 series:
 #  - 
@@ -14,7 +15,6 @@ categories:
 tags:
 #  - 
 images:
-
 #  - 
 # menu:
 #   main:
@@ -25,29 +25,6 @@ images:
 #         name: book
 #         color: '#e24d0e'
 ---
-
-## Initial Discovery
-
-### Ping Sweep (Nmap)
-Perform a basic host discovery scan across a subnet and extract live hosts:
-```shell
-nmap -sn $RHOST/24 -oG - | awk '/Up$/{print $2}' > output.scan
-```
-- `sn` disables port scanning and performs host discovery only
-- Outputs a list of responsive hosts to `output.scan`
-
-### Netdiscover scan
-Passive and active ARP-based host discovery. Useful when ICMP is blocked:
-```shell
-sudo netdiscover -i eth0
-```
-
-### ARP Scan
-Actively enumerate host on the local network using ARP requests.
-```shell
-arp-scan -l
-```
-Fast and reliable for local network discovery.
 
 ## Port Scanning
 Once live hosts are identified, perform port scanning to discover exposed services.
