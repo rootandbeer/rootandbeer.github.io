@@ -2,7 +2,7 @@
 title: "Host Discovery"
 date: 2025-12-28T19:02:56-08:00
 draft: false
-description: "Host scanning identifies active systems within a target network and serves as the foundation for further enumeration and exploitation. It is typically performed before port and service scanning."
+description: "Host scanning identifies active systems within a target network for further enumeration and exploitation. It is typically performed before port and service scanning."
 noindex: false
 featured: false
 pinned: false
