@@ -59,6 +59,8 @@ gobuster vhost -u http://$RHOST -w vhosts.txt --append-domain
 ### Ffuf
 Fast fuzzing for host header testing
 
+>[!note] Variable `$RHOST` is assumed to be the IP address of target, therefore `target.com` needs to be changed to the actualy domain.
+
 ```shell
 ffuf -u http://$RHOST -H "Host: FUZZ.target.com" -w vhosts.txt
 ```
@@ -69,7 +71,10 @@ Filter Responses
 ffuf -u http://$RHOST -H "Host: FUZZ.target.com" -w vhosts.txt -fs 4242
 ```
 
+
 ## Manual Host Header Testing
+
+>[!note] Variable `$RHOST` is assumed to be the IP address of target, therefore `target.com` needs to be changed to the actualy domain.
 
 ```shell
 curl -H "Host: admin.target.com" http://$RHOST
