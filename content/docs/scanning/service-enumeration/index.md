@@ -94,6 +94,7 @@ nmap -sU -sV -p 53,161 $RHOST
 ---
 
 ## Nmap NSE Scripts
+Nmap Scripting Engine (NSE) scripts automate service enumeration, vulnerability detection, and misconfiguration discovery.
 
 List of Nmap scripts:
 ```shell
