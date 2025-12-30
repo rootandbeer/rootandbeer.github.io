@@ -29,7 +29,7 @@ images: [matrix-1.jpg]
 | URL | [https://www.vulnhub.com/entry/matrix-1,259/](https://www.vulnhub.com/entry/matrix-1,259/) |
 | --- | --- |
 | Platform | VulnHub |
-| Difficulty | Medium |
+| Difficulty | ![Static Badge](https://img.shields.io/badge/medium-orange) |
 
  * Flags: Your Goal is to get root and read `/root/flag.txt`
  * Networking: DHCP: Enabled IP Address: Automatically assigned

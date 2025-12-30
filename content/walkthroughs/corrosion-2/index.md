@@ -20,7 +20,7 @@ images: [corrosion-2.jpg]
 | URL | [https://www.vulnhub.com/entry/corrosion-2,745/](https://www.vulnhub.com/entry/corrosion-2,745/) |
 | --- | --- |
 | Platform | VulnHub |
-| Difficulty | Medium |
+| Difficulty | ![Static Badge](https://img.shields.io/badge/medium-orange) |
 
 ## Walkthrough
 

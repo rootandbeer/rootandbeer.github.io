@@ -68,3 +68,6 @@ imports:
 
   # block quotes
   - path: github.com/hbstack/blockquote-alerts
+
+    # core module
+  - path: github.com/hbstack/hb

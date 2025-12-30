@@ -30,7 +30,7 @@ images: [matrix-2.jpg]
 | URL | [https://www.vulnhub.com/entry/matrix-2,279/](https://www.vulnhub.com/entry/matrix-2,279/) |
 | --- | --- |
 | Platform | VulnHub |
-| Difficulty | Medium |
+| Difficulty | ![Static Badge](https://img.shields.io/badge/medium-orange) |
 
 **Flags:** Your Goal is to get root and read /root/flag.txt
 **Networking:**

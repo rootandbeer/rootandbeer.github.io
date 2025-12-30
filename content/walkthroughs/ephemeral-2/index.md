@@ -20,7 +20,7 @@ images: [ephemeral-2.jpg]
 | URL | [https://hackmyvm.eu/machines/machine.php?vm=Ephemeral2](https://hackmyvm.eu/machines/machine.php?vm=Ephemeral2) |
 | --- | --- |
 | Platform | HackMyVM |
-| Difficulty | Medium |
+| Difficulty | ![Static Badge](https://img.shields.io/badge/medium-orange) |
 
 
 Ephemeral 2 is a medium-level CTF challenge involving multiple steps of exploitation, including Samba server vulnerabilities and a script with improper input validation. The challenge begins with an Nmap scan revealing open ports, followed by directory enumeration using Gobuster. The user discovers Samba users and successfully brute-forces the password for user 'randy' with Metasploit.

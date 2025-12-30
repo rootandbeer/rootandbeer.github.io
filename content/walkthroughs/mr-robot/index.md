@@ -20,7 +20,7 @@ images: [mr-robot.webp]
 | URL | [https://www.vulnhub.com/entry/mr-robot-1,151/](https://www.vulnhub.com/entry/mr-robot-1,151/) |
 | --- | --- |
 | Platform | VulnHub |
-| Difficulty | Medium |
+| Difficulty | ![Static Badge](https://img.shields.io/badge/medium-orange) |
 
 ## Walkthrough
 

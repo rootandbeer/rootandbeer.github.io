@@ -30,7 +30,7 @@ images: [web-machine-n7.jpg]
 | URL | [https://www.vulnhub.com/entry/web-machine-n7,756/](https://www.vulnhub.com/entry/web-machine-n7,756/) |
 | --- | --- |
 | Platform | Vulnhub |
-| Difficulty | Medium |
+| Difficulty | ![Static Badge](https://img.shields.io/badge/medium-orange) |
 
 ## Walkthrough
 

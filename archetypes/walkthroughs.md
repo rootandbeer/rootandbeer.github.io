@@ -30,7 +30,7 @@ images:
 | URL | |
 | --- | --- |
 | Platform | |
-| Difficulty | |
+| Difficulty | ![Static Badge](https://img.shields.io/badge/easy|medium|hard-green|orange|red) |
 
 description if provided
 

@@ -30,7 +30,7 @@ images: [photographer-1.png]
 | URL | [https://vulnhub.com/entry/photographer-1,519/](https://vulnhub.com/entry/photographer-1,519/) |
 | --- | --- |
 | Platform | VulnHub |
-| Difficulty | Medium |
+| Difficulty | ![Static Badge](https://img.shields.io/badge/medium-orange) |
 
 ## Walkthrough
 
