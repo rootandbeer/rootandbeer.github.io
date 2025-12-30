@@ -9,6 +9,8 @@ imports:
   # see https://hbstack.dev/modules/look-and-feel/google-fonts/.
   - path: github.com/hbstack/google-fonts
 
+  - path: github.com/hbstack/header/modules/banner
+
   # syntax highlighting, see https://hbstack.dev/en/docs/modules/syntax-highlighting/.
   # - path: github.com/hbstack/syntax-highlighting/styles/github-dark
 
