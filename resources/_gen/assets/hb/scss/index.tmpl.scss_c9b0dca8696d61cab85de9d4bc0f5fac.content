@@ -11990,19 +11990,21 @@ textarea.form-control-lg {
   overflow-x: auto; /* horizontal scroll */
   overflow-y: hidden; /* hide vertical scroll */
   -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
-  padding: 1rem;
+  padding: 0;
   background-color: #1e1e1e;
   color: #f8f8f2;
   border-radius: 0.5rem;
   font-family: monospace;
   font-size: 0.9rem;
   line-height: 1.4;
+  border: none;
 }
 
 /* Optional inner code styling */
 .my-code-block code {
   font-family: inherit;
   color: inherit;
+  display: block;
 }
 
 /* Make horizontal scrollbar look like the original highlight */
