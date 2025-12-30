@@ -2,7 +2,7 @@
 title: "Service Enumeration"
 date: 2025-12-29T19:48:25-08:00
 draft: false
-description: "Service Enumeration"
+description: "Service enumeration gathers detailed information about running services, including versions and configurations, to identify weaknesses and viable attack paths."
 noindex: false
 featured: false
 pinned: false
