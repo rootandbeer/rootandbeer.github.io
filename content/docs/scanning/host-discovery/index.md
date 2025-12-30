@@ -55,6 +55,7 @@ Passive and active ARP-based host discovery. Useful when ICMP is blocked, but re
 ```shell
 sudo netdiscover -i eth0
 ```
+>[!important] Change `eth0` with your network interface using `ifconfig`
 
 ### ARP Scan
 Actively enumerate host on the local network using ARP requests and bypass ICMP restrictions.
