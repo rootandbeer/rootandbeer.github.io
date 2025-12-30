@@ -2,7 +2,7 @@
 title: root&beer
 header:
   banner:
-    img: /images/cedar-barrel1.png
+    img: /images/cedar-barrel.png
     transparentize_navbar_bg: false
     title: "![root&beer](/images/rb-banner.png)"
     description: "## Brewing Up Cybersecurity News, Hacking Tutorials, and a Dash of Unsolicited Opinions"
