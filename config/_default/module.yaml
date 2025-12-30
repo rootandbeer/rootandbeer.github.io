@@ -65,3 +65,6 @@ imports:
 
   # news module
   - path: github.com/hbstack/header/modules/news
+
+  # block quotes
+  - path: github.com/hbstack/blockquote-alerts
