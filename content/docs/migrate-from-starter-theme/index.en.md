@@ -3,7 +3,7 @@ title: "Migrate from HB Starter Theme"
 description: "This guide shows how to migrate to the HB cards theme from the HB starter theme."
 # linkTitle:
 date: 2023-12-01T11:47:31+08:00
-draft: false
+draft: true
 noindex: false
 featured: true
 pinned: false

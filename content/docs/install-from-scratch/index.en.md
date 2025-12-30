@@ -3,7 +3,7 @@ title: "Install From Scratch"
 description: "Getting started from scratch with HB cards theme to build your fast, responsive and modular static websites."
 # linkTitle:
 date: 2023-12-02T11:47:31+08:00
-draft: false
+draft: true
 noindex: false
 featured: false
 pinned: true

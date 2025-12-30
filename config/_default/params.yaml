@@ -87,6 +87,7 @@ hb:
       pinned_posts_position: "list"
       main_sections: # leave it empty to include all regular pages.
         - docs
+        - hacknotes
         - blog
         - news
         - walkthroughs
