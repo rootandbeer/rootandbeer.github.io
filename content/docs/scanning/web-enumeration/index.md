@@ -101,25 +101,21 @@ gobuster vhost -u http://$RHOST -w vhosts.txt --append-domain
 ### Ffuf
 Fast fuzzing for host header testing:
 
->[!note] Variable `$RHOST` is assumed to be the IP address of target, therefore `target.com` needs to be changed to the actual domain.
-
 ```shell
-ffuf -u http://$RHOST -H "Host: FUZZ.target.com" -w vhosts.txt
+ffuf -u http://$RHOST -H "Host: FUZZ.$RDOMAIN.com" -w vhosts.txt
 ```
 
 **Filter responses by size:**
 ```shell
-ffuf -u http://$RHOST -H "Host: FUZZ.target.com" -w vhosts.txt -fs 4242
+ffuf -u http://$RHOST -H "Host: FUZZ.$RDOMAIN.com" -w vhosts.txt -fs 4242
 ```
 
 **Filter by status code:**
 ```shell
-ffuf -u http://$RHOST -H "Host: FUZZ.target.com" -w vhosts.txt -fc 404
+ffuf -u http://$RHOST -H "Host: FUZZ.$RDOMAIN.com" -w vhosts.txt -fc 404
 ```
 
 ## Manual Host Header Testing
-
->[!note] Variable `$RHOST` is assumed to be the IP address of target, therefore `target.com` needs to be changed to the actual domain.
 
 **HTTP:**
 ```shell
@@ -129,7 +125,7 @@ curl -H "Host: admin.target.com" http://$RHOST
 \
 When HTTPS is used
 ```shell
-curl --resolve admin.target.com:443:$RHOST https://admin.target.com
+curl --resolve admin.$RDOMAIN.com:443:$RHOST https://admin.$RDOMAIN.com
 ```
 
 ---
