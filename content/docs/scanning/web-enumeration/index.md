@@ -2,11 +2,12 @@
 title: "Web Enumeration"
 date: 2025-12-30T12:18:06-08:00
 draft: false
-description: "Web Enumeration"
+description: "Identifying security weaknesses and CVEs"
 noindex: false
 featured: false
 pinned: false
 # comments: false
+nav_weight: 4
 series:
 #  - 
 categories:

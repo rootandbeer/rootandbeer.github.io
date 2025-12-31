@@ -2,10 +2,11 @@
 title: "Port Scanning"
 date: 2025-12-29T18:40:49-08:00
 draft: false
-description: "Port scanning identifies open ports on a target system to reveal exposed services and potential attack vectors."
+description: "Methods for discovering open ports"
 noindex: false
 featured: false
 pinned: false
+nav_weight: 2
 toc: true
 # comments: false
 series:

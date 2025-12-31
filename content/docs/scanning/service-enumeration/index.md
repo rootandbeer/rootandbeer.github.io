@@ -6,6 +6,7 @@ description: "Service enumeration gathers detailed information about running ser
 noindex: false
 featured: false
 pinned: false
+nav_weight: 3
 # comments: false
 series:
 #  - 

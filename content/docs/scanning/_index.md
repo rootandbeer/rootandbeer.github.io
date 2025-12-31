@@ -41,6 +41,7 @@ The scanning phase typically follows this workflow:
 2. **Port Scanning** - Discover open ports and services on discovered hosts
 3. **Service Enumeration** - Gather detailed information about running services
 4. **Web Enumeration** - Specialized enumeration for web applications and services
+5. **Vulnerability Scanning** - Identify security weaknesses and known vulnerabilities
 
 {{< bs/alert info >}}
 {{< markdownify >}}
@@ -96,4 +97,20 @@ gobuster dir -u http://$RHOST -w /usr/share/wordlists/dirb/common.txt
 
 # 3. Vulnerability scanning
 nuclei -u http://$RHOST
+```
+
+### Complete Vulnerability Assessment
+```shell
+# 1. Service and version detection
+nmap -sV -p- $RHOST -oA service_scan
+
+# 2. Nmap vulnerability scripts
+nmap --script vuln $RHOST
+
+# 3. Search for known exploits
+searchsploit $(grep "version" service_scan.nmap | head -1)
+
+# 4. Web vulnerability scanning
+nikto -h http://$RHOST
+nuclei -u http://$RHOST -s critical,high
 ```
