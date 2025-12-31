@@ -60,14 +60,7 @@ export RDOMAIN=target.com
 
 These variables can be referenced in commands using `$RHOST`, `$RPORT`, and `$RDOMAIN`.
 
-## Quick Reference
-
-- **[Host Discovery]({{< relref "host-discovery" >}})** - Techniques for identifying active systems
-- **[Port Scanning]({{< relref "port-scanning" >}})** - Methods for discovering open ports
-- **[Service Enumeration]({{< relref "service-enumeration" >}})** - Gathering service information
-- **[Web Enumeration]({{< relref "web-enumeration" >}})** - Web application reconnaissance
-
-## Common Scanning Workflows
+## Quick Reference: Common Scanning Workflows
 
 ### Basic Network Scan
 ```shell
@@ -75,7 +68,7 @@ These variables can be referenced in commands using `$RHOST`, `$RPORT`, and `$RD
 nmap -sn $RHOST/24 -oG - | awk '/Up$/{print $2}' > hosts.txt
 
 # 2. Scan common ports on discovered hosts
-nmap -sC -sV -iL hosts.txt -oA scan_results
+nmap -A -iL hosts.txt -oA scan_results
 
 # 3. Review results
 cat scan_results.nmap
