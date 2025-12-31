@@ -175,16 +175,6 @@ Tools like `p0f` can identify hosts and OS from passive traffic analysis:
 sudo p0f -i eth0
 ```
 
-## Output Formats
-
-Save discovery results in various formats:
-```shell
-nmap -sn $RHOST/24 -oN hosts.txt      # Normal format
-nmap -sn $RHOST/24 -oX hosts.xml      # XML format
-nmap -sn $RHOST/24 -oG hosts.grep     # Grepable format
-nmap -sn $RHOST/24 -oA hosts          # All formats
-```
-
 ## When to Use Each Method
 
 - **ICMP Ping**: Default method, fastest, but often blocked
