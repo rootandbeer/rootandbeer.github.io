@@ -1,6 +1,6 @@
 ---
 title: Hacknotes
-description: The example of docs layout.
+description: Under Construction
 menu:
   main:
     weight: 1
