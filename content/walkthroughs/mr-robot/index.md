@@ -13,6 +13,8 @@ series:
 categories:
 tags:
 images: [mr-robot.webp]
+meta:
+  reading_time: false
 ---
 
 ## Introduction

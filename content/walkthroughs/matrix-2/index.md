@@ -23,6 +23,8 @@ images: [matrix-2.jpg]
 #         vendor: bs
 #         name: book
 #         color: '#e24d0e'
+meta:
+  reading_time: false
 ---
 
 ## Introduction

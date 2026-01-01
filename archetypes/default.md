@@ -23,6 +23,8 @@ images:
 #         vendor: bs
 #         name: book
 #         color: '#e24d0e'
+meta:
+  reading_time: false
 ---
 
 content

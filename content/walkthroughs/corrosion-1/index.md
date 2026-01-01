@@ -13,6 +13,8 @@ series:
 categories:
 tags: [] 
 images: [corrosion-1.png]
+meta:
+  reading_time: false
 ---
 
 ## Introduction
