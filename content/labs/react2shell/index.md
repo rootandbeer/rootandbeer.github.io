@@ -16,7 +16,7 @@ tags:
   - nuclei
   - nmap
   - react2shell
-images: [react2shell.webp]
+images: [react2shell-lab.png]
 authors:
   - Rob
 #  - 
