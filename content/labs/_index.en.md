@@ -1,6 +1,6 @@
 ---
 title: Labs
-type: docs
+# type: docs
 description: Downloadable Labs
 menu:
   main:

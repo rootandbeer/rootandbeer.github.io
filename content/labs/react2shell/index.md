@@ -16,7 +16,7 @@ tags:
   - nuclei
   - nmap
   - react2shell
-images:
+images: [react2shell.webp]
 #  - 
 # menu:
 #   main:
