@@ -12858,6 +12858,14 @@ html {
 }
 
 /*! purgecss end ignore */
+.header-news-items {
+  --hb-dropdown-min-width: 20rem;
+}
+
+.header-news-toggle {
+  color: var(--hb-navbar-color);
+}
+
 /*! purgecss start ignore */
 .hb-header-banner-video video {
   height: 100%;
@@ -14323,12 +14331,4 @@ h6:hover .anchor,
 
 ::-webkit-scrollbar-corner {
   background: #909294;
-}
-
-.header-news-items {
-  --hb-dropdown-min-width: 20rem;
-}
-
-.header-news-toggle {
-  color: var(--hb-navbar-color);
 }

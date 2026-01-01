@@ -6,6 +6,9 @@
 imports:
   - path: github.com/hbstack/theme-cards
 
+    # news module
+  - path: github.com/hbstack/header/modules/news
+
   # see https://hbstack.dev/modules/look-and-feel/google-fonts/.
   - path: github.com/hbstack/google-fonts
 
@@ -65,11 +68,10 @@ imports:
   # see also https://hbstack.dev/en/2023/10/replace-meta-modules/.
   - path: github.com/hbstack/meta/recommended
 
-  # news module
-  - path: github.com/hbstack/header/modules/news
+
 
   # block quotes
   - path: github.com/hbstack/blockquote-alerts
 
     # core module
-  - path: github.com/hbstack/hb
+  # - path: github.com/hbstack/hb
