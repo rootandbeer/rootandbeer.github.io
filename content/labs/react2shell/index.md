@@ -30,14 +30,14 @@ images:
 
 ## Introduction
 
-| Repo | Please give a [Star](http://www.github.com/rootandbeer/react2shell) if you enjoyed this lab |
+| Repo |⭐ Please give a [Star](http://www.github.com/rootandbeer/react2shell) if you enjoyed this lab ⭐ |
 | --- | --- |
 | Downloads | [![GitHub Clones](https://img.shields.io/badge/dynamic/json?color=success&label=Clone&query=count&url=https://gist.githubusercontent.com/rootandbeer/661c0dbe7346464f58e99c7b334e0307/raw/clone.json&logo=github)](https://github.com/MShawon/github-clone-count-badge) |
 | Stars | [![GitHub stars](https://badgen.net/github/stars/rootandbeer/react2shell)](https://GitHub.com/rootandbeer/react2shell/stargazers/)
 | Prerequisites | [Docker](https://docs.docker.com/engine/install/), [Nuclei](https://docs.projectdiscovery.io/opensource/nuclei/install) |
 | Difficulty | ![Static Badge](https://img.shields.io/badge/easy-green) |
 
-This lab features an intentionally vulnerable Next.js application demonstrating the React2Shell vulnerability (CVE-2025-55182 / CVE-2025-66478). You will learn to identify vulnerable Next.js applications using port scanning and vulnerability detection tools, then exploit the vulnerability to gain remote command execution on the target system.
+This lab features an intentionally vulnerable Next.js application demonstrating the `React2Shell` vulnerability (`CVE-2025-55182` / `CVE-2025-66478`). You will learn to identify vulnerable `Next.js` applications using port scanning and vulnerability detection tools, then exploit the vulnerability to gain remote command execution on the target system.
 
 ---
 
@@ -214,3 +214,6 @@ $ python3 react2shell_exploit.py http://172.16.238.129:3000 -c "whoami"
 
 root
 ```
+
+\
+⭐ Please give a [Star](http://www.github.com/rootandbeer/react2shell) if you enjoyed this lab ⭐ 
