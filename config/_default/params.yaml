@@ -91,6 +91,7 @@ hb:
         - blog
         - news
         - walkthroughs
+        - labs
     giscus:
       repo: rootandbeer/rootandbeer.github.io
       repo_id: R_kgDOQvaaKQ
