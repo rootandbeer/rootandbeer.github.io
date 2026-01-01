@@ -119,7 +119,7 @@ Or run a full vulnerability scan:
 nuclei -u http://172.16.238.129:3000
 ```
 
-### `React2Scan` Vulnerability Scan
+### React2Scan Vulnerability Scan
 
 Alternatively, use the custom `React2Scan` tool included in the repository. View the available options:
 
