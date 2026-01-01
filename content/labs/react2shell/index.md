@@ -39,6 +39,8 @@ images:
 
 This lab features an intentionally vulnerable Next.js application demonstrating the React2Shell vulnerability (CVE-2025-55182 / CVE-2025-66478). You will learn to identify vulnerable Next.js applications using port scanning and vulnerability detection tools, then exploit the vulnerability to gain remote command execution on the target system.
 
+---
+
 ## Setup
 
 Clone the repository:
@@ -56,6 +58,8 @@ docker compose -f vulnerable-app/docker-compose.yml up --build -d
 ```
 
 The vulnerable web application will be available at `172.16.238.129:3000`
+
+---
 
 ## Scanning
 
@@ -154,6 +158,8 @@ $ ./react2scan.sh 172.16.238.129 -p 3000
 [*] Target: http://172.16.238.129:3000
 [!] VULNERABLE
 ```
+
+---
 
 ## Exploitation
 
