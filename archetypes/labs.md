@@ -8,7 +8,7 @@ featured: false
 pinned: false
 # comments: false
 series:
-#  - 
+  - labs
 categories:
 #  - 
 tags:
