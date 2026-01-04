@@ -11990,19 +11990,21 @@ textarea.form-control-lg {
   overflow-x: auto; /* horizontal scroll */
   overflow-y: hidden; /* hide vertical scroll */
   -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
-  padding: 1rem;
+  padding: 0;
   background-color: #1e1e1e;
   color: #f8f8f2;
   border-radius: 0.5rem;
   font-family: monospace;
   font-size: 0.9rem;
   line-height: 1.4;
+  border: none;
 }
 
 /* Optional inner code styling */
 .my-code-block code {
   font-family: inherit;
   color: inherit;
+  display: block;
 }
 
 /* Make horizontal scrollbar look like the original highlight */
@@ -12853,6 +12855,72 @@ html {
 }
 .hb-carousel .carousel-controls .carousel-control:hover {
   color: white;
+}
+
+/*! purgecss end ignore */
+.header-news-items {
+  --hb-dropdown-min-width: 20rem;
+}
+
+.header-news-toggle {
+  color: var(--hb-navbar-color);
+}
+
+/*! purgecss start ignore */
+.hb-header-banner-video video {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.vjs-waiting .vjs-loading-spinner {
+  display: flex !important;
+}
+.vjs-waiting .vjs-loading-spinner .vjs-control-text {
+  display: none;
+}
+
+.hb-header-banner-img,
+.hb-header-banner-video {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.hb-header-banner,
+.hb-header-banner-frame,
+.hb-header-banner-img,
+.hb-header-banner-video {
+  height: 100vh;
+}
+
+.hb-header-banner {
+  --hb-header-banner-color: #fff;
+  color: var(--hb-header-banner-color);
+  margin-bottom: 3rem !important;
+}
+@media (max-width: 991.98px) {
+  .hb-header-banner .hb-header-menus,
+  .hb-header-banner .hb-header-panel {
+    --hb-navbar-color: var(--hb-color-body);
+  }
+}
+.hb-header-banner:not(.scrolling) .hb-header-nav {
+  --hb-navbar-color: var(--hb-header-banner-color);
+  --hb-navbar-brand-color: var(--hb-header-banner-color);
+  --hb-navbar-brand-hover-color: var(--hb-navbar-active-color);
+  background: transparent !important;
+}
+.hb-header-banner:not(.scrolling) .navbar-toggler {
+  color: var(--hb-header-banner-color);
+}
+@media (min-width: 992px) {
+  .hb-header-banner:not(.scrolling) .hb-header-nav {
+    --hb-navbar-color: var(--hb-header-banner-color);
+  }
+  .hb-header-banner:not(.scrolling) .vr {
+    color: #fff !important;
+  }
 }
 
 /*! purgecss end ignore */
