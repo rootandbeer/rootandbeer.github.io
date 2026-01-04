@@ -37,7 +37,7 @@ meta:
 | Repo |⭐ Please give a [Star](http://www.github.com/rootandbeer/ssh-mitm-lab) if you enjoyed this lab ⭐ |
 | --- | --- |
 | Downloads | [![GitHub Clones](https://img.shields.io/badge/dynamic/json?color=success&label=Clone&query=count&url=https://gist.githubusercontent.com/rootandbeer/b7ba3d389cc20606bb343135cbe3b7e7/raw/clone.json&logo=github)](https://github.com/MShawon/github-clone-count-badge) |
-| Stars | ![GitHub Repo stars](https://img.shields.io/github/stars/rootandbeer/ssh-mitm-lab?style=flat&labelColor=grey&color=blue) |
+| Stars | ![GitHub Repo stars](https://img.shields.io/github/stars/rootandbeer/ssh-mitm-lab?style=flat&labelColor=grey&color=blue&logo=github) |
 | Prerequisites | [Docker-ce](https://www.kali.org/docs/containers/installing-docker-on-kali/), [SSH-MITM](https://github.com/ssh-mitm/ssh-mitm), [arpspoof](https://www.kali.org/tools/dsniff/) |
 | Difficulty | ![Static Badge](https://img.shields.io/badge/medium-orange) |
 
