@@ -84,7 +84,7 @@ source ~/.venv/ssh-mitm/bin/activate
 \
 Install `ssh-mitm`
 ```shell
-sudo apt get ssh-mitm
+python3 -m pip install "ssh-mitm[production]"
 ```
 
 ### Network Configuration
