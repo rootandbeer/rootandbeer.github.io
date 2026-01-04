@@ -37,7 +37,7 @@ meta:
 | Repo |⭐ Please give a [Star](http://www.github.com/rootandbeer/react2shell) if you enjoyed this lab ⭐ |
 | --- | --- |
 | Downloads | [![GitHub Clones](https://img.shields.io/badge/dynamic/json?color=success&label=Clone&query=count&url=https://gist.githubusercontent.com/rootandbeer/661c0dbe7346464f58e99c7b334e0307/raw/clone.json&logo=github)](https://github.com/MShawon/github-clone-count-badge) |
-| Stars | ![GitHub Repo stars](https://img.shields.io/github/stars/rootandbeer/react2shell) |
+| Stars | ![GitHub Repo stars](https://img.shields.io/github/stars/rootandbeer/react2shell?style=flat&labelColor=grey&color=blue) |
 | Prerequisites | [Docker-ce](https://www.kali.org/docs/containers/installing-docker-on-kali/), [Nuclei](https://docs.projectdiscovery.io/opensource/nuclei/install) |
 | Difficulty | ![Static Badge](https://img.shields.io/badge/easy-green) |
 
