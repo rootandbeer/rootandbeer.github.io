@@ -1,5 +1,6 @@
 ---
-title: root&beer
+title: root&beer - Cybersecurity & Pentesting Resources
+description: Brewing Up Cybersecurity News, Hacking Tutorials, Walkthroughs, Labs, and a Dash of Unsolicited Opinions. Your comprehensive resource for penetration testing documentation, security research, and ethical hacking guides.
 header:
   banner:
     img: /images/cedar-barrel.png
