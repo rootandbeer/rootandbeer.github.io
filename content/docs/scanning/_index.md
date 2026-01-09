@@ -8,10 +8,9 @@ featured: false
 pinned: false
 nav_weight: 1
 nav_icon:
-  vendor: font-awesome-solid
-  name: network-wired
-  color: yellow
-  classname: fa
+  vendor: bootstrap
+  name: radar
+  color: red
 # comments: false
 series:
   - hacknotes
