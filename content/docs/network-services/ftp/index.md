@@ -343,12 +343,6 @@ curl -T file.txt ftp://user:pass@$RHOST/
 curl -T file.txt ftp://user:pass@$RHOST/uploads/file.txt
 ```
 
-\
-**Using wget (reverse):**
-```shell
-# Note: wget doesn't support uploads, use curl or ftp client
-```
-
 ### Recursive Operations
 
 **Download entire directory:**
