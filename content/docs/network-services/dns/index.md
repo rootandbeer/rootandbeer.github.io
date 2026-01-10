@@ -119,10 +119,11 @@ Comprehensive DNS enumeration tool:
 ```shell
 dnsrecon -d example.com
 dnsrecon -d example.com -t std -n $RHOST
+```
 
 - `-t std` standard scan type
 - `-n` targets specified DNS server to query
-```
+
 
 ---
 ## Information Gathering
