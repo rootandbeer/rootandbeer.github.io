@@ -2,7 +2,7 @@
 title: "Scanning"
 date: 2025-12-28T19:11:22-08:00
 draft: false
-description: "Network Scanning"
+description: "Network scanning penetration testing guide covering host discovery, port scanning, service enumeration, web enumeration, and vulnerability scanning techniques using tools like Nmap, Gobuster, and Nuclei for ethical hacking and security assessments."
 noindex: false
 featured: false
 pinned: false
@@ -10,7 +10,7 @@ nav_weight: 1
 nav_icon:
   vendor: bootstrap
   name: radar
-  color: red
+  color: purple
 # comments: false
 series:
   - hacknotes

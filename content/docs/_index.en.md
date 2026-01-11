@@ -1,6 +1,6 @@
 ---
 title: Hacknotes
-description: Under Construction
+description: "Hacknotes - Comprehensive penetration testing documentation covering network scanning, service enumeration, web application security, and vulnerability exploitation techniques for ethical hackers and security professionals."
 menu:
   main:
     weight: 1

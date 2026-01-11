@@ -2,7 +2,7 @@
 title: "Service Enumeration"
 date: 2025-12-29T19:48:25-08:00
 draft: false
-description: "Service enumeration gathers detailed information about running services, including versions and configurations, to identify weaknesses and viable attack paths."
+description: "Service enumeration techniques for penetration testing to gather detailed information about running services, including version detection, banner grabbing, and configuration analysis using Nmap, Netcat, and specialized tools to identify vulnerabilities and attack paths."
 noindex: false
 featured: false
 pinned: false

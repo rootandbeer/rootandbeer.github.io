@@ -2,7 +2,7 @@
 title: "Web Enumeration"
 date: 2025-12-30T12:18:06-08:00
 draft: false
-description: "Identifying security weaknesses and CVEs"
+description: "Web enumeration techniques for penetration testing using Gobuster, Ffuf, Dirb, and Nuclei to discover directories, files, virtual hosts, API endpoints, and security weaknesses in web applications during security assessments."
 noindex: false
 featured: false
 pinned: false

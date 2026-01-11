@@ -2,7 +2,7 @@
 title: "Port Scanning"
 date: 2025-12-29T18:40:49-08:00
 draft: false
-description: "Methods for discovering open ports"
+description: "Port scanning techniques for penetration testing using Nmap, including TCP SYN scans, UDP scans, firewall evasion, and comprehensive port enumeration methods to identify open services and potential attack vectors."
 noindex: false
 featured: false
 pinned: false

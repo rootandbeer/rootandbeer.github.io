@@ -2,7 +2,7 @@
 title: "Host Discovery"
 date: 2025-12-28T19:02:56-08:00
 draft: false
-description: "Techniques for identifying active systems."
+description: "Host discovery techniques for penetration testing, including ping sweeps, ARP scans, and Nmap host discovery methods to identify active systems and live hosts on target networks during security assessments."
 noindex: false
 featured: false
 toc: true
