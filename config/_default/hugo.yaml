@@ -70,3 +70,7 @@ security:
       - ^HUGO
       - CI$
       - PWD
+
+services:
+  googleAnalytics:
+    ID: G-9QTSX915TZ

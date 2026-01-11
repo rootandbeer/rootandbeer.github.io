@@ -171,4 +171,3 @@ hugopress:
       hooks:
         hb-blog-sidebar:
           weight: 2
-
