@@ -12,7 +12,8 @@ series:
 categories:
 #  - 
 tags:
-#  - 
+  - nmap
+  - burpsuite 
 images: [matrix-2.jpg]
 #  - 
 # menu:

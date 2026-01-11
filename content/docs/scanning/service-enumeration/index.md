@@ -13,7 +13,8 @@ series:
 categories:
 #  - 
 tags:
-#  - 
+  - nmap
+  - openssl 
 images:
 #  - 
 # menu:

@@ -12,7 +12,12 @@ series:
 categories:
 #  - 
 tags:
-#  - 
+  - nmap
+  - enum4linux
+  - smbclient
+  - dirb
+  - searchsploit
+  - linpeas 
 images: [photographer-1.png]
 #  - 
 # menu:

@@ -11,7 +11,11 @@ carousel: false
 series:
   - walkthroughs
 categories:
-tags: [] 
+tags:
+  - nmap
+  - nikto
+  - fcrackzip
+  - metasploit 
 images: [corrosion-2.jpg]
 meta:
   reading_time: false

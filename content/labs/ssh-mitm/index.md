@@ -12,9 +12,12 @@ series:
 categories:
   - networking
 tags:
-  - mitm
-  - arp spoofing
-  - ssh
+  - sshmitm
+  - arpspoof
+  - docker
+  - tcpdump
+  - wireshark
+  - iptables
 images: [ssh-mitm-lab.png]
 #  - 
 authors:

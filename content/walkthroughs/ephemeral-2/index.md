@@ -11,7 +11,13 @@ carousel: false
 series:
   - walkthroughs
 categories:
-tags: [] 
+tags:
+  - nmap
+  - gobuster
+  - enum4linux
+  - metasploit
+  - smbclient
+  - linpeas 
 images: [ephemeral-2.jpg]
 meta:
   reading_time: false

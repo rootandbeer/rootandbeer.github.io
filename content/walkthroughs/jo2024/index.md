@@ -13,7 +13,9 @@ series:
 categories:
 #  - 
 tags:
-#  - 
+  - nmap
+  - gobuster
+  - burpsuite 
 images: [JO2024.jpg]
 #  - 
 # menu:

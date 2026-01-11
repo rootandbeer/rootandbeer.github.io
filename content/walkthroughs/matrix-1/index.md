@@ -12,7 +12,9 @@ series:
 categories:
 #  - 
 tags:
-#  - 
+  - nmap
+  - hydra
+  - crunch 
 images: [matrix-1.jpg]
 # menu:
 #   main:

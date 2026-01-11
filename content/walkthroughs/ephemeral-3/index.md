@@ -13,7 +13,10 @@ series:
 categories:
 #  - 
 tags:
-#  - 
+  - nmap
+  - gobuster
+  - searchsploit
+  - openssl 
 images: [ephemeral-3.jpg]
 #  - 
 # menu:

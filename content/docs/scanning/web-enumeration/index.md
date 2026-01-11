@@ -13,7 +13,12 @@ series:
 categories:
 #  - 
 tags:
-#  - 
+  - gobuster
+  - ffuf
+  - dirb
+  - nuclei
+  - wafw00f
+  - linkfinder 
 images:
 #  - 
 # menu:

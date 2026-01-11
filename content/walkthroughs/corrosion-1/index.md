@@ -11,7 +11,13 @@ carousel: false
 series:
   - walkthroughs
 categories:
-tags: [] 
+tags:
+  - nmap
+  - gobuster
+  - ffuf
+  - dirb
+  - linpeas
+  - fcrackzip 
 images: [corrosion-1.png]
 meta:
   reading_time: false

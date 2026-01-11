@@ -12,6 +12,11 @@ series:
   - walkthroughs
 categories:
 tags:
+  - nmap
+  - gobuster
+  - hydra
+  - wpscan
+  - john
 images: [mr-robot.webp]
 meta:
   reading_time: false

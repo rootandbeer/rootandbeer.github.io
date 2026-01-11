@@ -12,7 +12,10 @@ series:
 categories:
 #  - 
 tags:
-#  - 
+  - nmap
+  - gobuster
+  - burpsuite
+  - sqlmap 
 images: [web-machine-n7.jpg]
 #  - 
 # menu:

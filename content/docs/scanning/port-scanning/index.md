@@ -14,7 +14,8 @@ series:
 categories:
 #  - 
 tags:
-#  - 
+  - nmap
+  - masscan 
 images:
 #  - 
 # menu:
