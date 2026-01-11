@@ -11,6 +11,10 @@ carousel: false
 series:
   - walkthroughs
 categories:
+  - smb
+  - bruteforce
+  - rce
+  - privesc
 tags:
   - nmap
   - gobuster

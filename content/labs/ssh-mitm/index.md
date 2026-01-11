@@ -10,7 +10,7 @@ pinned: false
 series:
   - labs
 categories:
-  - networking
+  - mitm
 tags:
   - sshmitm
   - arpspoof

@@ -11,6 +11,11 @@ carousel: false
 series:
   - walkthroughs
 categories:
+  - logpoisoning
+  - rce
+  - privesc
+  - pathabuse
+  - passwordcracking
 tags:
   - nmap
   - gobuster

@@ -11,6 +11,10 @@ carousel: false
 series:
   - walkthroughs
 categories:
+  - passwordcracking
+  - fileupload
+  - rce
+  - privesc
 tags:
   - nmap
   - nikto

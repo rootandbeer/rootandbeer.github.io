@@ -11,7 +11,9 @@ pinned: false
 series:
   - walkthroughs
 categories:
-#  - 
+  - deserialization
+  - privesc
+  - informationdisclosure 
 tags:
   - nmap
   - gobuster

@@ -10,7 +10,8 @@ pinned: false
 series:
   - walkthroughs
 categories:
-#  - 
+  - sqli
+  - privesc 
 tags:
   - nmap
   - gobuster

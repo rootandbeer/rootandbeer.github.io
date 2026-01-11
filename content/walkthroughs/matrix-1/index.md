@@ -10,7 +10,9 @@ pinned: false
 series:
   - walkthroughs
 categories:
-#  - 
+  - bruteforce
+  - shellescape
+  - privesc 
 tags:
   - nmap
   - hydra

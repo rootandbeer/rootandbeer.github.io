@@ -11,6 +11,10 @@ carousel: false
 series:
   - walkthroughs
 categories:
+  - bruteforce
+  - fileupload
+  - privesc
+  - passwordcracking
 tags:
   - nmap
   - gobuster

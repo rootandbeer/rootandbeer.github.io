@@ -11,7 +11,8 @@ comment: true
 series:
   - walkthroughs
 categories:
-#  - 
+  - bruteforce
+  - privesc 
 tags:
   - nmap
   - gobuster

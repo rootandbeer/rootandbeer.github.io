@@ -10,7 +10,10 @@ pinned: false
 series:
   - walkthroughs
 categories:
-#  - 
+  - smb
+  - fileupload
+  - privesc
+  - informationdisclosure 
 tags:
   - nmap
   - enum4linux

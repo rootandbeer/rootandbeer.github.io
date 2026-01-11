@@ -10,7 +10,8 @@ pinned: false
 series:
   - walkthroughs
 categories:
-#  - 
+  - lfi
+  - privesc 
 tags:
   - nmap
   - burpsuite 

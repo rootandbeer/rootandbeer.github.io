@@ -10,7 +10,6 @@ pinned: false
 series:
   - labs
 categories:
-  - vulnerability scanning
   - rce
 tags:
   - nuclei
