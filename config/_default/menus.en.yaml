@@ -46,7 +46,7 @@ main:
       icon:
         vendor: font-awesome-regular
         name: comments
-        color: green
+        color: teal
       description: Ask questions and share your ideas.
 
   - name: Bug Report
@@ -60,10 +60,21 @@ main:
         color: red
       description: Tell us about a bug or issue.
 
+  - name: Submit Lab
+    parent: support
+    url: /pages/submit-lab
+    weight: 14
+    params:
+      icon:
+        vendor: mdi
+        name: beaker-plus-outline
+        color: lime
+      description: Submit a lab for review.
+
   - name: Requests
     parent: support
     url: https://github.com/rootandbeer/rootandbeer.github.io/discussions/new?category=ideas
-    weight: 14
+    weight: 15
     params:
       icon:
         vendor: font-awesome-regular
