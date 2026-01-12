@@ -17,16 +17,16 @@ main:
         vendor: font-awesome-solid
         name: headset
 
-  - name: Documentation
-    parent: support
-    url: https://hbstack.dev/
-    weight: 1
-    params:
-      icon:
-        vendor: bs
-        name: book
-        className: text-primary
-      description: The documentation.
+#  - name: Documentation
+#    parent: support
+#    url: https://hbstack.dev/
+#    weight: 1
+#    params:
+#      icon:
+#        vendor: bs
+#        name: book
+#        className: text-primary
+#      description: The documentation.
 
   - name: GitHub
     parent: support
