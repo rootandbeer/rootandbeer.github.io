@@ -13,7 +13,6 @@ categories:
   - smb
   - fileupload
   - privesc
-  - informationdisclosure 
 tags:
   - nmap
   - enum4linux

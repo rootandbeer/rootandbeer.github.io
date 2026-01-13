@@ -13,7 +13,6 @@ series:
 categories:
   - deserialization
   - privesc
-  - informationdisclosure 
 tags:
   - nmap
   - gobuster
