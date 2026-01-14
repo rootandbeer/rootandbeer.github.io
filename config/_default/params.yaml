@@ -1,5 +1,4 @@
 description: Brewing Up Cybersecurity News, Hacking Tutorials, and a Dash of Unsolicited Opinions
-
 hb:
   # js_bundle_name: main # the JS bundle name.
   # css_bundle_name: main # the CSS bundle name.
@@ -20,7 +19,7 @@ hb:
         - news
 
   footer:
-    # powered_by: false
+    powered_by: false
     # see https://hbstack.dev/en/docs/modules/socials/.
     socials:
       _color: true # when false, remove the color of social icons.
