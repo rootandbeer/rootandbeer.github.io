@@ -17,6 +17,7 @@ hb:
       sections:
         - docs
         - news
+        - pages
 
   footer:
     powered_by: false
