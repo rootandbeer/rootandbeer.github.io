@@ -20,7 +20,7 @@ tags:
   - gobuster
   - hydra
   - wpscan
-  - john
+  - johntheripper
 images: [mr-robot.webp]
 meta:
   reading_time: false
