@@ -6,7 +6,7 @@ menu:
     weight: 1
     params:
       icon:
-        vendor: bs
+        vendor: font-awesome-solid
         name: person-walking
 ---
  
