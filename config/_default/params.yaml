@@ -77,14 +77,14 @@ hb:
         categories:
           disable: false
           weight: 3
-          limit: 15
+          limit: 50
         series:
           disable: true
           weight: 2
         tags:
           disable: false
           weight: 4
-          limit: 20
+          limit: 50
           # title: Popular Tags # override the title.
     paginate: 12 # paginate.
     post_thumbnail_placeholder: root&beer # the text of thumbnail placeholder, default to site title.
