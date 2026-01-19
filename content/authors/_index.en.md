@@ -7,6 +7,6 @@ menu:
       icon:
         vendor: bs
         name: pencil
-        color: '#0f5e97'
+        color: purple
       description: Authors list.
 ---

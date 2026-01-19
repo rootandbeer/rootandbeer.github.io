@@ -1,12 +1,11 @@
 main:
   - identifier: blog
-    name: Navigate
+    name: More
     weight: 4
     params:
       icon:
-        vendor: font-awesome-regular
-        name: compass
-
+        vendor: mdi
+        name: dots-grid
   - name: Support
     identifier: support
     weight: 100

@@ -1,12 +1,13 @@
 ---
-title: Tags
+title: Tools
 menu:
   main:
     parent: blog
+    weight: 2
     params:
       icon:
         vendor: bs
-        name: tags
+        name: tools
         color: green
-      description: All of tags.
+      description: All of tools
 ---

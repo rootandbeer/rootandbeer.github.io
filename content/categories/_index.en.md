@@ -1,12 +1,13 @@
 ---
-title: Categories
+title: Attack Type
 menu:
   main:
     parent: blog
+    weight: 1
     params:
       icon:
         vendor: bs
-        name: folder
+        name: terminal
         color: orange
-      description: All of categories.
+      description: All Attack Types
 ---
