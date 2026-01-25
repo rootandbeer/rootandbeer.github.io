@@ -9,6 +9,9 @@ menu:
       icon:
         vendor: bs
         name: flask
+nav_icon:
+  vendor: bootstrap
+  name: flask
 ---
 
 Coming soon...
