@@ -7,6 +7,10 @@ noindex: false
 featured: false
 pinned: false
 # comments: false
+#nav_icon:
+#  vendor:
+#  name:
+#  color:
 series:
 #  - 
 categories:
