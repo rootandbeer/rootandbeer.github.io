@@ -8,4 +8,7 @@ menu:
       icon:
         vendor: bs
         name: book
+nav_icon:
+  vendor: bootstrap
+  name: book
 ---
