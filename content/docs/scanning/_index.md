@@ -10,7 +10,7 @@ nav_weight: 1
 nav_icon:
   vendor: bootstrap
   name: radar
-  color: purple
+  color: 6dfe7a
 # comments: false
 series:
   - hacknotes
