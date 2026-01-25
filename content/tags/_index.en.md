@@ -8,6 +8,6 @@ menu:
       icon:
         vendor: bs
         name: tools
-        color: green
+        color: 4caf50
       description: All of tools
 ---
