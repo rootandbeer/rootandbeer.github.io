@@ -3,11 +3,11 @@ title: Tools
 menu:
   main:
     parent: blog
-    weight: 2
+    weight: 3
     params:
       icon:
         vendor: bs
         name: tools
-        color: 4caf50
+        color: f87493
       description: All of tools
 ---

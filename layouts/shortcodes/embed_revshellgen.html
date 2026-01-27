@@ -1,0 +1,53 @@
+{{- /*
+Embeds the revshell generator inside a Hugo page.
+
+Usage:
+  {{< embed_revshellgen >}}
+
+Notes:
+- Uses an iframe to avoid CSS/JS conflicts with the main site.
+*/ -}}
+
+<style>
+  /* Embedded app container */
+  .revshellgen-iframe {
+    width: 100%;
+    height: 1100px; /* initial; will be auto-resized */
+    border: 0;
+    border-radius: .5rem;
+    background: transparent;
+    display: block;
+  }
+</style>
+
+<iframe
+  id="revshellgen-iframe"
+  class="revshellgen-iframe"
+  src='{{ "revshellgen/" | relURL }}'
+  title="Reverse Shell Generator"
+  loading="lazy"
+  referrerpolicy="no-referrer"
+></iframe>
+
+<script>
+  (function () {
+    var iframe = document.getElementById('revshellgen-iframe');
+    if (!iframe) return;
+
+    var last = 0;
+    function setHeight(px) {
+      if (!px || !isFinite(px)) return;
+      // Small safety margin to avoid tiny internal scrollbars.
+      var next = Math.max(900, Math.min(2400, px + 18));
+      if (Math.abs(next - last) < 2) return;
+      last = next;
+      iframe.style.height = next + 'px';
+    }
+
+    window.addEventListener('message', function (event) {
+      if (!event || !event.data || event.data.type !== 'revshellgen:height') return;
+      setHeight(Number(event.data.height));
+    });
+  })();
+</script>
+

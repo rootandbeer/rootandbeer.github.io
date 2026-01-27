@@ -24,6 +24,7 @@ imports:
   - path: github.com/hugomods/icons/vendors/tabler
   # - path: github.com/hugomods/icons/vendors/feather
   - path: github.com/hugomods/icons/vendors/bootstrap
+  - path: github.com/hugomods/icons/vendors/lucide
 
   # blog sidebar
   - path: github.com/hbstack/blog/modules/sidebar/profile
@@ -76,3 +77,6 @@ imports:
 
     # core module
   # - path: github.com/hbstack/hb
+
+## revshellgen is now stored under `website/static/revshellgen/` so it can be
+## deployed with only the `website/` folder.
