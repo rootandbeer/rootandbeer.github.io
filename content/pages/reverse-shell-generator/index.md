@@ -20,6 +20,8 @@ menu:
         name: terminal
         color: 4caf50
       description: Reverse shell generator tool
+authors:
+  - Rob
 ---
 
 {{< embed_revshellgen >}}
