@@ -77,4 +77,16 @@ services:
   cloudflare_analytics:
     token: d729716a96f7475c9b2cd41b69e51fe0
 
+revision:
+  created_at: true
+  date_format: :date_full
+  font_size: .825rem
+  icons: true
+  repo_branch: main
+  repo_actions: true
+  repo_service: github
+  repo_owner: rootandbeer
+  repo_name: rootandbeer.github.io
+  repo_contributors: true
 
+enableGitInfo: true

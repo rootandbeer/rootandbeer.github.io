@@ -14332,3 +14332,16 @@ h6:hover .anchor,
 ::-webkit-scrollbar-corner {
   background: #909294;
 }
+
+.hb-revision {
+  font-size: 0.825rem;
+}
+
+.hb-revision-contributor-img {
+  width: 36px;
+  height: 36px;
+  opacity: 0.75;
+}
+.hb-revision-contributor-img:hover {
+  opacity: 1;
+}

@@ -77,6 +77,8 @@ imports:
 
     # core module
   # - path: github.com/hbstack/hb
-
+  - path: github.com/hbstack/revision
+  - path: github.com/hbstack/docs/modules/revision
+  - path: github.com/hbstack/blog/modules/revision
 ## revshellgen is now stored under `website/static/revshellgen/` so it can be
 ## deployed with only the `website/` folder.

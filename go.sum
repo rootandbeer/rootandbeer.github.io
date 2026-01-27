@@ -32,6 +32,8 @@ github.com/hbstack/blog/modules/post-nav v0.4.0 h1:oc90hYrFTQXXAgbi73xeaD+BxYjDw
 github.com/hbstack/blog/modules/post-nav v0.4.0/go.mod h1:tgP0PtW87TQPYz52S6rAjwusQcBheJLBC8US/bwxy0Q=
 github.com/hbstack/blog/modules/related-posts v0.4.0 h1:FujQXAfdqixHGJibxkO3wSBhidElq/kM0XxfoSAJVus=
 github.com/hbstack/blog/modules/related-posts v0.4.0/go.mod h1:h+O7tmtrhKImBt6/RS0GYDnOgDXCE632yyzlVVHTtN0=
+github.com/hbstack/blog/modules/revision v0.1.0 h1:5qx8ki82yUmyrm01T7WXuCsWuUljWb+CNczI8Y0vpb4=
+github.com/hbstack/blog/modules/revision v0.1.0/go.mod h1:IzYAbBSORl4IjkEoKITBG6lVTLK3PIkbTewNnWJJEoM=
 github.com/hbstack/blog/modules/sidebar/posts v0.8.0 h1:Omwn7GjMKkP1B9pQyApIHb90+rCnS00YWOMMIigMFpU=
 github.com/hbstack/blog/modules/sidebar/posts v0.8.0/go.mod h1:t0v/hv96x8m2FAFS0QieZ6OpTEd0jEbXaWhOzTI/EqI=
 github.com/hbstack/blog/modules/sidebar/profile v1.3.0 h1:0EReIxJF8cbJpiEZfIWbcrWBOKlRXRRhCe3InG07/jQ=
@@ -66,6 +68,8 @@ github.com/hbstack/docs/modules/giscus v0.1.11 h1:AgfBQAQW6/cjVyRXWE4aruLGY66oQj
 github.com/hbstack/docs/modules/giscus v0.1.11/go.mod h1:Vycwif1BgqhN5qZp9kg8ZtKOdsr8tXOCzHlrKiHNR8g=
 github.com/hbstack/docs/modules/heading-sign v0.1.9 h1:gwqg3R5YGwqCHFXrnV1ligZ2wFHbOj9chFS6bmqh2f8=
 github.com/hbstack/docs/modules/heading-sign v0.1.9/go.mod h1:64D1dr+tmjfQh0F1PtYa+cs9PiZttR6LCoXaiBXD4bI=
+github.com/hbstack/docs/modules/revision v0.1.0 h1:iC9IQ/npEmtzq8MiftlAeeeG1xOdXJ5qt9U2vKyuQlQ=
+github.com/hbstack/docs/modules/revision v0.1.0/go.mod h1:o2E36nCaVkWyBcXQ2rYkaF6ybHHaxVrW/rvO9GVOzyc=
 github.com/hbstack/docs/modules/social-share-buttons v0.1.0 h1:rbgHEbrMjNzZ4mxsiMGyfMIzY32UtSQdTpGC+k/s9Us=
 github.com/hbstack/docs/modules/social-share-buttons v0.1.0/go.mod h1:dxWhzC/1T/FHt1O2bmb4noxni+MtneDMELRv3xgzAAY=
 github.com/hbstack/docs/modules/toc-scrollspy v0.1.8 h1:KTsm2cMZVW2bubV9MbSz0I/knB+Ut1YKdHVO2pSlqa8=
@@ -110,6 +114,8 @@ github.com/hbstack/progress-bar v0.1.1 h1:lDnWvTMzPfzJedmUBkPmD+PHzioSMDR7rDBIIu
 github.com/hbstack/progress-bar v0.1.1/go.mod h1:FIGc4o/OJjz79uyjOenyjKfinWu2r7oUzI+XRSRMaOM=
 github.com/hbstack/pwa v0.1.2 h1:zJhLf5Uf+jO9aCBKvFcASlw7sULK2i0qUJZxscBo0HM=
 github.com/hbstack/pwa v0.1.2/go.mod h1:8x01rczLrSw1aCWD+yrn6v5FRQPtaEh/PYCtFDICEWo=
+github.com/hbstack/revision v0.6.9 h1:RU3Y48Nm/ozwlOimnttS7jBOcIG9WCp1/0kcUzcIk8U=
+github.com/hbstack/revision v0.6.9/go.mod h1:SqUgr9HJXcRBB4DK/edMb3OEae7Amx3ktSioaTOX8pY=
 github.com/hbstack/scrollbar v0.1.0 h1:uQMNbkWbLxnjQMiD3zdt33RG48sY2a0XWyGQkK2HsyY=
 github.com/hbstack/scrollbar v0.1.0/go.mod h1:BEDha5gOjQfXBKZfwT+4vn8hCE88qElocjEI2SY1eAs=
 github.com/hbstack/search v0.2.2 h1:OcGCw2cVzZlB48wogNatcbaHk2BB7Boc/ESt9txI4Gw=
