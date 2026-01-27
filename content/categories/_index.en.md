@@ -3,11 +3,11 @@ title: Attack Type
 menu:
   main:
     parent: blog
-    weight: 1
+    weight: 2
     params:
       icon:
-        vendor: bs
-        name: terminal
+        vendor: lucide
+        name: swords
         color: orange
       description: All Attack Types
 ---
