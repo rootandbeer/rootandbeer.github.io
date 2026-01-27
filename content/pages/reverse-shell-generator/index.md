@@ -22,7 +22,7 @@ menu:
       description: Reverse shell generator tool
 ---
 
-Note: this embedded version is **static-only**. The “Raw” button will still show you plain-text output in the browser, but it won’t provide a server-backed URL for `curl`/`wget`.
+Note: this embedded version is **static-only**.
 
 {{< embed_revshellgen >}}
 
