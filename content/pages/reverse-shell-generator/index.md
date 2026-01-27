@@ -2,7 +2,7 @@
 title: "Reverse Shell Generator"
 date: 2026-01-25T00:00:00-08:00
 draft: false
-description: "Embedded reverse shell generator tool (static UI)."
+description: "Embedded reverse shell generator tool"
 noindex: true
 featured: false
 pinned: false
@@ -21,8 +21,6 @@ menu:
         color: 4caf50
       description: Reverse shell generator tool
 ---
-
-Note: this embedded version is **static-only**.
 
 {{< embed_revshellgen >}}
 

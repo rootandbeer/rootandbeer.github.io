@@ -2,29 +2,38 @@
 Ain't got time for using CSS the right way. !important everything!
 */
 
-[data-theme="meme"] {
+/* Ensure body and html can expand to full content height */
+html, body {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+.revshellgen-wrapper[data-theme="meme"],
+.revshellgen-wrapper [data-theme="meme"] {
     background-color: pink !important;
 }
 
-[data-theme="meme"] .card {
+.revshellgen-wrapper[data-theme="meme"] .card,
+.revshellgen-wrapper [data-theme="meme"] .card {
     background-color: rgb(175, 139, 173) !important;
     color: #000;
 }
 
-[data-theme="meme"] .bg-white {
+.revshellgen-wrapper[data-theme="meme"] .bg-white,
+.revshellgen-wrapper [data-theme="meme"] .bg-white {
     background-color: rgb(221, 215, 215) !important;
 }
 
-[data-theme="meme"] .bg-dark {
+.revshellgen-wrapper[data-theme="meme"] .bg-dark,
+.revshellgen-wrapper [data-theme="meme"] .bg-dark {
     background-color: rgb(231, 212, 224) !important;
 }
 
-[data-theme="meme"] .github-corner > svg{
-    fill: #151513 !important;
-    color: #fff !important;
-}
 
-[data-theme="meme"] .rainbow {
+.revshellgen-wrapper[data-theme="meme"] .rainbow,
+.revshellgen-wrapper [data-theme="meme"] .rainbow {
     text-shadow: 2px 2px 4px #000;
     font-size: 40px;
     -webkit-animation: rainbow 5s infinite;
@@ -33,7 +42,8 @@ Ain't got time for using CSS the right way. !important everything!
     font-family: 'Comic Mono';
 }
 
-[data-theme="meme"] .prompt-sign {
+.revshellgen-wrapper[data-theme="meme"] .prompt-sign,
+.revshellgen-wrapper [data-theme="meme"] .prompt-sign {
     position: absolute;
     top: 25px;
     left: 40px;
@@ -42,38 +52,66 @@ Ain't got time for using CSS the right way. !important everything!
     color: #2e3e86;
 }
 
-[data-theme="meme"] .input-group-text {
+.revshellgen-wrapper[data-theme="meme"] .input-group-text,
+.revshellgen-wrapper [data-theme="meme"] .input-group-text {
     background-color: #f1c6ce;
     color: #000;
 }
 
-[data-theme="meme"] .btn {
-    background-color: #a56096;
-    color: #000;
-    border-color: #a56096;
+.revshellgen-wrapper[data-theme="meme"] .btn,
+.revshellgen-wrapper [data-theme="meme"] .btn,
+.revshellgen-wrapper[data-theme="meme"] .btn-primary,
+.revshellgen-wrapper [data-theme="meme"] .btn-primary,
+.revshellgen-wrapper[data-theme="meme"] .btn-secondary,
+.revshellgen-wrapper [data-theme="meme"] .btn-secondary {
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+    color: #fff !important;
 }
 
-[data-theme="meme"] .highlighted-parameter {
+.revshellgen-wrapper[data-theme="meme"] .btn:hover,
+.revshellgen-wrapper [data-theme="meme"] .btn:hover,
+.revshellgen-wrapper[data-theme="meme"] .btn:focus,
+.revshellgen-wrapper [data-theme="meme"] .btn:focus,
+.revshellgen-wrapper[data-theme="meme"] .btn-primary:hover,
+.revshellgen-wrapper [data-theme="meme"] .btn-primary:hover,
+.revshellgen-wrapper[data-theme="meme"] .btn-primary:focus,
+.revshellgen-wrapper [data-theme="meme"] .btn-primary:focus,
+.revshellgen-wrapper[data-theme="meme"] .btn-secondary:hover,
+.revshellgen-wrapper [data-theme="meme"] .btn-secondary:hover,
+.revshellgen-wrapper[data-theme="meme"] .btn-secondary:focus,
+.revshellgen-wrapper [data-theme="meme"] .btn-secondary:focus {
+    background-color: #0a58ca !important;
+    border-color: #0a58ca !important;
+    color: #fff !important;
+}
+
+.revshellgen-wrapper[data-theme="meme"] .highlighted-parameter,
+.revshellgen-wrapper [data-theme="meme"] .highlighted-parameter {
     color: #7223b5;
     font-weight: bold;
     font-size: 1em;
 }
 
-[data-theme="meme"] .highlighted-warning {
+.revshellgen-wrapper[data-theme="meme"] .highlighted-warning,
+.revshellgen-wrapper [data-theme="meme"] .highlighted-warning {
     color: red;
     font-weight: bold;
 }
 
-[data-theme="meme"] .custom-switch label {
+.revshellgen-wrapper[data-theme="meme"] .custom-switch label,
+.revshellgen-wrapper [data-theme="meme"] .custom-switch label {
     cursor: pointer;
     user-select: none;
 }
 
-[data-theme="meme"] .custom-control-input:checked~.custom-control-label::before {
+.revshellgen-wrapper[data-theme="meme"] .custom-control-input:checked~.custom-control-label::before,
+.revshellgen-wrapper [data-theme="meme"] .custom-control-input:checked~.custom-control-label::before {
     background-color: #7223b5;
 }
 
-[data-theme="meme"] #listener-command {
+.revshellgen-wrapper[data-theme="meme"] #listener-command,
+.revshellgen-wrapper [data-theme="meme"] #listener-command {
     border: none !important;
     border-radius: 5px;
     /*box-shadow: 10px 10px 20px 0px rgba(153, 28, 143, 0.75); original */
@@ -82,17 +120,8 @@ Ain't got time for using CSS the right way. !important everything!
     color: #000;
 }
 
-[data-theme="meme"] #reverse-shell-command {
-    border: none !important;
-    border-radius: 5px;
-    /*box-shadow: 10px 10px 20px 0px rgba(153, 28, 143, 0.75); original */
-    box-shadow: 0px 2px 20px 0 rgba(153,28,143,.75);
-    background-color: rgb(45, 139, 135);
-    color: #000;
-    max-height: 20rem;
-}
-
-[data-theme="meme"] #bind-shell-command {
+.revshellgen-wrapper[data-theme="meme"] #reverse-shell-command,
+.revshellgen-wrapper [data-theme="meme"] #reverse-shell-command {
     border: none !important;
     border-radius: 5px;
     /*box-shadow: 10px 10px 20px 0px rgba(153, 28, 143, 0.75); original */
@@ -102,7 +131,8 @@ Ain't got time for using CSS the right way. !important everything!
     max-height: 20rem;
 }
 
-[data-theme="meme"] #msfvenom-command {
+.revshellgen-wrapper[data-theme="meme"] #bind-shell-command,
+.revshellgen-wrapper [data-theme="meme"] #bind-shell-command {
     border: none !important;
     border-radius: 5px;
     /*box-shadow: 10px 10px 20px 0px rgba(153, 28, 143, 0.75); original */
@@ -112,7 +142,69 @@ Ain't got time for using CSS the right way. !important everything!
     max-height: 20rem;
 }
 
-[data-theme="meme"] #hoaxshell-command {
+/* Reverse/Bind protocol results list */
+.revshellgen-wrapper[data-theme="meme"] .rsg-results-row,
+.revshellgen-wrapper [data-theme="meme"] .rsg-results-row {
+    overflow: visible;
+}
+
+.revshellgen-wrapper[data-theme="meme"] .rsg-results-row .col,
+.revshellgen-wrapper [data-theme="meme"] .rsg-results-row .col {
+    display: block;
+}
+
+.revshellgen-wrapper[data-theme="meme"] .rsg-results-row .rsg-results,
+.revshellgen-wrapper [data-theme="meme"] .rsg-results-row .rsg-results {
+    padding: 0.25rem;
+}
+
+.revshellgen-wrapper[data-theme="meme"] .rsg-results,
+.revshellgen-wrapper [data-theme="meme"] .rsg-results,
+.revshellgen-wrapper[data-theme="meme"] #reverse-shell-results,
+.revshellgen-wrapper [data-theme="meme"] #reverse-shell-results,
+.revshellgen-wrapper[data-theme="meme"] #bind-shell-results,
+.revshellgen-wrapper [data-theme="meme"] #bind-shell-results,
+.rsg-results,
+#reverse-shell-results,
+#bind-shell-results {
+    max-height: 600px !important;
+    overflow-y: auto !important;
+    padding: 0.25rem;
+}
+
+.revshellgen-wrapper[data-theme="meme"] .rsg-command-preview,
+.revshellgen-wrapper [data-theme="meme"] .rsg-command-preview {
+    border: none !important;
+    border-radius: 5px;
+    box-shadow: 0px 2px 20px 0 rgba(153,28,143,.75);
+    background-color: rgb(45, 139, 135) !important;
+    color: #000;
+}
+
+.revshellgen-wrapper[data-theme="meme"] .rsg-result-row-selected,
+.revshellgen-wrapper [data-theme="meme"] .rsg-result-row-selected {
+    outline: 3px dashed #7223b5;
+    outline-offset: 2px;
+}
+
+.revshellgen-wrapper[data-theme="meme"] .rsg-copy-btn,
+.revshellgen-wrapper [data-theme="meme"] .rsg-copy-btn {
+    min-width: 2.25rem;
+    line-height: 1.1;
+}
+
+/* Sticky footer: Shell/Encoding at bottom */
+.revshellgen-wrapper[data-theme="meme"] .rsg-reverse-footer,
+.revshellgen-wrapper [data-theme="meme"] .rsg-reverse-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 0.25rem;
+    background: transparent;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.revshellgen-wrapper[data-theme="meme"] #msfvenom-command,
+.revshellgen-wrapper [data-theme="meme"] #msfvenom-command {
     border: none !important;
     border-radius: 5px;
     /*box-shadow: 10px 10px 20px 0px rgba(153, 28, 143, 0.75); original */
@@ -122,93 +214,129 @@ Ain't got time for using CSS the right way. !important everything!
     max-height: 20rem;
 }
 
-[data-theme="meme"] .custom-select {
+.revshellgen-wrapper[data-theme="meme"] #hoaxshell-command,
+.revshellgen-wrapper [data-theme="meme"] #hoaxshell-command {
+    border: none !important;
+    border-radius: 5px;
+    /*box-shadow: 10px 10px 20px 0px rgba(153, 28, 143, 0.75); original */
+    box-shadow: 0px 2px 20px 0 rgba(153,28,143,.75);
+    background-color: rgb(45, 139, 135);
+    color: #000;
+    max-height: 20rem;
+}
+
+.revshellgen-wrapper[data-theme="meme"] .custom-select,
+.revshellgen-wrapper [data-theme="meme"] .custom-select {
     background-color: #f1c6ce;
     color: #000;
     border-color: #a56096;
 }
 
-[data-theme="meme"] .nav-link {
+.revshellgen-wrapper[data-theme="meme"] .nav-link,
+.revshellgen-wrapper [data-theme="meme"] .nav-link {
     color: #000;
     background: transparent;
     box-shadow: 5px 5px 5px 0px rgba(153, 28, 143, 0.75);
 }
 
-[data-theme="meme"] .nav-link:hover {
-    background-color: #7223b5;
+.revshellgen-wrapper[data-theme="meme"] .nav-link:hover,
+.revshellgen-wrapper [data-theme="meme"] .nav-link:hover {
+    background-color: #0a58ca;
+    color: #fff;
 }
 
-[data-theme="meme"] .nav-link.active {
-    background-color: #a56096;
-    color:#000;
+.revshellgen-wrapper[data-theme="meme"] .nav-link.active,
+.revshellgen-wrapper [data-theme="meme"] .nav-link.active {
+    background-color: #0d6efd;
+    color: #fff;
 }
 
-[data-theme="meme"] .custom-control-input:checked {
+.revshellgen-wrapper[data-theme="meme"] .custom-control-input:checked,
+.revshellgen-wrapper [data-theme="meme"] .custom-control-input:checked {
     color: #000;
 }
 
-[data-theme="meme"] a {
+.revshellgen-wrapper[data-theme="meme"] a,
+.revshellgen-wrapper [data-theme="meme"] a {
+    color: #0d6efd !important;
+    background-color: transparent;
+}
+
+.revshellgen-wrapper[data-theme="meme"] a:hover,
+.revshellgen-wrapper [data-theme="meme"] a:hover,
+.revshellgen-wrapper[data-theme="meme"] a:focus,
+.revshellgen-wrapper [data-theme="meme"] a:focus {
+    color: #0a58ca !important;
+}
+
+.revshellgen-wrapper[data-theme="meme"] .list-group-item,
+.revshellgen-wrapper [data-theme="meme"] .list-group-item {
     background-color: #f1c6ce;
     color: #000;
 }
 
-[data-theme="meme"] .list-group-item {
-    background-color: #f1c6ce;
-    color: #000;
+.revshellgen-wrapper[data-theme="meme"] .list-group-item.active,
+.revshellgen-wrapper [data-theme="meme"] .list-group-item.active,
+.revshellgen-wrapper[data-theme="meme"] .list-group-item-action:focus,
+.revshellgen-wrapper [data-theme="meme"] .list-group-item-action:focus,
+.revshellgen-wrapper[data-theme="meme"] .list-group-item-action:hover,
+.revshellgen-wrapper [data-theme="meme"] .list-group-item-action:hover {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #fff;
 }
 
-[data-theme="meme"] .list-group-item.active {
+.revshellgen-wrapper[data-theme="meme"] .list-group-item:hover,
+.revshellgen-wrapper [data-theme="meme"] .list-group-item:hover {
     background-color: #a56096;
-    border-color: #000;
 }
 
-[data-theme="meme"] .list-group-item:hover {
-    background-color: #a56096;
-}
-
-[data-theme="meme"] .list-group-item.hover {
+.revshellgen-wrapper[data-theme="meme"] .list-group-item.hover,
+.revshellgen-wrapper [data-theme="meme"] .list-group-item.hover {
     background-color: rgba(153, 28, 143, 0.75);
 }
 
-[data-theme="meme"] .container {
+.revshellgen-wrapper[data-theme="meme"] .container,
+.revshellgen-wrapper [data-theme="meme"] .container {
     padding: 20px;
     border-radius: 20px;
     /*box-shadow: 10px 0px 20px 0px rgba(153, 28, 143, 0.75); original */
     box-shadow: 3px 0 20px 0 rgba(153,28,143,.75);
-    height: 100% !important;
 	background-image: url(../assets/meme_doge.jpg);
 	margin: 20px auto;
 	background-position: 45% 24%;
 }
 
-[data-theme="meme"] label.card-title {
+.revshellgen-wrapper[data-theme="meme"] label.card-title,
+.revshellgen-wrapper [data-theme="meme"] label.card-title {
     color: #fff !important;
 }
 
-[data-theme="meme"] .card-title {
+.revshellgen-wrapper[data-theme="meme"] .card-title,
+.revshellgen-wrapper [data-theme="meme"] .card-title {
     color: black !important;
 }
 
-[data-theme="meme"] .custom-control-label {
+.revshellgen-wrapper[data-theme="meme"] .custom-control-label,
+.revshellgen-wrapper [data-theme="meme"] .custom-control-label {
     color: black;
 }
 
-[data-theme="meme"] h2 {
+.revshellgen-wrapper[data-theme="meme"] h2,
+.revshellgen-wrapper [data-theme="meme"] h2 {
     color: white;
     text-align: center;
 }
 
-[data-theme="meme"] .pre-wrap {
+.revshellgen-wrapper[data-theme="meme"] .pre-wrap,
+.revshellgen-wrapper [data-theme="meme"] .pre-wrap {
     white-space: pre-wrap;
 }
 
-[data-theme="meme"] .card-body {
-    max-height: 40rem;
+.revshellgen-wrapper[data-theme="meme"] .card-body,
+.revshellgen-wrapper [data-theme="meme"] .card-body {
 }
 
-[data-theme="meme"] .download-svg:hover {
-    filter: opacity(70%);
-}
 @font-face {
     font-family: "Comic Mono";
     src: url(../assets/ComicMono.ttf);
@@ -354,14 +482,12 @@ Ain't got time for using CSS the right way. !important everything!
     }
 }
 
-a[href*="t3l3machus"] {
+.revshellgen-wrapper a[href*="t3l3machus"] {
 /* Fixes a minor style bug of the Download Listener button */
   background: none;
 }
 
-.middle-card {
-    min-height: 500px; 
-    max-height: 100%; 
-    overflow-y: auto; 
-    padding: 1.5rem; 
+.revshellgen-wrapper .middle-card {
+    min-height: 420px;
+    padding: 1.5rem;
 }

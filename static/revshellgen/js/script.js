@@ -4,13 +4,14 @@ const ipInput = document.querySelector("#ip");
 const portInput = document.querySelector("#port");
 const listenerSelect = document.querySelector("#listener-selection");
 const shellSelect = document.querySelector("#shell");
-// const autoCopySwitch = document.querySelector("#auto-copy-switch");
 const operatingSystemSelect = document.querySelector("#os-options");
 const encodingSelect = document.querySelector('#encoding');
 const searchBox = document.querySelector('#searchBox');
 const listenerCommand = document.querySelector("#listener-command");
 const reverseShellCommand = document.querySelector("#reverse-shell-command");
+const reverseShellResults = document.querySelector("#reverse-shell-results");
 const bindShellCommand = document.querySelector("#bind-shell-command");
+const bindShellResults = document.querySelector("#bind-shell-results");
 const msfVenomCommand = document.querySelector("#msfvenom-command");
 const hoaxShellCommand = document.querySelector("#hoaxshell-command");
 
@@ -19,6 +20,95 @@ const FilterOperatingSystemType = {
     'Windows': 'windows',
     'Linux': 'linux',
     'Mac': 'mac'
+};
+
+// Protocol buckets for Reverse/Bind UI (best-effort categorization).
+const Protocol = {
+    Bash: 'bash',
+    Python: 'python',
+    PHP: 'php',
+    PowerShell: 'powershell',
+    Perl: 'perl',
+    Ruby: 'ruby',
+    Java: 'java',
+    Golang: 'golang',
+    NodeJS: 'nodejs',
+    Socat: 'socat',
+    Netcat: 'netcat',
+    Other: 'other',
+};
+
+const PROTOCOL_ORDER = [
+    Protocol.Bash,
+    Protocol.Python,
+    Protocol.PHP,
+    Protocol.PowerShell,
+    Protocol.Perl,
+    Protocol.Ruby,
+    Protocol.Java,
+    Protocol.Golang,
+    Protocol.NodeJS,
+    Protocol.Socat,
+    Protocol.Netcat,
+    Protocol.Other,
+];
+
+const PROTOCOL_LABEL = {
+    [Protocol.Bash]: 'Bash',
+    [Protocol.Python]: 'Python',
+    [Protocol.PHP]: 'PHP',
+    [Protocol.PowerShell]: 'PowerShell',
+    [Protocol.Perl]: 'Perl',
+    [Protocol.Ruby]: 'Ruby',
+    [Protocol.Java]: 'Java',
+    [Protocol.Golang]: 'Golang',
+    [Protocol.NodeJS]: 'NodeJS',
+    [Protocol.Socat]: 'Socat',
+    [Protocol.Netcat]: 'Netcat',
+    [Protocol.Other]: 'Other',
+};
+
+const inferProtocol = (item) => {
+    const name = String(item?.name || '').trim();
+    const nameLower = name.toLowerCase();
+    const commandLower = String(item?.command || '').toLowerCase();
+
+    // 1) Direct/obvious by name prefix (case-insensitive)
+    if (nameLower.startsWith('bash')) return Protocol.Bash;
+    if (nameLower.startsWith('python') || nameLower.startsWith('python3')) return Protocol.Python;
+    if (nameLower.startsWith('php')) return Protocol.PHP;
+    if (nameLower.startsWith('powershell')) return Protocol.PowerShell;
+    if (nameLower.startsWith('perl')) return Protocol.Perl;
+    if (nameLower.startsWith('ruby')) return Protocol.Ruby;
+    if (nameLower.startsWith('java') || nameLower.startsWith('jsp') || nameLower.startsWith('war')) return Protocol.Java;
+    if (nameLower.startsWith('golang') || /^go\b/.test(nameLower)) return Protocol.Golang;
+    if (nameLower.startsWith('node.js') || nameLower.startsWith('javascript')) return Protocol.NodeJS;
+    if (nameLower.startsWith('socat')) return Protocol.Socat;
+
+    // 2) Netcat bucket (ambiguous utilities folded in)
+    if (
+        nameLower === 'curl' ||
+        /\b(nc|ncat|netcat|rustcat)\b/.test(nameLower) ||
+        nameLower.includes('busybox nc') ||
+        nameLower.includes('mkfifo') ||
+        nameLower.includes('mknod')
+    ) {
+        return Protocol.Netcat;
+    }
+
+    // 3) Fallback by command string (best-effort)
+    if (commandLower.includes('<?php')) return Protocol.PHP;
+    if (commandLower.includes('powershell')) return Protocol.PowerShell;
+    if (commandLower.includes('/dev/tcp/')) return Protocol.Bash;
+    if (
+        /\b(nc|ncat|netcat|rcat|rustcat)\b/.test(commandLower) ||
+        commandLower.includes('telnet://') ||
+        commandLower.includes('mkfifo')
+    ) {
+        return Protocol.Netcat;
+    }
+
+    return Protocol.Other;
 };
 
 const hoaxshell_listener_types = {
@@ -79,13 +169,7 @@ document.querySelector("#hoaxshell-tab").addEventListener("click", () => {
     });
 });
 
-var rawLinkButtons = document.querySelectorAll('.raw-listener');
-for (const button of rawLinkButtons) {
-    button.addEventListener("click", () => {
-        const rawLink = RawLink.generate(rsg);
-        window.location = rawLink;
-    });
-}
+// Raw button functionality removed
 
 const filterCommandData = function (data, { commandType, filterOperatingSystem = FilterOperatingSystemType.All, filterText = '' }) {
     return data.filter(item => {
@@ -125,6 +209,8 @@ const rsg = {
     shell: query.get('shell') || localStorage.getItem('shell') || rsgData.shells[0],
     listener: query.get('listener') || localStorage.getItem('listener') || rsgData.listenerCommands[0][1],
     encoding: query.get('encoding') || localStorage.getItem('encoding') || 'None',
+    protocolReverseShell: query.get('protocolReverseShell') || localStorage.getItem('protocolReverseShell') || Protocol.Bash,
+    protocolBindShell: query.get('protocolBindShell') || localStorage.getItem('protocolBindShell') || Protocol.Netcat,
     selectedValues: {
         [CommandType.ReverseShell]: filterCommandData(rsgData.reverseShellCommands, { commandType: CommandType.ReverseShell })[0].name,
         [CommandType.BindShell]: filterCommandData(rsgData.reverseShellCommands, { commandType: CommandType.BindShell })[0].name,
@@ -184,9 +270,84 @@ const rsg = {
         return rsg.selectedValues[rsg.commandType];
     },
 
+    getSelectedProtocol: () => {
+        switch (rsg.commandType) {
+            case CommandType.ReverseShell:
+                return rsg.protocolReverseShell;
+            case CommandType.BindShell:
+                return rsg.protocolBindShell;
+            default:
+                return null;
+        }
+    },
+
+    setSelectedProtocol: (protocolKey) => {
+        if (!protocolKey) return;
+        switch (rsg.commandType) {
+            case CommandType.ReverseShell:
+                rsg.setState({ protocolReverseShell: protocolKey });
+                break;
+            case CommandType.BindShell:
+                rsg.setState({ protocolBindShell: protocolKey });
+                break;
+        }
+    },
+
     getReverseShellCommand: () => {
         const reverseShellData = rsgData.reverseShellCommands.find((item) => item.name === rsg.getSelectedCommandName());
         return reverseShellData.command;
+    },
+
+    // Render a command for an arbitrary item (used by Reverse/Bind results list).
+    // Returns { html, text } where html may include highlighted <span> wrappers.
+    generateCommandForItem: (item) => {
+        const name = item?.name;
+
+        let template;
+        // Preserve existing special-case behavior.
+        if (name === 'PowerShell #3 (Base64)') {
+            const encoder = (text) => text;
+            const payload = rsg.insertParameters(rsgData.specialCommands['PowerShell payload'], encoder);
+            const toBinary = (string) => {
+                const codeUnits = new Uint16Array(string.length);
+                for (let i = 0; i < codeUnits.length; i++) codeUnits[i] = string.charCodeAt(i);
+                const charCodes = new Uint8Array(codeUnits.buffer);
+                let result = '';
+                for (let i = 0; i < charCodes.byteLength; i++) result += String.fromCharCode(charCodes[i]);
+                return result;
+            };
+            const rendered = "powershell -e " + btoa(toBinary(payload));
+            return { html: rendered, text: rendered };
+        }
+
+        template = String(item?.command ?? '');
+
+        const encoding = rsg.getEncoding();
+        if (encoding === 'Base64') {
+            const rendered = btoa(rsg.insertParameters(template, (text) => text));
+            return { html: rendered, text: rendered };
+        }
+
+        const encoder = (string) => {
+            let result = string;
+            switch (encoding) {
+                case 'encodeURLDouble':
+                    result = fixedEncodeURIComponent(result);
+                // fall-through
+                case 'encodeURL':
+                    result = fixedEncodeURIComponent(result);
+                    break;
+            }
+            return result;
+        };
+
+        // Plain text version (no highlighting spans).
+        const text = rsg.insertParameters(encoder(template), encoder);
+
+        // HTML version with highlighted placeholders (then replaced with values).
+        let html = rsg.escapeHTML(encoder(template));
+        html = rsg.insertParameters(rsg.highlightParameters(html, encoder), encoder);
+        return { html, text };
     },
 
     getPayload: () => {
@@ -365,6 +526,13 @@ const rsg = {
             }
         );
 
+        // Reverse/Bind use protocol list + results list instead of a flat command selection list.
+        if (rsg.commandType === CommandType.ReverseShell || rsg.commandType === CommandType.BindShell) {
+            rsg.updateProtocolList(filteredItems);
+            rsg.updateResultsList(filteredItems);
+            return;
+        }
+
         const documentFragment = document.createDocumentFragment();
         if (filteredItems.length === 0) {
             const emptyMessage = document.createElement("button");
@@ -388,10 +556,6 @@ const rsg = {
             const clickEvent = () => {
                 rsg.selectedValues[rsg.commandType] = name;
                 rsg.update();
-
-                // if (document.querySelector('#auto-copy-switch').checked) {
-                //     rsg.copyToClipboard(reverseShellCommand.innerText)
-                // }
             }
 
             selectionButton.innerText = name;
@@ -403,6 +567,140 @@ const rsg = {
 
         const listSelectionSelector = rsg.uiElements[rsg.commandType].listSelection;
         document.querySelector(listSelectionSelector).replaceChildren(documentFragment)
+    },
+
+    updateProtocolList: (filteredItems) => {
+        const protocolCounts = new Map();
+        filteredItems.forEach((item) => {
+            const p = inferProtocol(item);
+            protocolCounts.set(p, (protocolCounts.get(p) || 0) + 1);
+        });
+
+        // Ensure selected protocol is valid for current filtered set.
+        const current = rsg.getSelectedProtocol();
+        const hasCurrent = current && protocolCounts.has(current);
+        if (!hasCurrent) {
+            const first = PROTOCOL_ORDER.find((p) => protocolCounts.has(p)) || Protocol.Other;
+            // Set without forcing localStorage churn for every keystroke if already correct.
+            if (rsg.commandType === CommandType.ReverseShell) rsg.protocolReverseShell = first;
+            if (rsg.commandType === CommandType.BindShell) rsg.protocolBindShell = first;
+        }
+
+        const selected = rsg.getSelectedProtocol();
+        const list = document.querySelector(rsg.uiElements[rsg.commandType].listSelection);
+        if (!list) return;
+
+        const fragment = document.createDocumentFragment();
+        const visibleProtocols = PROTOCOL_ORDER.filter((p) => protocolCounts.has(p));
+
+        if (visibleProtocols.length === 0) {
+            const emptyMessage = document.createElement("button");
+            emptyMessage.innerText = "No results found";
+            emptyMessage.classList.add("list-group-item", "list-group-item-action", "disabled");
+            fragment.appendChild(emptyMessage);
+            list.replaceChildren(fragment);
+            return;
+        }
+
+        visibleProtocols.forEach((p) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.classList.add('list-group-item', 'list-group-item-action', 'd-flex', 'justify-content-between', 'align-items-center');
+            if (p === selected) btn.classList.add('active');
+
+            const label = document.createElement('span');
+            label.innerText = PROTOCOL_LABEL[p] || p;
+
+            const badge = document.createElement('span');
+            badge.classList.add('badge', 'badge-pill', p === selected ? 'badge-light' : 'badge-secondary');
+            badge.innerText = String(protocolCounts.get(p) || 0);
+
+            btn.appendChild(label);
+            btn.appendChild(badge);
+
+            btn.addEventListener('click', () => rsg.setSelectedProtocol(p));
+            fragment.appendChild(btn);
+        });
+
+        list.replaceChildren(fragment);
+    },
+
+    updateResultsList: (filteredItems) => {
+        const container = (rsg.commandType === CommandType.ReverseShell) ? reverseShellResults : bindShellResults;
+        if (!container) return;
+
+        const selectedProtocol = rsg.getSelectedProtocol() || Protocol.Other;
+        const results = filteredItems.filter((item) => inferProtocol(item) === selectedProtocol);
+
+        // Ensure selected command is valid.
+        const selectedName = rsg.getSelectedCommandName();
+        const hasSelected = results.some((i) => i.name === selectedName);
+        if (!hasSelected && results.length > 0) {
+            rsg.selectedValues[rsg.commandType] = results[0].name;
+        }
+        // Keep the hidden pre in sync.
+        rsg.updateReverseShellCommand();
+
+        const fragment = document.createDocumentFragment();
+        if (results.length === 0) {
+            const empty = document.createElement('div');
+            empty.classList.add('text-muted', 'small', 'p-3');
+            empty.innerText = 'No shells found for this protocol.';
+            fragment.appendChild(empty);
+            container.replaceChildren(fragment);
+            return;
+        }
+
+        const selectedNow = rsg.getSelectedCommandName();
+        results.forEach((item) => {
+            const row = document.createElement('div');
+            row.classList.add('rsg-result-row', 'border', 'rounded', 'p-3', 'mb-3');
+            if (item.name === selectedNow) row.classList.add('rsg-result-row-selected');
+
+            const header = document.createElement('div');
+            header.classList.add('d-flex', 'align-items-center', 'justify-content-between', 'mb-2');
+
+            const title = document.createElement('button');
+            title.type = 'button';
+            title.classList.add('btn', 'btn-link', 'p-0', 'text-left');
+            title.innerText = item.name;
+            title.addEventListener('click', () => {
+                rsg.selectedValues[rsg.commandType] = item.name;
+                rsg.update();
+            });
+
+            const copyBtn = document.createElement('button');
+            copyBtn.type = 'button';
+            copyBtn.classList.add('btn', 'btn-sm', 'btn-secondary', 'rsg-copy-btn');
+            copyBtn.setAttribute('data-toggle', 'tooltip');
+            copyBtn.setAttribute('title', 'Copy to clipboard');
+            copyBtn.innerHTML = `<span aria-hidden="true">⧉</span>`;
+            copyBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const rendered = rsg.generateCommandForItem(item);
+                rsg.copyToClipboard(rendered.text);
+            });
+
+            header.appendChild(title);
+            header.appendChild(copyBtn);
+
+            const pre = document.createElement('pre');
+            pre.classList.add('bg-dark', 'text-wrap', 'text-break', 'p-3', 'mb-0', 'rsg-command-preview');
+            const rendered = rsg.generateCommandForItem(item);
+            pre.innerHTML = rendered.html;
+
+            row.appendChild(header);
+            row.appendChild(pre);
+            fragment.appendChild(row);
+        });
+
+        container.replaceChildren(fragment);
+        // Re-init tooltips for dynamically added buttons.
+        if (window.$) {
+            window.$(function () {
+                window.$('[data-toggle="tooltip"]').tooltip();
+            });
+        }
     },
 
     updateListenerCommand: () => {
@@ -507,10 +805,12 @@ document.querySelector('#copy-listener').addEventListener('click', () => {
 })
 
 document.querySelector('#copy-reverse-shell-command').addEventListener('click', () => {
+    if (!reverseShellCommand) return;
     rsg.copyToClipboard(reverseShellCommand.innerText)
 })
 
 document.querySelector('#copy-bind-shell-command').addEventListener('click', () => {
+    if (!bindShellCommand) return;
     rsg.copyToClipboard(bindShellCommand.innerText)
 })
 
@@ -522,32 +822,7 @@ document.querySelector('#copy-hoaxshell-command').addEventListener('click', () =
     rsg.copyToClipboard(hoaxShellCommand.innerText)
 })
 
-var downloadButton = document.querySelectorAll(".download-svg");
-for (const Dbutton of downloadButton) {
-    Dbutton.addEventListener("click", () => {
-        const filename = prompt('Enter a filename', 'payload.sh')
-        if(filename===null)return;
-        const rawLink = RawLink.generate(rsg);
-        axios({
-            url: rawLink,
-            method: 'GET',
-            responseType: 'arraybuffer',
-        })
-        .then((response)=>{
-            const url = window.URL.createObjectURL(new File([response.data], filename ));
-            const downloadElement = document.createElement("a");
-            downloadElement.href = url;
-            downloadElement.setAttribute('download', filename);
-            document.body.appendChild(downloadElement);
-            downloadElement.click();
-            document.body.removeChild(downloadElement);
-        });
-    });
-}
-
-// autoCopySwitch.addEventListener("change", () => {
-//     setLocalStorage(autoCopySwitch, "auto-copy", "checked");
-// });
+// Download payload functionality removed
 
 // Popper tooltips
 $(function () {
