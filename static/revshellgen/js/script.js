@@ -35,6 +35,7 @@ const Protocol = {
     NodeJS: 'nodejs',
     Socat: 'socat',
     Netcat: 'netcat',
+    Lua: 'lua',
     Other: 'other',
 };
 
@@ -50,6 +51,7 @@ const PROTOCOL_ORDER = [
     Protocol.NodeJS,
     Protocol.Socat,
     Protocol.Netcat,
+    Protocol.Lua,
     Protocol.Other,
 ];
 
@@ -65,6 +67,7 @@ const PROTOCOL_LABEL = {
     [Protocol.NodeJS]: 'NodeJS',
     [Protocol.Socat]: 'Socat',
     [Protocol.Netcat]: 'Netcat',
+    [Protocol.Lua]: 'Lua',
     [Protocol.Other]: 'Other',
 };
 
@@ -84,7 +87,7 @@ const inferProtocol = (item) => {
     if (nameLower.startsWith('golang') || /^go\b/.test(nameLower)) return Protocol.Golang;
     if (nameLower.startsWith('node.js') || nameLower.startsWith('javascript')) return Protocol.NodeJS;
     if (nameLower.startsWith('socat')) return Protocol.Socat;
-
+    if (nameLower.startsWith('lua')) return Protocol.Lua;
     // 2) Netcat bucket (ambiguous utilities folded in)
     if (
         nameLower === 'curl' ||
