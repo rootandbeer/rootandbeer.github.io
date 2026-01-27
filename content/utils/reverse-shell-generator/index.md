@@ -22,6 +22,9 @@ menu:
       description: Reverse shell generator tool
 authors:
   - Rob
+categories:
+  - reverse shell
+#tags:
 ---
 
 {{< embed_revshellgen >}}
