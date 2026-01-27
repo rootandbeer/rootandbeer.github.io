@@ -2,7 +2,7 @@
 title: "Reverse Shell Generator"
 date: 2026-01-25T00:00:00-08:00
 draft: false
-description: "Embedded reverse shell generator tool"
+description: "Free online reverse shell generator for penetration testing and cybersecurity. Generate reverse shells, bind shells, MSFVenom payloads, and HoaxShell commands for Linux, Windows, and Mac. Includes encoding options and listener commands."
 noindex: true
 featured: false
 pinned: false
