@@ -18,6 +18,7 @@ hb:
         - docs
         - news
         - pages
+        - utils
 
   footer:
     powered_by: false
