@@ -2,24 +2,43 @@
   Doc variables form: substitute $VAR in page content.
 
   Usage: {{< doc_vars >}} or {{< doc_vars "RHOST,LHOST,RPORT,LPORT" >}} or {{< doc_vars "RHOST" >}} or {{< doc_vars vars="RHOST,LHOST" >}}
+  Inline placeholders: {{< doc_vars "RHOST=10.0.0.1,LHOST,MYVAR=example.com" >}} (mix of inline and default placeholders).
 */ -}}
 {{- /* Normalize param: theme may pass whitespace as .Get 0; treat empty/whitespace/nil as unset */ -}}
 {{- $raw := default (.Get "vars") (.Get 0) -}}
 {{- $rawStr := printf "%s" (default "" $raw) -}}
 {{- $trimmed := trim $rawStr " \t\n\r" -}}
 {{- $param := default "RHOST,LHOST,RPORT,LPORT" $trimmed -}}
-{{- $varsList := split $param "," -}}
 {{- $placeholders := dict "RHOST" "10.0.0.1" "LHOST" "192.168.1.1" "RPORT" "80" "LPORT" "4444" "DOMAIN" "example.com" "PAGEPARAMETER" "page.php?ping" -}}
-<div id="doc-vars-form-container" class="doc-vars-form-wrapper mb-4" data-doc-vars="{{ $param }}">
+{{- $scratch := newScratch -}}
+{{- $scratch.Set "names" slice -}}
+{{- $scratch.Set "placeholders" slice -}}
+{{- range split $param "," -}}
+  {{- $seg := trim . " \t\n\r" -}}
+  {{- if $seg -}}
+    {{- if findRE "=" $seg -}}
+      {{- $parts := split $seg "=" -}}
+      {{- $name := trim (index $parts 0) " \t\n\r" -}}
+      {{- $ph := trim (delimit (after 1 $parts) "=") " \t\n\r" -}}
+      {{- $scratch.Add "names" (slice $name) -}}
+      {{- $scratch.Add "placeholders" (slice $ph) -}}
+    {{- else -}}
+      {{- $name := $seg -}}
+      {{- $ph := index $placeholders $name | default "..." -}}
+      {{- $scratch.Add "names" (slice $name) -}}
+      {{- $scratch.Add "placeholders" (slice $ph) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $varsList := $scratch.Get "names" -}}
+{{- $placeholdersList := $scratch.Get "placeholders" -}}
+<div id="doc-vars-form-container" class="doc-vars-form-wrapper mb-4" data-doc-vars="{{ delimit $varsList "," }}">
   <div class="row g-2 align-items-end">
-    {{- range $varsList -}}
-    {{- $name := trim . " \t\n\r" -}}
-    {{- if $name -}}
+    {{- range $i, $name := $varsList -}}
     <div class="col-12 col-sm-6 col-md-3">
       <label for="doc-var-{{ $name }}" class="form-label">${{ $name }}</label>
-      <input type="text" class="form-control form-control-sm" id="doc-var-{{ $name }}" name="{{ $name }}" placeholder="{{ index $placeholders $name | default "..." }}" autocomplete="off">
+      <input type="text" class="form-control form-control-sm" id="doc-var-{{ $name }}" name="{{ $name }}" placeholder="{{ index $placeholdersList $i }}" autocomplete="off">
     </div>
-    {{- end -}}
     {{- end -}}
     <div class="col-12 col-sm-6 col-md-2">
       <button type="button" class="btn btn-secondary btn-sm w-100" id="doc-vars-reset">Reset</button>
