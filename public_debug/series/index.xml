@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Series on root&amp;beer</title>
+    <link>http://rootandbeer.com/series/</link>
+    <description>Recent content in Series on root&amp;beer</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2026 root&amp;beer. All Rights Reserved.</copyright>
+    <atom:link href="http://rootandbeer.com/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Labs</title>
+      <link>http://rootandbeer.com/series/labs/</link>
+      <pubDate>Sat, 03 Jan 2026 15:37:04 -0800</pubDate>
+      <guid>http://rootandbeer.com/series/labs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hacknotes</title>
+      <link>http://rootandbeer.com/series/hacknotes/</link>
+      <pubDate>Sun, 28 Dec 2025 19:11:22 -0800</pubDate>
+      <guid>http://rootandbeer.com/series/hacknotes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Walkthroughs</title>
+      <link>http://rootandbeer.com/series/walkthroughs/</link>
+      <pubDate>Fri, 16 May 2025 19:20:39 -0800</pubDate>
+      <guid>http://rootandbeer.com/series/walkthroughs/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

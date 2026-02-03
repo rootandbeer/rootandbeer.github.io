@@ -37,6 +37,8 @@ meta:
 
 ---
 
+{{< doc_vars "RHOST">}}
+
 ## IPv4 Discovery
 
 ### Ping Sweep (Nmap)

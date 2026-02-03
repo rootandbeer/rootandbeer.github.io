@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pathabuse on root&amp;beer</title>
+    <link>http://rootandbeer.com/categories/pathabuse/</link>
+    <description>Recent content in Pathabuse on root&amp;beer</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2026 root&amp;beer. All Rights Reserved.</copyright>
+    <lastBuildDate>Sat, 10 Jan 2026 17:03:37 -0800</lastBuildDate>
+    <atom:link href="http://rootandbeer.com/categories/pathabuse/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Corrosion 1: Vulnhub Walkthrough</title>
+      <link>http://rootandbeer.com/walkthroughs/corrosion-1/</link>
+      <pubDate>Sat, 10 Aug 2024 19:20:39 -0800</pubDate>
+      <guid>http://rootandbeer.com/walkthroughs/corrosion-1/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th&gt;URL&lt;/th&gt;&#xA;          &lt;th&gt;&lt;a&#xA;  href=&#34;https://www.vulnhub.com/entry/corrosion-1,730/&#34;&#xA;  &#xA;  target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;https://www.vulnhub.com/entry/corrosion-1,730/&lt;/a&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Platform&lt;/td&gt;&#xA;          &lt;td&gt;VulnHub&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td&gt;Difficulty&lt;/td&gt;&#xA;          &lt;td&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;  &#xA;  &lt;picture  &gt;&#xA;  &lt;img class=&#34;img-fluid&#34; src=&#34;https://img.shields.io/badge/easy-green&#34; alt=&#34;Static Badge&#34; loading=&#34;lazy&#34; /&gt;&#xA;&lt;/picture&gt;&#xA;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;p&gt;The &amp;ldquo;Corrosion: 1&amp;rdquo; CTF challenge on VulnHub, though labeled as Easy, presented multiple layers of complexity, including service enumeration, log poisoning, and path abuse to achieve root access. The initial foothold was gained through discovering and exploiting a vulnerable PHP script (randylogs.php) using log poisoning via an SFTP login. This allowed for remote command execution, leading to a reverse shell. Privilege escalation involved identifying a world-readable backup file, cracking a password-protected ZIP file, and leveraging a path abuse vulnerability in a custom script to execute arbitrary commands as root. The challenge concluded with obtaining the root flag, showcasing a combination of enumeration, scripting, and privilege escalation techniques.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

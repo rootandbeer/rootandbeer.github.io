@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="favicon.ico" type="image/ico" sizes="16x16">
+    <link href="assets/bootstrap.min.css" rel="stylesheet">
+    <script src="assets/jquery-3.5.1.slim.min.js"></script>
+    <script src="assets/popper-1.16.1.min.js"></script>
+    <script src="assets/bootstrap-4.5.2.min.js"></script>
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <style>
+        @media (max-width: 767px) {
+            #reverse-shell-selection {
+                max-height: 290px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            #reverse-shell-selection {
+                max-height: 520px;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+    <div class="container d-flex flex-column">
+        <div class="row">
+
+            <!-- IP & Port Configuration -->
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card shadow h-100">
+                    <div class="card-body">
+                        <h5 class="card-title mb-0">
+                            <b>IP & Port</b>
+                        </h5>
+
+                        <!-- card-text -->
+                        <div class="card-text h-100">
+                            <form class="row justify-content-center align-items-center h-100">
+
+                                <!-- IP -->
+                                <div class="col-auto mt-4">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span id="ip-label" class="input-group-text">IP</span>
+                                        </div>
+                                        <input id="ip" type="text" class="form-control form-control-lg text-center px-1"
+                                            size="12VW" aria-label="IP"
+                                            aria-describedby="ip-label">
+                                    </div>
+                                </div>
+
+                                <!-- Port -->
+                                <div class="col-auto mt-4">
+                                    <div class="input-group" data-toggle="tooltip">
+                                        <div class="input-group-prepend">
+                                            <span id="port-label" class="input-group-text">Port</span>
+                                        </div>
+                                        <input id="port" type="text" class="form-control form-control-lg text-center"
+                                            size="4vw" maxlength="5" aria-label="Port"
+                                            aria-describedby="port-label">
+                                        <div class="input-group-append">
+                                            <button id="inc-port" class="btn btn-secondary btn-sm" type="button"
+                                                style="font-size: 1rem" data-toggle="tooltip"
+                                                title="Increase port number by one">
+                                                +1
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="port-privileges-warning" class="col-12 small text-center"
+                                    style="visibility: hidden">
+                                    <span class="highlighted-warning">root</span>
+                                    privileges required.
+                                </div>
+
+                            </form>
+                        </div>
+                        <!-- /card-text -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- /IP & Port Configuration -->
+
+            <!-- Listener -->
+            <div class="col-12 col-md-6 mb-4">
+                <div class="card shadow h-100">
+                    <div class="card-body">
+
+                        <!-- Advanced switch -->
+                        <div class="custom-control custom-switch float-right">
+                            <input id="listener-advanced-switch" type="checkbox" class="custom-control-input" checked>
+                            <label for="listener-advanced-switch" class="custom-control-label small pr-2 pb-1"
+                                style="padding-top:2px" data-toggle="tooltip" title="Display advanced settings">
+                                Advanced
+                            </label>
+                        </div>
+
+                        <h5 class="card-title"><b>Listener</b></h5>
+
+                        <div class="card-text">
+
+                            <!-- Command -->
+                            <div class="row justify-content-center">
+                                <div class="col-auto position-relative" style="min-width: 15vw">
+                                    <pre class="prompt-sign"></pre>
+                                    <pre id="listener-command" class="bg-dark border text-wrap text-break p-4 pl-5 mb-2" spellcheck="false"
+                                        style="outline: none; font-size:1em;" contenteditable="true"></pre>
+                                </div>
+                            </div>
+
+                            <!-- Advanced section-->
+                            <form class="row justify-content-center collapse" id="listener-advanced">
+                                <label for="listener-selection" class="col-auto col-form-label">Type</label>
+                                <div class="col-auto">
+                                    <select class="custom-select" id="listener-selection">
+                                        <!-- filled by init()-->
+                                    </select>
+                                </div>
+                            </form>
+
+                        </div>
+                        <!-- /card-text -->
+
+                        <!-- Copy button -->
+                        <button id="copy-listener" type="button" class="btn btn-primary float-right"
+                            data-toggle="tooltip" title="Copy to clipboard">
+                            Copy
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- /listener -->
+
+        </div>
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="reverse-tab" data-toggle="tab" href="#reverse" role="tab"
+                    aria-controls="reverse" aria-selected="true">Reverse</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="bind-tab" data-toggle="tab" href="#bind" role="tab" aria-controls="bind"
+                    aria-selected="false">Bind</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="msfvenom-tab" data-toggle="tab" href="#msfvenom" role="tab"
+                    aria-controls="msfvenom" aria-selected="false">MSFVenom</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="hoaxshell-tab" data-toggle="tab" href="#hoaxshell" role="tab"
+                    aria-controls="msfvenom" aria-selected="false">HoaxShell</a>
+            </li>
+        </ul>
+
+        <div class="card shadow mb-5">
+            <div class="card-body">
+                <!-- Top configuration bar -->
+                <div class="d-md-flex">
+                    <!---Filters-->
+                    <label for="os-options" class="col-auto col-form-label"
+                        style="font-size:1rem">OS</label>
+                    <div class="col-auto">
+                        <select id="os-options" class="custom-select">
+                            <option class="os-item" value="all">All</option>
+                            <option class="os-item" value="linux">Linux</option>
+                            <option class="os-item" value="windows">Windows</option>
+                            <option class="os-item" value="mac">Mac</option>
+                        </select>
+                    </div>
+
+                    <label for="os-options" class="col-auto col-form-label"
+                        style="font-size:1rem">Name</label>
+                    <div class="col-auto flex-grow-1">
+                        <input type="text" id="searchBox" placeholder="Search..." class="form-control form-control-md text-left">
+                    </div>
+                    <!---/Filters-->
+
+                    <!-- Show all advanced switch -->
+                    <div class="custom-control custom-switch text-right d-flex justify-content-center align-self-center">
+                        <input id="revshell-advanced-switch" type="checkbox" class="custom-control-input" checked>
+                        <label for="revshell-advanced-switch" class="custom-control-label small pr-2 pb-1"
+                            style="padding-top:2px" data-toggle="tooltip" title="Display all advanced settings">
+                            Show Advanced
+                        </label>
+                    </div>
+                    <!-- /Show all advanced switch -->
+                </div>
+
+                <div class="tab-content">
+                    <!-- Reverse Shell Tab-->
+                    <div class="tab-pane active" id="reverse" role="tabpanel" aria-labelledby="reverse-tab">
+                        <div class="card-text mt-4">
+                            <div class="row">
+
+                                <!-- Left column: Reverse shell selection -->
+                                <div class="col-12 col-md-3">
+                                    <div id="reverse-shell-selection" class="list-group overflow-auto">
+                                        <!-- filled by init()-->
+                                    </div>
+                                </div>
+
+                                <!-- Right column -->
+                                <div class="col-12 col-md-9 d-flex flex-column middle-card">
+
+
+                                    <!-- Reverse Shell Results (scrollable) -->
+                                    <div class="row rsg-results-row">
+                                        <div class="col position-relative">
+                                            <div id="reverse-shell-results" class="rsg-results">
+                                                <!-- filled by update() -->
+                                            </div>
+                                            <!-- Hidden: retained for compatibility -->
+                                            <pre id="reverse-shell-command" class="d-none"></pre>
+                                        </div>
+                                    </div>
+
+                                    <!-- Sticky footer: Shell / Encoding -->
+                                    <div class="rsg-reverse-footer">
+                                        <form class="row justify-content-center collapse" id="revshell-advanced">
+                                            <div class="col-auto mr-3">
+                                                <div class="row">
+                                                    <label for="shell" class="col-auto col-form-label">Shell</label>
+                                                    <div class="col-auto">
+                                                        <select id="shell" class="custom-select">
+                                                            <!-- filled by init()-->
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto ml-3">
+                                                <div class="form-group row">
+                                                    <label for="encoding" class="col-auto col-form-label">Encoding</label>
+                                                    <div class="col-auto">
+                                                        <select id="encoding" class="custom-select">
+                                                            <option value="None">None</option>
+                                                            <option value="encodeURL">URL Encode</option>
+                                                            <option value="encodeURLDouble">Double URL Encode</option>
+                                                            <option value="Base64">Base64</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="row justify-content-end mr-1 mt-0">
+                                            <div id="clipboard-toast" class="toast position-fixed text-white" data-delay="1200"
+                                                style="bottom: 16px; left: 50%; transform: translateX(-50%); background: rgba(32, 32, 32, .85)">
+                                                <div class="toast-body">Copied to clipboard</div>
+                                            </div>
+                                            <div id="clipboard-failure-toast" class="toast position-fixed text-white" data-delay="1200"
+                                                style="bottom: 16px; left: 50%; transform: translateX(-50%); background: rgba(255, 0, 0, .85)">
+                                                <div class="toast-body">Error copying to clipboard</div>
+                                            </div>
+                                            <button id="copy-reverse-shell-command" data-toggle="tooltip"
+                                                title="Copy selected shell to clipboard" type="button" class="btn btn-primary float-right d-none">
+                                                Copy
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- /Right column -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Reverse Shell Tab -->
+
+                    <!-- Bind Shell Tab -->
+                    <div class="tab-pane" id="bind" role="tabpanel" aria-labelledby="bind-tab">
+                        <div class="card-text mt-4">
+                            <div class="row">
+                                <!-- Left column: Bind selection -->
+                                <div class="col-12 col-md-3">
+                                    <div id="bind-shell-selection" class="list-group overflow-auto" style="max-height: 520px">
+                                        <!-- filled by init()-->
+                                    </div>
+                                </div>
+                                <!-- Right column -->
+                                <div class="col-12 col-md-9 d-flex flex-column">
+                                    <!-- Bind Shell Results -->
+                                    <div class="row">
+                                        <div class="col position-relative">
+                                            <div id="bind-shell-results" class="rsg-results">
+                                                <!-- filled by update() -->
+                                            </div>
+                                            <!-- Hidden: retained for compatibility -->
+                                            <pre id="bind-shell-command" class="d-none"></pre>
+                                        </div>
+                                    </div>
+
+                                    <div class="row justify-content-end mr-1">
+                                        <!-- Copy button (legacy): per-shell copy icons are shown in the results list -->
+                                        <button id="copy-bind-shell-command" data-toggle="tooltip" title="Copy selected shell to clipboard"
+                                            type="button" class="btn btn-primary float-right d-none">
+                                            Copy
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- /Right column -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Bind Shell Tab -->
+
+                    <!-- MSFVenom Tab -->
+                    <div class="tab-pane" id="msfvenom" role="tabpanel" aria-labelledby="msfvenom-tab">
+                        <div class="card-text mt-4">
+                            <div class="row">
+                                    <!-- Left column: MSFVenom selection -->
+                                    <div class="col-12 col-md-3">
+                                        <div id="msfvenom-selection" class="list-group overflow-auto"
+                                            style="max-height: 520px">
+                                            <!-- filled by init()-->
+                                        </div>
+                                    </div>
+
+                                    <!-- Right column -->
+                                    <div class="col-12 col-md-9 d-flex flex-column">
+
+                                        <!-- Command -->
+                                        <div class="row flex-grow-1">
+                                            <div class="col position-relative">
+                                                <pre class="prompt-sign"></pre>
+                                                <pre id="msfvenom-command"
+                                                    class="bg-dark border pre-wrap text-break p-4 pl-5" spellcheck="false"
+                                                    style="outline: none; font-size:1em;" contenteditable="true"></pre>
+                                            </div>
+                                        </div>
+
+                                        <div class="row justify-content-end mr-1">
+                                            <!-- Copy button -->
+                                            <button id="copy-msfvenom-command" data-toggle="tooltip"
+                                                title="Copy to clipboard" type="button"
+                                                class="btn btn-primary float-right">
+                                                Copy
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- /Right column -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /MSFVenom Tab -->
+
+                    <!-- HoaxShell Tab -->
+                    <div class="tab-pane" id="hoaxshell" role="tabpanel" aria-labelledby="hoaxshell-tab">
+                        <div class="card-text mt-4">
+                            <div class="row">
+                                    <!-- Left column: HoaxShell selection -->
+                                    <div class="col-12 col-md-3">
+                                        <div id="hoaxshell-selection" class="list-group overflow-auto"
+                                            style="max-height: 520px">
+                                            <!-- filled by init()-->
+                                        </div>
+                                    </div>
+
+                                    <!-- Right column -->
+                                    <div class="col-12 col-md-9 d-flex flex-column">
+
+                                        <!-- Command -->
+                                        <div class="row flex-grow-1">
+                                            <div class="col position-relative">
+                                                <pre class="prompt-sign"></pre>
+                                                <pre id="hoaxshell-command"
+                                                    class="bg-dark border pre-wrap text-break p-4 pl-5" spellcheck="false"
+                                                    style="outline: none; font-size:1em;" contenteditable="true"></pre>
+                                            </div>
+                                        </div>
+
+                                        <div class="row justify-content-end mr-1">
+
+                                            <!-- Download button -->
+                                            <a href="https://github.com/t3l3machus/hoaxshell/tree/main/revshells" target="_blank"><button type="button" class="btn btn-primary float-right mr-3"
+                                                    data-toggle="tooltip" title="Download Listener">
+                                                Download Listener
+                                            </button></a>
+
+                                            <!-- Copy button -->
+                                            <button id="copy-hoaxshell-command" data-toggle="tooltip"
+                                                title="Copy to clipboard" type="button"
+                                                class="btn btn-primary float-right">
+                                                Copy
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- /Right column -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /hoaxshell Tab -->
+                </div>
+            </div>
+        </div>
+
+    <!-- RSG data -->
+    <script src="js/data.js"></script>
+
+    <!-- Light switch -->
+    <script src="js/light-mode-switch.js"></script>
+
+    <!-- Main js -->
+    <script src="js/script.js"></script>
+
+    <!-- When embedded (Hugo), report content height to parent for iframe sizing -->
+    <script>
+        (function () {
+            if (window.self === window.top) return;
+
+            // Remove viewport-stretching behavior that can cause resize feedback loops.
+            const rootContainer = document.querySelector('body > .container');
+            if (rootContainer) {
+                rootContainer.classList.remove('vh-100', 'd-flex', 'flex-column');
+                // Force container to allow natural height expansion
+                rootContainer.style.height = 'auto';
+                rootContainer.style.minHeight = 'auto';
+                rootContainer.style.maxHeight = 'none';
+            }
+            const header = document.querySelector('.mb-auto');
+            if (header) header.classList.remove('mb-auto');
+            
+            // Ensure body and html can expand fully
+            document.body.style.height = 'auto';
+            document.body.style.minHeight = 'auto';
+            document.body.style.maxHeight = 'none';
+            document.body.style.overflow = 'visible';
+            document.documentElement.style.height = 'auto';
+            document.documentElement.style.minHeight = 'auto';
+            document.documentElement.style.maxHeight = 'none';
+            document.documentElement.style.overflow = 'visible';
+
+            // Measure the content height.
+            // Use the maximum of document.body.scrollHeight and document.documentElement.scrollHeight
+            // to ensure we capture the full content height.
+            const measure = () => {
+                // Get the full scroll height of both body and documentElement
+                const bodyScrollHeight = document.body ? document.body.scrollHeight : 0;
+                const docScrollHeight = document.documentElement ? document.documentElement.scrollHeight : 0;
+                const containerScrollHeight = rootContainer ? rootContainer.scrollHeight : 0;
+                
+                // Use the maximum of all measurements to ensure we capture full content
+                const base = Math.max(bodyScrollHeight, docScrollHeight, containerScrollHeight);
+                
+                // Small buffer for rounding/toasts/margins.
+                return base + 50;
+            };
+
+            let last = 0;
+            let raf = 0;
+            let timeoutId = null;
+            const post = () => {
+                raf = 0;
+                const h = measure();
+                // Only update if height changed significantly (more than 5px difference)
+                if (Math.abs(h - last) < 5) return;
+                last = h;
+                window.parent.postMessage({ type: 'revshellgen:height', height: h }, window.location.origin);
+            };
+            const schedule = () => {
+                if (raf) return;
+                // Debounce with requestAnimationFrame
+                raf = requestAnimationFrame(() => {
+                    // Add additional debounce delay to prevent feedback loops
+                    if (timeoutId) clearTimeout(timeoutId);
+                    timeoutId = setTimeout(post, 100);
+                });
+            };
+
+            // Only schedule on initial load, not on resize (resize events can cause feedback loops)
+            window.addEventListener('load', () => {
+                setTimeout(schedule, 100);
+                setTimeout(schedule, 500);
+            });
+
+            // Observe layout changes within the app, but debounce heavily
+            if ('ResizeObserver' in window) {
+                const ro = new ResizeObserver(() => {
+                    // Debounce resize observer callbacks
+                    if (timeoutId) clearTimeout(timeoutId);
+                    timeoutId = setTimeout(schedule, 200);
+                });
+                ro.observe(rootContainer || document.body);
+            }
+            const mo = new MutationObserver(() => {
+                // Debounce mutation observer callbacks
+                if (timeoutId) clearTimeout(timeoutId);
+                timeoutId = setTimeout(schedule, 200);
+            });
+            mo.observe(document.body, { childList: true, subtree: true, attributes: true });
+        })();
+    </script>
+</body>
+
+</html>

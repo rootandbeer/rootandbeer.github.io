@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hacknotes on root&amp;beer</title>
+    <link>http://rootandbeer.com/series/hacknotes/</link>
+    <description>Recent content in Hacknotes on root&amp;beer</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2026 root&amp;beer. All Rights Reserved.</copyright>
+    <lastBuildDate>Sat, 24 Jan 2026 20:46:24 -0800</lastBuildDate>
+    <atom:link href="http://rootandbeer.com/series/hacknotes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Scanning</title>
+      <link>http://rootandbeer.com/docs/scanning/</link>
+      <pubDate>Sun, 28 Dec 2025 19:11:22 -0800</pubDate>
+      <guid>http://rootandbeer.com/docs/scanning/</guid>
+      <description>&lt;p&gt;Network scanning is a critical phase in penetration testing that involves discovering active hosts, identifying open ports, enumerating services, and gathering information about target systems. This section covers the methodology and tools used for comprehensive network reconnaissance.&lt;/p&gt;&#xA;&lt;h2 id=&#34;scanning-methodology&#34;&gt;Scanning Methodology&lt;/h2&gt;&#xA;&lt;p&gt;The scanning phase typically follows this workflow:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Host Discovery&lt;/strong&gt; - Identify active systems on the target network&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Port Scanning&lt;/strong&gt; - Discover open ports and services on discovered hosts&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Service Enumeration&lt;/strong&gt; - Gather detailed information about running services&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Web Enumeration&lt;/strong&gt; - Specialized enumeration for web applications and services&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Vulnerability Scanning&lt;/strong&gt; - Identify security weaknesses and known vulnerabilities&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&#xA;&lt;div class=&#34;alert alert-info clearfix&#34; role=&#34;alert&#34;&gt;&#xA;  &#xA;    &#xA;&lt;div class=&#34;float-start&#34;&gt;&#xA;  &lt;svg aria-hidden=&#34;true&#34; class=&#34;bi bi-info-circle-fill hi-svg-inline alert-icon me-2&#34; fill=&#34;currentColor&#34; height=&#34;1em&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;1em&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&#xA;  &lt;path d=&#34;M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2&#34;/&gt;&#xA;&lt;/svg&gt;&#xA;&lt;/div&gt;&#xA;&#xA;  &lt;div class=&#34;alert-content&#34;&gt;&#xA;    &#xA;&lt;strong&gt;Best Practice&lt;/strong&gt;: Always start with host discovery before port scanning to avoid wasting time on non-existent hosts. Use stealth techniques when appropriate to avoid detection.&#xA;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;h2 id=&#34;setting-environment-variables&#34;&gt;Setting Environment Variables&lt;/h2&gt;&#xA;&lt;p&gt;Before beginning scanning activities, set environment variables for commonly used targets:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

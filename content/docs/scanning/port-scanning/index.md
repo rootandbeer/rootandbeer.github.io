@@ -31,6 +31,8 @@ meta:
   date: false
 ---
 
+{{< doc_vars "RHOST">}}
+
 ## Port Scanning
 Once live hosts are identified, perform port scanning to discover exposed services.
 

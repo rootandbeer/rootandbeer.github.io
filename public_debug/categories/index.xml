@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Attack Type on root&amp;beer</title>
+    <link>http://rootandbeer.com/categories/</link>
+    <description>Recent content in Attack Type on root&amp;beer</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2026 root&amp;beer. All Rights Reserved.</copyright>
+    <atom:link href="http://rootandbeer.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Reverse Shell</title>
+      <link>http://rootandbeer.com/categories/reverse-shell/</link>
+      <pubDate>Sun, 25 Jan 2026 00:00:00 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/reverse-shell/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Capabilities</title>
+      <link>http://rootandbeer.com/categories/capabilities/</link>
+      <pubDate>Sat, 24 Jan 2026 18:52:19 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/capabilities/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Container Escape</title>
+      <link>http://rootandbeer.com/categories/container-escape/</link>
+      <pubDate>Sat, 24 Jan 2026 18:52:19 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/container-escape/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Credential Harvesting</title>
+      <link>http://rootandbeer.com/categories/credential-harvesting/</link>
+      <pubDate>Sat, 24 Jan 2026 18:52:19 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/credential-harvesting/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cron Abuse</title>
+      <link>http://rootandbeer.com/categories/cron-abuse/</link>
+      <pubDate>Sat, 24 Jan 2026 18:52:19 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/cron-abuse/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kernel Exploit</title>
+      <link>http://rootandbeer.com/categories/kernel-exploit/</link>
+      <pubDate>Sat, 24 Jan 2026 18:52:19 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/kernel-exploit/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Privesc</title>
+      <link>http://rootandbeer.com/categories/privesc/</link>
+      <pubDate>Sat, 24 Jan 2026 18:52:19 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/privesc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sudo Abuse</title>
+      <link>http://rootandbeer.com/categories/sudo-abuse/</link>
+      <pubDate>Sat, 24 Jan 2026 18:52:19 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/sudo-abuse/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Suid Abuse</title>
+      <link>http://rootandbeer.com/categories/suid-abuse/</link>
+      <pubDate>Sat, 24 Jan 2026 18:52:19 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/suid-abuse/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Command Injection</title>
+      <link>http://rootandbeer.com/categories/command-injection/</link>
+      <pubDate>Fri, 16 Jan 2026 13:15:03 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/command-injection/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Csrf</title>
+      <link>http://rootandbeer.com/categories/csrf/</link>
+      <pubDate>Sat, 10 Jan 2026 16:03:53 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/csrf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sqli</title>
+      <link>http://rootandbeer.com/categories/sqli/</link>
+      <pubDate>Sat, 10 Jan 2026 16:03:32 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/sqli/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Xss</title>
+      <link>http://rootandbeer.com/categories/xss/</link>
+      <pubDate>Sat, 10 Jan 2026 16:02:27 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/xss/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dns</title>
+      <link>http://rootandbeer.com/categories/dns/</link>
+      <pubDate>Fri, 09 Jan 2026 19:13:35 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/dns/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bruteforce</title>
+      <link>http://rootandbeer.com/categories/bruteforce/</link>
+      <pubDate>Thu, 08 Jan 2026 16:44:36 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/bruteforce/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Passwordcracking</title>
+      <link>http://rootandbeer.com/categories/passwordcracking/</link>
+      <pubDate>Thu, 08 Jan 2026 16:44:36 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/passwordcracking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Smb</title>
+      <link>http://rootandbeer.com/categories/smb/</link>
+      <pubDate>Thu, 08 Jan 2026 16:44:36 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/smb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mitm</title>
+      <link>http://rootandbeer.com/categories/mitm/</link>
+      <pubDate>Sat, 03 Jan 2026 15:37:04 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/mitm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rce</title>
+      <link>http://rootandbeer.com/categories/rce/</link>
+      <pubDate>Wed, 31 Dec 2025 18:24:41 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/rce/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fileupload</title>
+      <link>http://rootandbeer.com/categories/fileupload/</link>
+      <pubDate>Fri, 16 May 2025 19:20:39 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/fileupload/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Deserialization</title>
+      <link>http://rootandbeer.com/categories/deserialization/</link>
+      <pubDate>Mon, 14 Oct 2024 14:01:52 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/deserialization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Logpoisoning</title>
+      <link>http://rootandbeer.com/categories/logpoisoning/</link>
+      <pubDate>Sat, 10 Aug 2024 19:20:39 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/logpoisoning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pathabuse</title>
+      <link>http://rootandbeer.com/categories/pathabuse/</link>
+      <pubDate>Sat, 10 Aug 2024 19:20:39 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/pathabuse/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lfi</title>
+      <link>http://rootandbeer.com/categories/lfi/</link>
+      <pubDate>Mon, 22 Jul 2024 19:24:11 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/lfi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Shellescape</title>
+      <link>http://rootandbeer.com/categories/shellescape/</link>
+      <pubDate>Mon, 15 Jul 2024 18:55:49 -0800</pubDate>
+      <guid>http://rootandbeer.com/categories/shellescape/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

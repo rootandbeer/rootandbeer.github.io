@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Command Injection on root&amp;beer</title>
+    <link>http://rootandbeer.com/categories/command-injection/</link>
+    <description>Recent content in Command Injection on root&amp;beer</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright © 2026 root&amp;beer. All Rights Reserved.</copyright>
+    <lastBuildDate>Mon, 02 Feb 2026 18:51:59 -0800</lastBuildDate>
+    <atom:link href="http://rootandbeer.com/categories/command-injection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Command Injection</title>
+      <link>http://rootandbeer.com/docs/exploitation--enumeration/web/command-injection/</link>
+      <pubDate>Fri, 16 Jan 2026 13:15:03 -0800</pubDate>
+      <guid>http://rootandbeer.com/docs/exploitation--enumeration/web/command-injection/</guid>
+      <description>&lt;p&gt;Command Injection occurs when user input is improperly sanitized and directly passed to system command execution functions, allowing attackers to execute arbitrary operating system commands on the server, potentially leading to full system compromise, data exfiltration, or lateral movement.&lt;/p&gt;&#xA;&lt;h2 id=&#34;enumeration&#34;&gt;Enumeration&lt;/h2&gt;&#xA;&lt;h3 id=&#34;identifying-potential-injection-points&#34;&gt;Identifying Potential Injection Points&lt;/h3&gt;&#xA;&#xA;&lt;blockquote class=&#34;alert alert-primary&#34; role=&#34;alert&#34;&gt;&#xA;    &lt;p class=&#34;alert-heading fw-bold&#34;&gt;&#xA;      &lt;svg aria-hidden=&#34;true&#34; class=&#34;bi bi-exclamation-square hi-svg-inline me-1 me-lg-2&#34; fill=&#34;currentColor&#34; height=&#34;1em&#34; viewBox=&#34;0 0 16 16&#34; width=&#34;1em&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&#xA;  &lt;path d=&#34;M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z&#34;/&gt;&#xA;  &lt;path d=&#34;M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z&#34;/&gt;&#xA;&lt;/svg&gt;&lt;strong&gt;Common injection points:&lt;/strong&gt;&#xA;    &lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
