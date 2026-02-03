@@ -30,6 +30,8 @@ meta:
   date: false
 ---
 
+{{< doc_vars "RHOST,RPORT">}}
+
 ## Banner Grabbing 
 Banner grabbing retrieves service metadata exposed during initial connections, often revealing service type, version, or misconfigurations.
 
@@ -46,18 +48,18 @@ Banner grabbing retrieves service metadata exposed during initial connections, o
 Manually connect to a service and inspect the response. Useful for FTP, SMTP, POP3, IMAP:
 
 ```shell
-nc $RHOST 21 #FTP
+nc $RHOST $RPORT
 ```
 
 **Send commands after connection:**
 ```shell
-echo "QUIT" | nc $RHOST 21
+echo "QUIT" | nc $RHOST $RPORT
 ```
 
 ### Telnet
 Alternative to Netcat and is commonly available:
 ```shell
-telnet $RHOST 21
+telnet $RHOST $RPORT
 ```
 
 ### Curl (HTTP/HTTPS)
@@ -65,7 +67,7 @@ Retrieves the HTTP headers only. Reveals server type, framework and proxies:
 
 ```shell
 curl -I http://$RHOST
-curl -I http://$RHOST:8080
+curl -I http://$RHOST:$RPORT
 ```
 
 **HTTPS with certificate info:**
@@ -152,7 +154,7 @@ nmap -sC -A $RHOST
 
 **Vulnerability detection:**
 ```shell
-nmap --script vuln -p80,443 $RHOST
+nmap --script vuln -p$RPORT $RHOST
 ```
 
 Service-specific scripts targets a specific service
