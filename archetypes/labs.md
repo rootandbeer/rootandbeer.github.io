@@ -25,6 +25,7 @@ images:
 #         color: '#e24d0e'
 meta:
   reading_time: false
+  date: false
 ---
 
 ## Introduction
