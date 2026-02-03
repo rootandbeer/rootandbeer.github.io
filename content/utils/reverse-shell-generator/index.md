@@ -10,6 +10,7 @@ full_width: true
 meta:
   reading_time: false
   first_section: false
+  date: false
 menu:
   main:
     parent: blog
@@ -26,6 +27,9 @@ categories:
   - reverse shell
 #tags:
 ---
+This is a fork of the [Reverse Shell Generator](http://www.revshells.org). It has been modified to organize reverse shells by protocol for easier use, along with the addition of more reverse shells.
+
+Use the tool below to generate reverse shells, bind shells, and listener commands for common protocols (e.g. TCP, HTTP, HTTPS). Pick your OS, set LHOST/LPORT, then copy the command or payload you need.
 
 {{< embed_revshellgen >}}
 
