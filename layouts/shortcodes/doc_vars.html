@@ -1,0 +1,218 @@
+{{- /*
+  Doc variables form: substitute $VAR in page content.
+
+  Usage: {{< doc_vars >}} or {{< doc_vars "RHOST,LHOST,RPORT,LPORT" >}} or {{< doc_vars "RHOST" >}} or {{< doc_vars vars="RHOST,LHOST" >}}
+  Inline placeholders: {{< doc_vars "RHOST=10.0.0.1,LHOST,MYVAR=example.com" >}} (mix of inline and default placeholders).
+*/ -}}
+{{- /* Normalize param: theme may pass whitespace as .Get 0; treat empty/whitespace/nil as unset */ -}}
+{{- $raw := default (.Get "vars") (.Get 0) -}}
+{{- $rawStr := printf "%s" (default "" $raw) -}}
+{{- $trimmed := trim $rawStr " \t\n\r" -}}
+{{- $param := default "RHOST,LHOST,RPORT,LPORT" $trimmed -}}
+{{- $placeholders := dict "RHOST" "10.0.0.1" "LHOST" "192.168.1.1" "RPORT" "80" "LPORT" "4444" "DOMAIN" "example.com" "PAGEPARAMETER" "page.php?ping" -}}
+{{- $scratch := newScratch -}}
+{{- $scratch.Set "names" slice -}}
+{{- $scratch.Set "placeholders" slice -}}
+{{- range split $param "," -}}
+  {{- $seg := trim . " \t\n\r" -}}
+  {{- if $seg -}}
+    {{- if findRE "=" $seg -}}
+      {{- $parts := split $seg "=" -}}
+      {{- $name := trim (index $parts 0) " \t\n\r" -}}
+      {{- $ph := trim (delimit (after 1 $parts) "=") " \t\n\r" -}}
+      {{- $scratch.Add "names" (slice $name) -}}
+      {{- $scratch.Add "placeholders" (slice $ph) -}}
+    {{- else -}}
+      {{- $name := $seg -}}
+      {{- $ph := index $placeholders $name | default "..." -}}
+      {{- $scratch.Add "names" (slice $name) -}}
+      {{- $scratch.Add "placeholders" (slice $ph) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $varsList := $scratch.Get "names" -}}
+{{- $placeholdersList := $scratch.Get "placeholders" -}}
+<div id="doc-vars-form-container" class="doc-vars-form-wrapper mb-4" data-doc-vars="{{ delimit $varsList "," }}">
+  <div class="row g-2 align-items-end">
+    {{- range $i, $name := $varsList -}}
+    <div class="col-12 col-sm-6 col-md-3">
+      <label for="doc-var-{{ $name }}" class="form-label">${{ $name }}</label>
+      <input type="text" class="form-control form-control-sm" id="doc-var-{{ $name }}" name="{{ $name }}" placeholder="{{ index $placeholdersList $i }}" autocomplete="off">
+    </div>
+    {{- end -}}
+    <div class="col-12 col-sm-6 col-md-2">
+      <button type="button" class="btn btn-secondary btn-sm w-100" id="doc-vars-reset">Reset</button>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var STORAGE_KEY = 'doc-vars';
+  var VAR_NAMES = [];
+
+  function getMain() {
+    return document.querySelector('.hb-main') || document.querySelector('main') || document.querySelector('[class*="content"]');
+  }
+
+  function getFormContainer() {
+    return document.getElementById('doc-vars-form-container');
+  }
+
+  function getVars() {
+    var container = getFormContainer();
+    if (!container) return {};
+    var vars = {};
+    VAR_NAMES.forEach(function (name) {
+      var el = container.querySelector('[name="' + name + '"]');
+      vars[name] = el ? el.value.trim() : '';
+    });
+    return vars;
+  }
+
+  function setVars(vars) {
+    var container = getFormContainer();
+    if (!container) return;
+    VAR_NAMES.forEach(function (name) {
+      var el = container.querySelector('[name="' + name + '"]');
+      if (el && vars[name] !== undefined) el.value = vars[name];
+    });
+  }
+
+  function substitute(html, vars) {
+    var out = html;
+    VAR_NAMES.forEach(function (name) {
+      var val = (vars[name] !== undefined && vars[name] !== '') ? vars[name] : '$' + name;
+      out = out.split('${' + name + '}').join(val);
+    });
+    var sorted = VAR_NAMES.slice().sort(function (a, b) { return b.length - a.length; });
+    sorted.forEach(function (name) {
+      var val = (vars[name] !== undefined && vars[name] !== '') ? vars[name] : '$' + name;
+      var escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      var regex = new RegExp('\\$' + escaped + '(?![\\w])', 'g');
+      out = out.replace(regex, val);
+    });
+    return out;
+  }
+
+  function applySubstitution() {
+    var main = getMain();
+    var formContainer = getFormContainer();
+    if (!main || !formContainer || !contentStore.length) return;
+    var vars = getVars();
+    contentStore.forEach(function (entry) {
+      if (!entry.node || !entry.node.parentNode) return;
+      if (entry.node.contains && entry.node.contains(formContainer)) return;
+      var out = substitute(entry.originalHTML, vars);
+      if (out.indexOf(FORM_PLACEHOLDER) !== -1) {
+        out = out.replace(FORM_PLACEHOLDER, formContainer.outerHTML);
+      }
+      entry.node.innerHTML = out;
+    });
+    formContainerRef = getFormContainer();
+  }
+
+  function saveToStorage() {
+    try {
+      var vars = getVars();
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(vars));
+    } catch (e) {}
+  }
+
+  function loadFromStorage() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        var vars = JSON.parse(raw);
+        setVars(vars);
+        applySubstitution();
+      }
+    } catch (e) {}
+  }
+
+  function resetForm() {
+    var empty = {};
+    VAR_NAMES.forEach(function (name) { empty[name] = ''; });
+    setVars(empty);
+    saveToStorage();
+    applySubstitution();
+  }
+
+  var FORM_PLACEHOLDER = '<!--__DOC_VARS_FORM__-->';
+  var contentStore = [];
+  var formContainerRef = null;
+  var trueOriginals = null;
+
+  function getDocContentNodes(main, formContainer) {
+    var byClass = main.querySelectorAll('.hb-docs-doc-content');
+    if (byClass.length > 0) {
+      var nodes = Array.prototype.slice.call(byClass);
+      var out = [];
+      for (var i = 0; i < nodes.length; i++) {
+        if (nodes[i].contains && nodes[i].contains(formContainer)) {
+          var siblings = Array.prototype.slice.call(formContainer.parentNode.children).filter(function (el) { return el !== formContainer; });
+          out = out.concat(siblings);
+        } else {
+          out.push(nodes[i]);
+        }
+      }
+      return out.length ? out : nodes;
+    }
+    var children = Array.prototype.slice.call(main.children).filter(function (el) { return el !== formContainer; });
+    if (children.length === 1 && children[0].contains && children[0].contains(formContainer)) {
+      var parent = formContainer.parentNode;
+      var siblings = Array.prototype.slice.call(parent.children).filter(function (el) { return el !== formContainer; });
+      if (siblings.length === 1 && siblings[0].contains && siblings[0].contains(formContainer)) {
+        parent = siblings[0];
+        siblings = Array.prototype.slice.call(parent.children).filter(function (el) { return el !== formContainer; });
+      }
+      return siblings;
+    }
+    return children;
+  }
+
+  function init() {
+    var main = getMain();
+    formContainerRef = getFormContainer();
+    var formContainer = formContainerRef;
+    if (!main || !formContainer) return;
+    VAR_NAMES = (formContainer.getAttribute('data-doc-vars') || 'RHOST,LHOST,RPORT,LPORT').split(',').map(function (s) { return s.trim(); });
+
+    var contentNodes = getDocContentNodes(main, formContainer);
+    contentNodes = contentNodes.filter(function (node) { return !(node.contains && node.contains(formContainer)); });
+    if (contentNodes.length === 0) return;
+    if (trueOriginals === null) trueOriginals = [];
+    contentStore = contentNodes.map(function (node, idx) {
+      var originalHTML;
+      if (trueOriginals[idx] !== undefined) {
+        originalHTML = trueOriginals[idx];
+      } else {
+        var raw = node.innerHTML;
+        var isWrapperWithForm = (node.contains && node.contains(formContainer));
+        originalHTML = isWrapperWithForm ? raw.replace(formContainer.outerHTML, FORM_PLACEHOLDER) : raw;
+        trueOriginals[idx] = originalHTML;
+      }
+      return { node: node, originalHTML: originalHTML };
+    });
+
+    loadFromStorage();
+
+    function onFormInput() {
+      applySubstitution();
+      saveToStorage();
+    }
+    formContainer.addEventListener('input', onFormInput);
+    formContainer.addEventListener('change', onFormInput);
+
+    var resetBtn = document.getElementById('doc-vars-reset');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', resetForm);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
