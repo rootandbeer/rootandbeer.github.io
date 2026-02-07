@@ -1,7 +1,7 @@
 ---
 title: "SSH Tunneling Lab – Local and Remote Port Forwarding"
 date: 2026-02-06T19:56:34-08:00
-draft: true
+draft: false
 description: "SSH tunneling lab for penetration testing. Practice local (-L) and remote (-R) port forwarding with Docker. Pivot through a jump host to reach internal MySQL and receive reverse shells."
 noindex: false
 featured: false
@@ -15,7 +15,7 @@ tags:
   - ssh
   - tunneling
 
-images:
+images: [ssh-tunneling-lab.png]
 #  - 
 authors:
   - Rob
@@ -36,7 +36,7 @@ meta:
 
 | Repo | ⭐ Please give a [Star](https://github.com/rootandbeer/ssh-tunneling-lab) if you enjoyed this lab ⭐ |
 | --- | --- |
-| Downloads | [![GitHub Clones](https://img.shields.io/badge/dynamic/json?color=success&label=Clone&query=count&url=https://gist.githubusercontent.com/rootandbeer/b7ba3d389cc20606bb343135cbe3b7e7/raw/clone.json&logo=github)](https://github.com/MShawon/github-clone-count-badge) |
+| Downloads | ![GitHub Clones](https://img.shields.io/badge/dynamic/json?color=success&label=Clone&query=count&url=https://gist.githubusercontent.com/rootandbeer/c0673910d3946ec90839257342efcc76/raw/clone.json&logo=github) |
 | Stars | ![GitHub Repo stars](https://img.shields.io/github/stars/rootandbeer/ssh-tunneling-lab?style=flat&labelColor=grey&color=blue&logo=github) |
 | Prerequisites | [Docker-ce](https://www.kali.org/docs/containers/installing-docker-on-kali/), SSH client, [mysql-client](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) (for Objective 1) |
 | Difficulty | ![Static Badge](https://img.shields.io/badge/medium-orange) |
