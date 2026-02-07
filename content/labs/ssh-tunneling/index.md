@@ -38,7 +38,7 @@ meta:
 | --- | --- |
 | Downloads | ![GitHub Clones](https://img.shields.io/badge/dynamic/json?color=success&label=Clone&query=count&url=https://gist.githubusercontent.com/rootandbeer/c0673910d3946ec90839257342efcc76/raw/clone.json&logo=github) |
 | Stars | ![GitHub Repo stars](https://img.shields.io/github/stars/rootandbeer/ssh-tunneling-lab?style=flat&labelColor=grey&color=blue&logo=github) |
-| Prerequisites | [Docker-ce](https://www.kali.org/docs/containers/installing-docker-on-kali/), SSH client, [mysql-client](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) |
+| Prerequisites | [Docker-ce](https://www.kali.org/docs/containers/installing-docker-on-kali/), [mysql-client](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) |
 | Difficulty | ![Static Badge](https://img.shields.io/badge/medium-orange) |
 
 This lab demonstrates SSH tunneling and pivoting. You have SSH access to a jump host (pivot) that can reach an internal server; in a real engagement, only the pivot would have that access. You will use **local port forwarding (-L)** to reach the internal MySQL server through the pivot, and **remote port forwarding (-R)** to receive a reverse shell from the internal server through the pivot. For more on the concepts, see [SSH Tunneling](/docs/post-exploitation/tunneling/ssh/).
