@@ -1,7 +1,9 @@
 github.com/GoogleChrome/workbox v7.4.0+incompatible h1:/XRSe+BKNV6b+vh4ROaR0QSPP1Zmgf28wQCynTusg9s=
 github.com/GoogleChrome/workbox v7.4.0+incompatible/go.mod h1:dyEoGLpJeO43pUVJb+nNNr1WRgoF81hNEl4UGLV+yow=
-github.com/KaTeX/KaTeX v0.16.27 h1:aXMWvUfxdQQ6iLGndMbU6vXmm7bOfp5AeQIPVDVG/2M=
-github.com/KaTeX/KaTeX v0.16.27/go.mod h1:VI+aE+CVs/VqtbHnuhstfQST46GmrwpXH7LQAzYIouw=
+github.com/KaTeX/KaTeX v0.16.28 h1:3jkAxfy/ICSEcaLK4AJIWKAWsvKgb6g94wJ0sNpZy9w=
+github.com/KaTeX/KaTeX v0.16.28/go.mod h1:VI+aE+CVs/VqtbHnuhstfQST46GmrwpXH7LQAzYIouw=
+github.com/Templarian/MaterialDesign-SVG v7.4.47+incompatible h1:w99yYrLvkTj5A9Dxd8mzNoFQpOBx9aRS03RrrqjzLuw=
+github.com/Templarian/MaterialDesign-SVG v7.4.47+incompatible/go.mod h1:SRSiaLOZazGp4UpKPQRm37h4A3cKLHXaybAqaJ7Lfx8=
 github.com/desandro/masonry v4.2.2+incompatible h1:4LI69kwq5DJSF9jhHVGfCw+q2Nt3IgJ0KzEp19Z3YiA=
 github.com/desandro/masonry v4.2.2+incompatible/go.mod h1:4P4Or5YZcNuAtGW3JOYLTrmi+ZyqhCPj7xTgradMEVU=
 github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20400 h1:L6+F22i76xmeWWwrtijAhUbf3BiRLmpO5j34bgl1ggU=
@@ -180,6 +182,8 @@ github.com/hugomods/images v0.12.3 h1:FiHZnFgbxn4SpxdY8harOxhYKA8WhAgibJoHhIe9sd
 github.com/hugomods/images v0.12.3/go.mod h1:U6Gwj16LKvk66rOMyGFrnF6f0aV8lT89lqOsckOAjYY=
 github.com/hugomods/katex v0.3.6 h1:Xl7ruiXuwvEGlz3H02w24B0zRGtHcL4sMc11Ke/aMFE=
 github.com/hugomods/katex v0.3.6/go.mod h1:6ACkMfCEOjLIRwcbS33Yji29C113+zGdBF/5oMfWfZI=
+github.com/hugomods/lucide-icons v0.515.0 h1:Wu5kHtLW58YYQ3cmed8Jf5/1iaKjzr6HVW0i60MSr2M=
+github.com/hugomods/lucide-icons v0.515.0/go.mod h1:7loUmJrnD5umJ2sWSCb3AffZt0fYnSc1I+yBRjgHgw8=
 github.com/hugomods/masonry-js v0.1.0 h1:mZagvVEWsgyIFViMY1ZkOOJfdFV5D76eB99SHgwhbRU=
 github.com/hugomods/masonry-js v0.1.0/go.mod h1:+RHcqWxaZ9R4Z0GeAji1WiQ006/VxR5RLhOLpfVypio=
 github.com/hugomods/mermaid v0.1.4 h1:/u0FZRSBMpqTbDh4XPBL7c6p0DUjvIkoo9cC89GASSI=
@@ -218,7 +222,8 @@ github.com/jakearchibald/idb v8.0.3+incompatible h1:+tMErfQebeSvSKBl4j3DDiwZU6X/
 github.com/jakearchibald/idb v8.0.3+incompatible/go.mod h1:AuDoW54s2DKfbclM+ScrnPp8ahUQ9rHph9bb8sZTEXc=
 github.com/krisk/Fuse v7.1.0+incompatible h1:WKrE7/HvvQQnysvOcOXk+KDlKoH+Z6S0KJcAtbglvXs=
 github.com/krisk/Fuse v7.1.0+incompatible/go.mod h1:3moWv8rDjwoKic9nwiPLgZjldkbdTAbtzJHCu/Vsj4A=
-github.com/twbs/bootstrap v5.3.3+incompatible/go.mod h1:fZTSrkpSf0/HkL0IIJzvVspTt1r9zuf7XlZau8kpcY0=
+github.com/tabler/tabler-icons v3.36.1+incompatible h1:UfllhCRpeKv7xynVfsM9snZapEiNdAt5KyUlY4oohjY=
+github.com/tabler/tabler-icons v3.36.1+incompatible/go.mod h1:Ap75CRdhXxprnUnPlUCRLvJ2pIFNqwxIipj3GfD6XHE=
 github.com/twbs/bootstrap v5.3.8+incompatible h1:eK1fsXP7R/FWFt+sSNmmvUH9usPocf240nWVw7Dh02o=
 github.com/twbs/bootstrap v5.3.8+incompatible/go.mod h1:fZTSrkpSf0/HkL0IIJzvVspTt1r9zuf7XlZau8kpcY0=
 github.com/twbs/icons v1.13.1 h1:6bmNXvoeIbvjFWjfbjXg5JGbelLD1haIsMaEIzE9UZI=

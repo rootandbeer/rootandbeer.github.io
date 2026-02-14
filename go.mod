@@ -4,7 +4,8 @@ go 1.19
 
 require (
 	github.com/GoogleChrome/workbox v7.4.0+incompatible // indirect
-	github.com/KaTeX/KaTeX v0.16.27 // indirect
+	github.com/KaTeX/KaTeX v0.16.28 // indirect
+	github.com/Templarian/MaterialDesign-SVG v7.4.47+incompatible // indirect
 	github.com/desandro/masonry v4.2.2+incompatible // indirect
 	github.com/gohugoio/hugo-mod-bootstrap-scss/v5 v5.20300.20400 // indirect
 	github.com/gohugoio/hugo-mod-jslibs-dist/popperjs/v2 v2.21100.20000 // indirect
@@ -94,6 +95,7 @@ require (
 	github.com/hugomods/idb-js v0.1.0 // indirect
 	github.com/hugomods/images v0.12.3 // indirect
 	github.com/hugomods/katex v0.3.6 // indirect
+	github.com/hugomods/lucide-icons v0.515.0 // indirect
 	github.com/hugomods/masonry-js v0.1.0 // indirect
 	github.com/hugomods/mermaid v0.1.4 // indirect
 	github.com/hugomods/pwa v0.9.0 // indirect
@@ -113,6 +115,7 @@ require (
 	github.com/hugomods/workbox v0.1.0 // indirect
 	github.com/jakearchibald/idb v8.0.3+incompatible // indirect
 	github.com/krisk/Fuse v7.1.0+incompatible // indirect
+	github.com/tabler/tabler-icons v3.36.1+incompatible // indirect
 	github.com/twbs/bootstrap v5.3.8+incompatible // indirect
 	github.com/twbs/icons v1.13.1 // indirect
 )
