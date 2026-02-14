@@ -17,7 +17,7 @@ tags:
   - nmap
   - hydra
   - crunch 
-images: [matrix-1.jpg]
+images: [matrix-1.webp]
 # menu:
 #   main:
 #     weight: 100
