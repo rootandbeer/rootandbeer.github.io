@@ -41,6 +41,3 @@ The wireless assessment workflow typically follows:
 {{< /markdownify >}}
 {{< /bs/alert >}}
 
-## Topics
-
-- **[BLE / Bluetooth Low Energy](/docs/wireless-&-radio/ble-bluetooth/)** — Discovery, GATT enumeration, Sniffle capture, security mode assessment, and GATT replay
