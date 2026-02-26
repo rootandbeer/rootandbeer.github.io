@@ -1,0 +1,9 @@
+{{- /* getJSON removed in Hugo 0.140.0; use resources.GetRemote + transform.Unmarshal */ -}}
+{{- $url := printf "https://api.github.com/repos/%s" . }}
+{{- $res := resources.GetRemote $url }}
+{{- if $res }}
+  {{- $data := $res.Content | transform.Unmarshal }}
+  {{- return $data.node_id }}
+{{- else }}
+  {{- errorf "giscus: failed to fetch repo metadata from %s" $url }}
+{{- end }}

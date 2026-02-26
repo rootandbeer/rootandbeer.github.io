@@ -9,7 +9,7 @@
 {{- $rawStr := printf "%s" (default "" $raw) -}}
 {{- $trimmed := trim $rawStr " \t\n\r" -}}
 {{- $param := default "RHOST,LHOST,RPORT,LPORT" $trimmed -}}
-{{- $placeholders := dict "RHOST" "10.0.0.1" "LHOST" "192.168.1.1" "RPORT" "80" "LPORT" "4444" "DOMAIN" "example.com" "PAGEPARAMETER" "page.php?ping" -}}
+{{- $placeholders := dict "RHOST" "10.0.0.1" "LHOST" "192.168.1.1" "RPORT" "80" "LPORT" "4444" "DOMAIN" "example.com" "PAGEPARAMETER" "page.php?ping" "BMAC" "8a:5b:aa:ff:f5:55" -}}
 {{- $scratch := newScratch -}}
 {{- $scratch.Set "names" slice -}}
 {{- $scratch.Set "placeholders" slice -}}

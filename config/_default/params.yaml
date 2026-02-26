@@ -1,4 +1,7 @@
 description: Brewing Up Cybersecurity News, Hacking Tutorials, and a Dash of Unsolicited Opinions
+# Required by hbstack RSS template (avoids deprecated site.Author)
+author:
+  name: root&beer
 hb:
   # js_bundle_name: main # the JS bundle name.
   # css_bundle_name: main # the CSS bundle name.
