@@ -17,17 +17,11 @@ tags:
   - wireshark
   - gatttool
   - bluetoothctl
-  - ble
-  - gatt
 images:
 #  -
 meta:
   reading_time: false
   date: false
-nav_icon:
-  vendor: lucide
-  name: bluetooth
-  color: 0082fc
 ---
 
 {{< doc_vars "BMAC,HANDLE=0x0025,VALUE=0100" >}}
