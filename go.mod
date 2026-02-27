@@ -17,7 +17,6 @@ require (
 	github.com/hbstack/blog/modules/breadcrumb v0.1.23 // indirect
 	github.com/hbstack/blog/modules/content-panel v0.1.21 // indirect
 	github.com/hbstack/blog/modules/featured-image v0.2.21 // indirect
-	github.com/hbstack/blog/modules/giscus v0.1.24 // indirect
 	github.com/hbstack/blog/modules/heading-sign v0.1.23 // indirect
 	github.com/hbstack/blog/modules/post-nav v0.4.0 // indirect
 	github.com/hbstack/blog/modules/related-posts v0.4.0 // indirect
@@ -37,7 +36,6 @@ require (
 	github.com/hbstack/docs/modules/content-panel v0.1.8 // indirect
 	github.com/hbstack/docs/modules/doc-nav v0.3.7 // indirect
 	github.com/hbstack/docs/modules/featured-image v0.2.8 // indirect
-	github.com/hbstack/docs/modules/giscus v0.1.11 // indirect
 	github.com/hbstack/docs/modules/heading-sign v0.1.9 // indirect
 	github.com/hbstack/docs/modules/revision v0.1.0 // indirect
 	github.com/hbstack/docs/modules/social-share-buttons v0.1.0 // indirect
@@ -45,7 +43,6 @@ require (
 	github.com/hbstack/featured-image v0.2.2 // indirect
 	github.com/hbstack/footer v0.4.1 // indirect
 	github.com/hbstack/footer/modules/socials v0.3.0 // indirect
-	github.com/hbstack/giscus v0.1.1 // indirect
 	github.com/hbstack/google-fonts v0.1.1 // indirect
 	github.com/hbstack/hb v0.16.2 // indirect
 	github.com/hbstack/header v0.16.7 // indirect
@@ -80,7 +77,6 @@ require (
 	github.com/hugomods/code-block-panel v0.9.0 // indirect
 	github.com/hugomods/font-awesome v6.7.1+incompatible // indirect
 	github.com/hugomods/fuse-js v0.1.0 // indirect
-	github.com/hugomods/giscus v0.1.1 // indirect
 	github.com/hugomods/google-analytics v0.2.1 // indirect
 	github.com/hugomods/gravatar v0.2.1 // indirect
 	github.com/hugomods/hugopress v0.5.2 // indirect
