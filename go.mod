@@ -121,4 +121,4 @@ require (
 )
 
 // Fix hugomods/giscus getJSON (removed in Hugo 0.140.0): use local replacement with resources.GetRemote...  remove line to revert back to hugomods/giscus
-replace github.com/hugomods/giscus => ./replacements/giscus
+// replace github.com/hugomods/giscus => ./replacements/giscus
