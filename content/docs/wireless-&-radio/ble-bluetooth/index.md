@@ -317,7 +317,7 @@ Check for known BLE stack and SDK vulnerabilities before exploitation:
 
 Using an [nRF52840](https://store.aprbrother.com/product/usb-dongle-nrf52840) USB dongle flashed with [April Brother `ble_connectivity` firmware](https://github.com/AprilBrother/april-usb-dongle-52840/tree/main/firmware) supports scripted or host-driven connection tests and replay-style workflows alongside captures.
 
-Download the [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-desktop/download) application from Nordic.
+Download the [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-desktop/download) application from Nordic to use the dongle and replay writes.
 
 ### GATT Read/Write Replay
 
