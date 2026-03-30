@@ -321,11 +321,19 @@ Download the [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Devel
 >\
 >Add User to Group then Reload
 >```shell
+>sudo usermod -aG plugdev $USER
 >sudo usermod -aG dialout $USER
 >sudo udevadm control --reload-rules  
 >sudo udevadm trigger
+>sudo reboot now
 >```
-> Then make sure to reboot
+>
+>\
+>You should have **rw access** as your user:
+>```shell
+>ls -l /dev/ttyACM0
+>```
+
 
 ### GATT Read/Write Replay
 
