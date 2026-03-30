@@ -93,11 +93,11 @@ Use a dedicated sniffer (e.g., Sniffle, Ubertooth) to capture advertisements wit
 
 ---
 
-## Traffic capture (Sniffle)
+## Traffic capture (Sniffle w/ Sonoff Zigbee USB Dongle)
 
 Traffic capture supports security analysis; timing matters more than tool choice. **For pairing and key distribution**, begin recording before the first bond or reconnect that establishes keys. **For application-layer testing**, capture while the official client drives the peripheral so write opcodes and handles match real use. Enumeration below does not replace capture—it tells you which handles matter once you have a PCAP.
 
-Sniffle provides reliable BLE sniffing with advertising channel hopping. Hardware: [Sonoff Zigbee 3.0 USB Dongle Plus (CC26x2/CC1352)](https://sonoff.tech/en-us/products/sonoff-zigbee-3-0-usb-dongle-plus-zbdongle-p) flashed with [NCC Group's Sniffle firmware](https://github.com/nccgroup/Sniffle). Make sure the device is the CC26x2/CC1352 chipset.
+Sniffle provides reliable BLE sniffing with advertising channel hopping. Hardware: [Sonoff Zigbee 3.0 USB Dongle Plus (CC26x2/CC1352)](https://sonoff.tech/en-us/products/sonoff-zigbee-3-0-usb-dongle-plus-zbdongle-p) flashed with [NCC Group's Sniffle firmware](https://github.com/nccgroup/Sniffle). **Make sure the device is the CC26x2/CC1352 chipset.**
 
 >[!tip] Pair With nRF52840
 >Using this alongside with the [nRF52840](#nordic-nrf52840-readwrite-replay) makes for a highly capable setup.
@@ -200,19 +200,6 @@ gatttool -b $BMAC -t random --primary
 ```shell
 gatttool -b $BMAC -t random --characteristics
 ```
-
-\
-**Read/Write (non-interactive):**
-```shell
-gatttool -b $BMAC -t random --char-read -a <HANDLE>
-gatttool -b $BMAC -t random --char-write-req -a <HANDLE> -n <HEX_VALUE>
-gatttool -b $BMAC -t random --char-write-cmd -a <HANDLE> -n <HEX_VALUE>
-```
-
-- `--char-write-req` — write with response (reliable)
-- `--char-write-cmd` — write without response (unreliable)
-
->[!important] Use `-t random` for BLE Random Static Address or `-t public` for Public Address. Many BLE devices use random addresses.
 
 ### GATT Structure Overview
 
@@ -319,16 +306,45 @@ Using an [nRF52840](https://store.aprbrother.com/product/usb-dongle-nrf52840) US
 
 Download the [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nrf-connect-for-desktop/download) application from Nordic to use the dongle and replay writes.
 
+>[!important] If nRF Connect Does Not Detect Dongle When Using Linux
+> Add The Following to `/etc/udev/rules.d/99-nordic.rules`
+>```shell
+>SUBSYSTEM=="usb", ATTR{idVendor}=="1915", MODE="0666"  
+>SUBSYSTEM=="usb", ATTR{idVendor}=="1366", MODE="0666"
+>```
+>\
+> Add The Following to `/etc/udev/rules.d/99-nordic-serial.rules`
+>```shell
+>SUBSYSTEM=="tty", ATTRS{idVendor}=="1915", MODE="0666"  
+>SUBSYSTEM=="tty", ATTRS{idVendor}=="1366", MODE="0666"
+>```
+>\
+>Add User to Group then Reload
+>```shell
+>sudo usermod -aG dialout $USER
+>sudo udevadm control --reload-rules  
+>sudo udevadm trigger
+>```
+> Then make sure to reboot
+
 ### GATT Read/Write Replay
 
 After capturing a valid write from a legitimate client (e.g., phone app), replay it with `gatttool` using the attribute handle and hex payload from the PCAP:
 
+**Read/Write (non-interactive):**
 ```shell
+gatttool -b $BMAC -t random --char-read -a $HANDLE
 gatttool -b $BMAC -t random --char-write-req -a $HANDLE -n $VALUE
+gatttool -b $BMAC -t random --char-write-cmd -a $HANDLE -n $VALUE
 ```
 
-Use `-t public` instead of `-t random` if the device uses a public address. Set `HANDLE` in hex (e.g., `0x0025`); set `VALUE` as a contiguous hex string with no spaces (e.g., `0100` for bytes `0x01 0x00`).
+- `--char-write-req` — write with response (reliable)
+- `--char-write-cmd` — write without response (unreliable)
 
+>[!note] Use `-t random` for BLE Random Static Address or `-t public` for Public Address. Many BLE devices use random addresses. Set `HANDLE` in hex (e.g., `0x0025`); set `VALUE` as a contiguous hex string with no spaces (e.g., `0100` for bytes `0x01 0x00`).
+
+\
+Use `-t public` instead of `-t random` if the device uses a public address. 
 **Example:**
 ```shell
 gatttool -b 8a:5b:aa:ff:f5:55 -t random --char-write-req -a 0x0025 -n 0100
