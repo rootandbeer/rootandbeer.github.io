@@ -2,8 +2,8 @@
   "name": "hb-theme-cards",
   "description": "The cards theme of [HB Framework](https://hbstack.dev/).",
   "scripts": {
-    "dev": "hugo server --gc -D",
-    "prod": "hugo server --gc --disableFastRender --renderToDisk --minify -e production -p 1314"
+    "dev": "hugo server --gc -D --noHTTPCache",
+    "prod": "hugo server --gc --disableFastRender --renderToDisk --minify -e production -p 1314 --noHTTPCache"
   },
   "repository": {
     "type": "git",

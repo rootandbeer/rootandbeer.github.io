@@ -1,50 +1,10 @@
 // This SCSS styles will be compiled into the CSS bundle automatically.
 
+@import "code-block";
+@import "emgithub-theme";
+
 /*! purgecss start ignore */
 
 /*! PUT YOU STYLE HERE TO AVOID GETTING REMOVING BY PURGECSS. */
 
 /*! purgecss end ignore */
-/* Custom styling for code blocks */
-
-.my-code-block {
-  overflow-x: auto;      /* horizontal scroll */
-  overflow-y: hidden;    /* hide vertical scroll */
-  -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
-  padding: 0;
-  background-color: #1e1e1e;
-  color: #f8f8f2;
-  border-radius: 0.5rem;
-  font-family: monospace;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  border: none;
-}
-
-
-/* Optional inner code styling */
-.my-code-block code {
-  font-family: inherit;
-  color: inherit;
-  display: block;
-}
-
-/* Make horizontal scrollbar look like the original highlight */
-.my-code-block::-webkit-scrollbar {
-  height: 8px;           /* horizontal scrollbar height */
-}
-
-.my-code-block::-webkit-scrollbar-thumb {
-  background: #888;      /* scrollbar thumb color */
-  border-radius: 4px;    /* rounded ends */
-}
-
-.my-code-block::-webkit-scrollbar-thumb:hover {
-  background: #555;      /* darker on hover */
-}
-
-/* Firefox scrollbar style */
-.my-code-block {
-  scrollbar-width: thin;
-  scrollbar-color: #888 transparent;
-}

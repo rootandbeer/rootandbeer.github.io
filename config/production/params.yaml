@@ -1,2 +1,13 @@
-# see https://hugomods.com/en/docs/google-adsense/.
-# google_adsense: 'ca-pub-XXXXXXXXXXXXXXXX' # Please make that the Google AdSense module was imported.
+# Production PWA: prefer fresh CSS/JS so deploys show up without hard refreshes.
+pwa:
+  caches:
+    font:
+      strategy: stale-while-revalidate
+      max_age: 604800 # 7d
+    image:
+      strategy: stale-while-revalidate
+      max_age: 604800 # 7d
+    script:
+      strategy: network-first
+    style:
+      strategy: network-first

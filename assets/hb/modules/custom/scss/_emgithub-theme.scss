@@ -1,0 +1,236 @@
+// root&beer EmGitHub theme — matches site dark palette, .my-code-block, and gruvbox syntax.
+
+.emgithub-container {
+  width: 100%;
+
+  --rb-emgithub-body-bg: var(--bs-body-bg);
+  --rb-emgithub-code-bg: #282828; // gruvbox .chroma background used on main site code blocks
+  --rb-emgithub-text: #f8f8f2;
+  --rb-emgithub-inline-code-bg: rgba(255, 255, 255, 0.08);
+  --rb-emgithub-table-stripe: #1a1a1a;
+  --rb-emgithub-border: var(--bs-border-color);
+  --rb-emgithub-link: var(--hb-link-color);
+  --rb-emgithub-link-hover: var(--hb-link-hover-color);
+  --rb-emgithub-heading: var(--bs-heading-color, var(--rb-emgithub-text));
+
+  .emgithub-file {
+    width: 100%;
+    max-width: none !important;
+    background-color: var(--rb-emgithub-body-bg) !important;
+    border-color: var(--rb-emgithub-border) !important;
+  }
+
+  .file-data,
+  .html-area.markdown-body {
+    box-sizing: border-box;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: var(--rb-emgithub-body-bg) !important;
+    border-color: var(--rb-emgithub-border) !important;
+  }
+
+  .code-area {
+    background-color: var(--rb-emgithub-body-bg) !important;
+    border-color: var(--rb-emgithub-border) !important;
+  }
+
+  .markdown-body {
+    background-color: transparent !important;
+    color: var(--rb-emgithub-text) !important;
+    color-scheme: dark;
+
+    --fgColor-default: var(--rb-emgithub-text);
+    --fgColor-muted: var(--bs-secondary-color);
+    --fgColor-accent: var(--rb-emgithub-link);
+    --bgColor-default: var(--rb-emgithub-body-bg);
+    --bgColor-muted: var(--rb-emgithub-table-stripe);
+    --bgColor-neutral-muted: var(--rb-emgithub-inline-code-bg);
+    --borderColor-default: var(--rb-emgithub-border);
+    --borderColor-muted: var(--rb-emgithub-border);
+
+    a,
+    a:not([class]) {
+      color: var(--rb-emgithub-link) !important;
+      text-decoration: var(--hb-link-decoration, underline);
+      text-underline-offset: 0.2rem;
+
+      &:hover,
+      &:focus {
+        color: var(--rb-emgithub-link-hover) !important;
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: var(--rb-emgithub-heading) !important;
+      border-color: var(--rb-emgithub-border) !important;
+    }
+
+    table {
+      display: table !important;
+      width: 100%;
+      background-color: var(--rb-emgithub-body-bg) !important;
+      color: var(--rb-emgithub-text) !important;
+      border-collapse: collapse;
+    }
+
+    thead,
+    tbody,
+    tfoot,
+    tr,
+    th,
+    td {
+      background-color: inherit !important;
+      color: var(--rb-emgithub-text) !important;
+      border-color: var(--rb-emgithub-border) !important;
+    }
+
+    table tr {
+      background-color: var(--rb-emgithub-body-bg) !important;
+      border-top: 1px solid var(--rb-emgithub-border) !important;
+    }
+
+    table tr:nth-child(2n) {
+      background-color: var(--rb-emgithub-table-stripe) !important;
+    }
+
+    table th {
+      font-weight: 600;
+    }
+
+    table th,
+    table td {
+      padding: 6px 13px;
+      border: 1px solid var(--rb-emgithub-border) !important;
+    }
+
+    :not(pre) > code,
+    :not(pre) > tt {
+      padding: 0.2em 0.4em;
+      font-size: 85%;
+      white-space: break-spaces;
+      background-color: var(--rb-emgithub-inline-code-bg) !important;
+      color: var(--rb-emgithub-text) !important;
+      border-radius: 6px;
+    }
+
+    // Override github-markdown + hljs injected styles on fenced blocks
+    .highlight {
+      position: relative;
+      margin-bottom: 0.5rem;
+      background: transparent !important;
+    }
+
+    .highlight pre,
+    pre:has(> code.hljs),
+    pre:has(> code) {
+      overflow: auto !important;
+      -webkit-overflow-scrolling: touch;
+      padding: 1rem 0.5rem !important;
+      margin-bottom: 0 !important;
+      max-height: 560px;
+      background-color: var(--rb-emgithub-code-bg) !important;
+      color: var(--rb-emgithub-text) !important;
+      border: none !important;
+      border-radius: 0.5rem !important;
+      font-family: monospace !important;
+      font-size: 0.9rem !important;
+      line-height: 1.4 !important;
+      scrollbar-width: thin;
+      scrollbar-color: #888 transparent;
+
+      &:hover {
+        scrollbar-color: var(--bs-primary) transparent;
+      }
+
+      &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    }
+  }
+
+  .code-area pre {
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch;
+    padding: 1rem 0.5rem !important;
+    max-height: 560px;
+    background-color: var(--rb-emgithub-code-bg) !important;
+    color: var(--rb-emgithub-text) !important;
+    border: none !important;
+    border-radius: 0.5rem !important;
+    font-family: monospace !important;
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
+
+    &:hover {
+      scrollbar-color: var(--bs-primary) transparent;
+    }
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+
+  pre code,
+  pre .hljs,
+  .code-area .hljs {
+    display: block;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible;
+    white-space: pre;
+    word-break: normal;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+  }
+
+  // Default code text only — token colors come from EmGitHub's gruvbox hljs theme.
+  // Do NOT restyle .hljs-subst as a string; it is plain text in Highlight.js.
+  pre .hljs .hljs-subst,
+  pre .hljs .hljs-punctuation {
+    color: var(--rb-emgithub-text) !important;
+  }
+
+  .file-meta {
+    background-color: var(--rb-emgithub-body-bg) !important;
+    color: var(--bs-secondary-color) !important;
+    border-color: var(--rb-emgithub-border) !important;
+  }
+
+  .copy-btn {
+    color: var(--rb-emgithub-text) !important;
+    background-color: var(--rb-emgithub-code-bg) !important;
+    border-color: var(--rb-emgithub-border) !important;
+  }
+}

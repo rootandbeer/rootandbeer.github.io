@@ -1,12 +1,17 @@
 ---
-title: "Lab Submission"
-date: 2026-01-11T19:04:16-08:00
+title: "Phishing"
+date: 2026-09-10T03:08:40Z
 draft: false
-#description: "Lab Submission"
+description: "Phishing"
 noindex: false
 featured: false
 pinned: false
-full_width: false
+nav_icon:
+  vendor: tabler
+  name: outline/fish
+  color: 6ea8fe
+nav_weight: 1
+
 # comments: false
 series:
 #  - 
@@ -26,8 +31,5 @@ images:
 #         color: '#e24d0e'
 meta:
   reading_time: false
-  first_section: false
-
+  date: false
 ---
-
-Community lab submissions coming soon....

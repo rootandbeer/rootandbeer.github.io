@@ -151,6 +151,14 @@ search:
   ignore_location: true
   # shortcut_search: ["/"]
 
+# EmGitHub defaults — gruvbox syntax via hljs; block shell styled in custom SCSS
+emgithub:
+  style: base16/gruvbox-dark-medium
+  border: false
+  file_meta: false
+  line_numbers: true
+  copy_button: true
+
 mermaid:
   # replace it with other CDNs or self-hosted URLs.
   js_url: https://cdn.jsdelivr.net/npm/mermaid@latest/dist/mermaid.esm.min.mjs
