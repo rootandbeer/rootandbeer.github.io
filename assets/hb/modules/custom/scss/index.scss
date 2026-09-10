@@ -1,9 +1,11 @@
 // This SCSS styles will be compiled into the CSS bundle automatically.
 
 @import "code-block";
-@import "emgithub-theme";
 
 /*! purgecss start ignore */
+
+// EmGitHub injects .emgithub-container at runtime — not in hugo_stats, so keep out of PurgeCSS.
+@import "emgithub-theme";
 
 /*! PUT YOU STYLE HERE TO AVOID GETTING REMOVING BY PURGECSS. */
 

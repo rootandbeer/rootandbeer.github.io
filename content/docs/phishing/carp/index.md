@@ -3,6 +3,7 @@ title: "C.A.R.P."
 date: 2026-09-10T03:08:40Z
 draft: false
 #description: "Carp"
+hide_subtitle: true
 noindex: false
 featured: false
 pinned: false
