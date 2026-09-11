@@ -2,7 +2,7 @@
 title: "C.A.R.P. - Catch&Release Phramework"
 date: 2026-09-10T03:08:40Z
 draft: false
-#description: "Carp"
+description: "C.A.R.P. delivers a remote, browser-in-the-browser experience for multi-campaign phishing and credential capture and session hijacking bypassing MFA"
 hide_subtitle: true
 noindex: false
 featured: false
